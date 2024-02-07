@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Cinema_App</string>
+    <string name="menu">Menu</string>
+    <string name="time">Time</string>
+    <string name="timeline">Timeline</string>
+    <string name="stop">Stop</string>
+    <string name="films">Films</string>
+    <string name="serials">Serials</string>
+    <string name="sport">Sport</string>
+    <string name="profile">Profile</string>
+</resources>
