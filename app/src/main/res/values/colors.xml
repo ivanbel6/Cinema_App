@@ -2,13 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
-    <color name="red">#FFFF0000</color>
-    <color name="blue">#FF0000FF</color>
-    <color name="green">#FF00FF00</color>
-    <color name="yellow">#FFFFFF00</color>
-    <color name="orange">#FFFFA500</color>
-    <color name="purple">#FF800080</color>
-
-    <color name="menuBackground">#FFD3D3D3</color>
+    <color name="red">#FA1515</color>
+    <color name="silver">#80CCC7C7</color>
+    <color name="silver_transparent">#3ECCC7C7</color>
+    <color name="silver_text">#BACDC5C5</color>
+    <color name="active_color">#D3D0D0</color>
+    <color name="inactive_color">#434242</color>
+    <color name="transparent">#00434242</color>
+    <color name="transparent50">#80434242</color>
+    <color name="transparent25">#40434242</color>
+    <color name="transparent70">#B3434242</color>
+    <color name="bg">#121420</color>
 </resources>
