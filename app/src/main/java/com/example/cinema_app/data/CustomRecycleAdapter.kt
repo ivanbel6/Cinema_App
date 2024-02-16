@@ -1,4 +1,4 @@
-package com.example.cinema_app
+package com.example.cinema_app.data
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import kotlinx.coroutines.CoroutineScope
+import com.example.cinema_app.data.Api.DataClasses.CustomDataClass
+import com.example.cinema_app.R
 
 class CustomRecycleAdapter(private val list: List<CustomDataClass>) :
     RecyclerView.Adapter<CustomRecycleAdapter.ViewHolder>() {
