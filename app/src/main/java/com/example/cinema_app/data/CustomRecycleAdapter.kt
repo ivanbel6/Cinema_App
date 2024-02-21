@@ -30,29 +30,12 @@ class CustomRecycleAdapter(private val list: List<CustomDataClass>) :
             .load(currentItem.bgImage.previewUrl)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(holder.bgImage)
-        holder.title.text = currentItem.title
-        holder.description.text = currentItem.description
-        holder.rating.text = currentItem.Rating.toString()
-        holder.genre.text = currentItem.Genre.toString()
 
-        holder.icon1.setOnClickListener {
-            // Действия при нажатии на icon1
-        }
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val bgImage: ImageView = itemView.findViewById(R.id.cardBackgroundImage)
-        val icon1: ImageView = itemView.findViewById(R.id.icon1)
-        val title: TextView = itemView.findViewById(R.id.Title)
-        val description: TextView = itemView.findViewById(R.id.description)
-        val rating: TextView = itemView.findViewById(R.id.Rating)
-        val genre: TextView = itemView.findViewById(R.id.Genre)
 
-        init {
-            icon1.setOnClickListener {
-                // Действия при нажатии на icon1
-            }
-        }
     }
 }
 

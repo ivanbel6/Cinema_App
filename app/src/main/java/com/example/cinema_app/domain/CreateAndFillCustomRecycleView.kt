@@ -16,14 +16,15 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class CreateAndFillCustomRecycleView {
+    val retrofit = Retrofit.Builder()
+        .baseUrl("https://api.kinopoisk.dev/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
     fun fill(customRecyclerView: RecyclerView, applicationContext: Context) {
         customRecyclerView.layoutManager =
             LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
 
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.kinopoisk.dev/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
 
         val apiInterface = retrofit.create(ApiInterface::class.java)
         val customList: MutableList<CustomDataClass> = mutableListOf()
@@ -33,14 +34,14 @@ class CreateAndFillCustomRecycleView {
             Log.v("AAAsd", "movie description: $movieList")
             for (i in movieList.docs) {
                 if (i.names.isNotEmpty() && i.shortDescription != null && i.genres.isNotEmpty() && i.poster.previewUrl != null && i.rating?.kp != null) {
-                    val symbolsToRemove = setOf('(', ')', '[', ']','=')
                     customList.add(
                         CustomDataClass(
                             bgImage = i.poster,
                             title = i.names[0].name,
                             description = i.shortDescription,
-                            Rating = i.rating.kp, // Добавьте значение для рейтинга здесь
-                            Genre = i.genres.toString().replace(Regex("[name|Genre|\\[|\\]|\\(|\\)|=]"), "")
+                            Rating = i.rating.kp,
+                            Genre = i.genres.toString()
+                                .replace(Regex("[name|Genre|\\[|\\]|\\(|\\)|=]"), "")
                         )
                     )
 
