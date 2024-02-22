@@ -4,7 +4,7 @@ import com.example.cinema_app.data.Api.DataClasses.Poster
 
 data class SlideItem(
     var date: Int,
-    var genres: MutableList<String>,
+    var genres: String,
     var imdbRating: Double,
     var tomatoesRating: Double,
     var mainImage: Poster

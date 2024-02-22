@@ -24,21 +24,19 @@ class CreateAndFillCustomRecycleView {
     fun fill(customRecyclerView: RecyclerView, applicationContext: Context) {
         customRecyclerView.layoutManager =
             LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
-
-
         val apiInterface = retrofit.create(ApiInterface::class.java)
         val customList: MutableList<CustomDataClass> = mutableListOf()
+
         CoroutineScope(Dispatchers.Main).launch {
-            val movieList = apiInterface.getMovies()
-            movieList.docs[0].shortDescription
-            Log.v("AAAsd", "movie description: $movieList")
+            val movieList = apiInterface.getMoviesPopular()
+            Log.v("CustomRecycleView", "movie description: $movieList")
             for (i in movieList.docs) {
-                if (i.names.isNotEmpty() && i.shortDescription != null && i.genres.isNotEmpty() && i.poster.previewUrl != null && i.rating?.kp != null) {
+                if (i.names.isNotEmpty() && i.description != null && i.genres.isNotEmpty() && i.poster.previewUrl != null && i.rating?.kp != null) {
                     customList.add(
                         CustomDataClass(
                             bgImage = i.poster,
                             title = i.names[0].name,
-                            description = i.shortDescription,
+                            description = i.description,
                             Rating = i.rating.kp,
                             Genre = i.genres.toString()
                                 .replace(Regex("[name|Genre|\\[|\\]|\\(|\\)|=]"), "")
