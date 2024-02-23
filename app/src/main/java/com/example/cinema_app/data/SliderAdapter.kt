@@ -14,15 +14,18 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.cinema_app.R
 import com.google.android.material.imageview.ShapeableImageView
 
-class SliderAdapter(private val itemList: List<SlideItem>,private val context: Context) :
+class SliderAdapter(private val itemList: List<SlideItem>, private val context: Context) :
     RecyclerView.Adapter<SliderAdapter.ViewHolder>() {
     private var currentActivePosition: Int = 0
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val date: TextView = itemView.findViewById(R.id.date)
         val genres: TextView = itemView.findViewById(R.id.genres)
         val mainImage: ShapeableImageView = itemView.findViewById(R.id.MainIMG)
+
         //val imdbIcon: ShapeableImageView = itemView.findViewById(R.id.imdbImage)
         val imdbRating: TextView = itemView.findViewById(R.id.imdbRating)
+
         //val tomatoesImage: ShapeableImageView = itemView.findViewById(R.id.tomatoesImage)
         val tomatoesRating: TextView = itemView.findViewById(R.id.tomatoesRating)
 
@@ -59,12 +62,31 @@ class SliderAdapter(private val itemList: List<SlideItem>,private val context: C
 
         // Setting indicator for active and inactive slides
         if (position == currentActivePosition) {
-            when(currentActivePosition){
-                0 -> holder.indicator.setBackgroundResource(R.drawable.active_indicator)
-                1 -> holder.indicator2.setBackgroundResource(R.drawable.active_indicator)
-                2 -> holder.indicator3.setBackgroundResource(R.drawable.active_indicator)
-                3 -> holder.indicator4.setBackgroundResource(R.drawable.active_indicator)
-                4 -> holder.indicator5.setBackgroundResource(R.drawable.active_indicator)
+            when (currentActivePosition) {
+                0 -> {
+                    holder.indicator.setBackgroundResource(R.drawable.active_indicator)
+                    //holder.indicator2.setBackgroundResource(R.drawable.active_indicator)
+                }
+
+                1 -> {
+                    holder.indicator2.setBackgroundResource(R.drawable.active_indicator)
+                    //holder.indicator3.setBackgroundResource(R.drawable.active_indicator)
+                }
+
+                2 -> {
+                    holder.indicator3.setBackgroundResource(R.drawable.active_indicator)
+                    //holder.indicator4.setBackgroundResource(R.drawable.active_indicator)
+                }
+
+                3 -> {
+                    holder.indicator4.setBackgroundResource(R.drawable.active_indicator)
+                    //holder.indicator5.setBackgroundResource(R.drawable.active_indicator)
+                }
+
+                4 -> {
+                    holder.indicator5.setBackgroundResource(R.drawable.active_indicator)
+
+                }
             }
 
 
@@ -76,11 +98,13 @@ class SliderAdapter(private val itemList: List<SlideItem>,private val context: C
             holder.indicator5.setBackgroundResource(R.drawable.inactive_indicator)
         }
     }
+
     // Add function to update indicator
     fun updateIndicator(position: Int) {
         currentActivePosition = position
         notifyDataSetChanged()
     }
+
     override fun getItemCount(): Int {
         return itemList.size
 
