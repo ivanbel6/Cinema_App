@@ -27,6 +27,10 @@ class SliderAdapter(private val itemList: List<SlideItem>,private val context: C
         val tomatoesRating: TextView = itemView.findViewById(R.id.tomatoesRating)
 
         val indicator: View = itemView.findViewById(R.id.indicator)
+        val indicator2: View = itemView.findViewById(R.id.indicator2)
+        val indicator3: View = itemView.findViewById(R.id.indicator3)
+        val indicator4: View = itemView.findViewById(R.id.indicator4)
+        val indicator5: View = itemView.findViewById(R.id.indicator5)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -55,9 +59,21 @@ class SliderAdapter(private val itemList: List<SlideItem>,private val context: C
 
         // Setting indicator for active and inactive slides
         if (position == currentActivePosition) {
-            holder.indicator.setBackgroundResource(R.drawable.active_indicator)
+            when(currentActivePosition){
+                0 -> holder.indicator.setBackgroundResource(R.drawable.active_indicator)
+                1 -> holder.indicator2.setBackgroundResource(R.drawable.active_indicator)
+                2 -> holder.indicator3.setBackgroundResource(R.drawable.active_indicator)
+                3 -> holder.indicator4.setBackgroundResource(R.drawable.active_indicator)
+                4 -> holder.indicator5.setBackgroundResource(R.drawable.active_indicator)
+            }
+
+
         } else {
             holder.indicator.setBackgroundResource(R.drawable.inactive_indicator)
+            holder.indicator2.setBackgroundResource(R.drawable.inactive_indicator)
+            holder.indicator3.setBackgroundResource(R.drawable.inactive_indicator)
+            holder.indicator4.setBackgroundResource(R.drawable.inactive_indicator)
+            holder.indicator5.setBackgroundResource(R.drawable.inactive_indicator)
         }
     }
     // Add function to update indicator

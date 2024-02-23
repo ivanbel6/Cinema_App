@@ -22,7 +22,8 @@ interface ApiInterface {
 
     @GET(
         "v1.4/movie?page=1" +
-                "&limit=249&selectFields=videos" +
+                "&limit=5" +
+                "&selectFields=videos" +
                 "&selectFields=names&selectFields=top10" +
                 "&selectFields=description" +
                 "&selectFields=rating" +
