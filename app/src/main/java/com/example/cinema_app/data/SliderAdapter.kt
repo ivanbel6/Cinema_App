@@ -5,6 +5,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -14,7 +16,7 @@ import com.google.android.material.imageview.ShapeableImageView
 
 class SliderAdapter(private val itemList: List<SlideItem>,private val context: Context) :
     RecyclerView.Adapter<SliderAdapter.ViewHolder>() {
-
+    private var currentActivePosition: Int = 0
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val date: TextView = itemView.findViewById(R.id.date)
         val genres: TextView = itemView.findViewById(R.id.genres)
@@ -23,6 +25,8 @@ class SliderAdapter(private val itemList: List<SlideItem>,private val context: C
         val imdbRating: TextView = itemView.findViewById(R.id.imdbRating)
         //val tomatoesImage: ShapeableImageView = itemView.findViewById(R.id.tomatoesImage)
         val tomatoesRating: TextView = itemView.findViewById(R.id.tomatoesRating)
+
+        val indicator: View = itemView.findViewById(R.id.indicator)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -48,10 +52,23 @@ class SliderAdapter(private val itemList: List<SlideItem>,private val context: C
 
         holder.imdbRating.text = item.imdbRating.toString()
         holder.tomatoesRating.text = item.tomatoesRating.toString()
-    }
 
+        // Setting indicator for active and inactive slides
+        if (position == currentActivePosition) {
+            holder.indicator.setBackgroundResource(R.drawable.active_indicator)
+        } else {
+            holder.indicator.setBackgroundResource(R.drawable.inactive_indicator)
+        }
+    }
+    // Add function to update indicator
+    fun updateIndicator(position: Int) {
+        currentActivePosition = position
+        notifyDataSetChanged()
+    }
     override fun getItemCount(): Int {
         return itemList.size
 
     }
+
+
 }

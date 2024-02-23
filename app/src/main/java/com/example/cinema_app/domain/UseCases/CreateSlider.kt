@@ -14,8 +14,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class CreatePopularSlider {
-    fun fillPopularSlider(customRecyclerView: RecyclerView, applicationContext: Context, genre: String) {
+class CreateSlider {
+    fun fill(customRecyclerView: RecyclerView, applicationContext: Context, genre: String) {
         customRecyclerView.layoutManager =
             LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
         val apiInterface = MainActivity.retrofit.create(ApiInterface::class.java)

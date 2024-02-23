@@ -50,12 +50,22 @@ class CreateTopSlider {
             }
             val sliderAdapter = SliderAdapter(slideItems, applicationContext)
             sliderRecyclerView.adapter = sliderAdapter
+            sliderRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    super.onScrolled(recyclerView, dx, dy)
+                    val layoutManager = recyclerView.layoutManager as LinearLayoutManager
+                    val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
+                    // Обновляем индикатор при пролистывании
+                    sliderAdapter.updateIndicator(firstVisibleItemPosition)
+                }
+            })
             scrollRunnable = Runnable {
                 val layoutManager = sliderRecyclerView.layoutManager as LinearLayoutManager
                 val currentPosition = layoutManager.findFirstVisibleItemPosition()
                 val nextPosition =
                     if (currentPosition < sliderAdapter.itemCount - 1) currentPosition + 1 else 0
                 sliderRecyclerView.smoothScrollToPosition(nextPosition)
+                sliderAdapter.updateIndicator(nextPosition)
                 scrollHandler.postDelayed(scrollRunnable, MainActivity.AUTO_SCROLL_DELAY)
             }
 
