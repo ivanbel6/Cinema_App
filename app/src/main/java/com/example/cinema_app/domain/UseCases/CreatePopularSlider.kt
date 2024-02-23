@@ -15,16 +15,23 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class CreatePopularSlider {
-    fun fillPopularSlider(customRecyclerView: RecyclerView, applicationContext: Context) {
+    fun fillPopularSlider(customRecyclerView: RecyclerView, applicationContext: Context, genre: String) {
         customRecyclerView.layoutManager =
             LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
         val apiInterface = MainActivity.retrofit.create(ApiInterface::class.java)
         val customList: MutableList<CustomDataClass> = mutableListOf()
 
         CoroutineScope(Dispatchers.Main).launch {
-            val movieList = apiInterface.getMoviesPopular()
+            val movieList = apiInterface.getMovies()
             for (i in movieList.docs) {
-                if (i.names.isNotEmpty() && i.description != null && i.genres.isNotEmpty() && i.poster.previewUrl != null && i.rating?.kp != null) {
+                if (i.names.isNotEmpty()
+                    && i.description != null
+                    && i.genres.isNotEmpty()
+                    && i.poster.previewUrl != null
+                    && i.rating?.kp != null
+                    && i.genres.toString()
+                        .contains(genre)
+                ) {
                     customList.add(
                         CustomDataClass(
                             bgImage = i.poster,

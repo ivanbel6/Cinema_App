@@ -6,7 +6,10 @@ import retrofit2.http.GET
 
 interface ApiInterface {
     @GET(
-        "v1.4/movie?page=1&limit=249&selectFields=videos&selectFields=names&selectFields=top10" +
+        "v1.4/movie?page=1&limit=249" +
+                "&selectFields=videos" +
+                "&selectFields=names" +
+                "&selectFields=top10" +
                 "&selectFields=description" +
                 "&selectFields=rating" +
                 "&selectFields=logo" +
@@ -14,7 +17,7 @@ interface ApiInterface {
                 "&selectFields=genres" +
                 "&token=0HR2NYV-SW149QR-H2NX838-05J2J5N"
     )
-    suspend fun getMoviesPopular(): MoviesResponse
+    suspend fun getMovies(): MoviesResponse
 
 
     @GET(

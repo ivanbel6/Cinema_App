@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         //Slider popular
         popularRecycleView = findViewById(R.id.CustomRecycleView)
         val doIt = CreatePopularSlider()
-        doIt.fillPopularSlider(popularRecycleView, applicationContext)
+        doIt.fillPopularSlider(popularRecycleView, applicationContext,"ужасы")
 
         //SLIDER ON THE TOP
         topRecycleView = findViewById(R.id.sliderRecyclerView)
