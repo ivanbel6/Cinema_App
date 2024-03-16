@@ -3,24 +3,33 @@ package com.example.cinema_app.domain.UseCases
 import android.content.Context
 import android.os.Handler
 import android.util.Log
+import android.widget.LinearLayout
+import androidx.core.view.get
+import androidx.core.view.size
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
+import com.example.cinema_app.R
 import com.example.cinema_app.data.Api.Interface.ApiInterface
 import com.example.cinema_app.data.SlideItem
 import com.example.cinema_app.data.SliderAdapter
 import com.example.cinema_app.presentation.MainActivity
-
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+
+
 lateinit var scrollRunnable: Runnable
-class CreateTopSlider {
+class CreateTopSlider(mainActivity: MainActivity) {
+    val a = mainActivity.findViewById<LinearLayout>(R.id.indicator_lay)
+    companion object{
+         var firstVisibleItemPosition:Int = 0
+    }
     fun fillTopSlider(
         applicationContext: Context,
         sliderRecyclerView: RecyclerView,
-        scrollHandler: Handler
+        scrollHandler: Handler,
     ) {
         sliderRecyclerView.layoutManager =
             LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
@@ -48,24 +57,33 @@ class CreateTopSlider {
                     Log.e("Error", "Some fields are null for movie ${i.names}")
                 }
             }
+
             val sliderAdapter = SliderAdapter(slideItems, applicationContext)
             sliderRecyclerView.adapter = sliderAdapter
             sliderRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener(){
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     super.onScrolled(recyclerView, dx, dy)
                     val layoutManager = recyclerView.layoutManager as LinearLayoutManager
-                    val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
+                    firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
                     // Обновляем индикатор при пролистывании
-                    sliderAdapter.updateIndicator(firstVisibleItemPosition)
+                    for (i in 0 until a.size) {
+                        if (i == firstVisibleItemPosition) {
+                            a[i].setBackgroundResource(R.drawable.active_indicator)
+                        } else {
+                            // Устанавливаем фоновый ресурс неактивного состояния
+                            a[i].setBackgroundResource(R.drawable.inactive_indicator)
+                        }
+                    }
+
                 }
             })
             scrollRunnable = Runnable {
+
                 val layoutManager = sliderRecyclerView.layoutManager as LinearLayoutManager
                 val currentPosition = layoutManager.findFirstVisibleItemPosition()
                 val nextPosition =
                     if (currentPosition < sliderAdapter.itemCount - 1) currentPosition + 1 else 0
                 sliderRecyclerView.smoothScrollToPosition(nextPosition)
-                sliderAdapter.updateIndicator(nextPosition)
                 scrollHandler.postDelayed(scrollRunnable, MainActivity.AUTO_SCROLL_DELAY)
             }
 
