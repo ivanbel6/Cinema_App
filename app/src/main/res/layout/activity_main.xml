@@ -124,7 +124,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="70dp"
-                        android:src="@drawable/baseline_keyboard_arrow_right_24"
+                        android:src="@drawable/converted"
                         app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
@@ -201,8 +201,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="70dp"
-                        android:src="@drawable/baseline_keyboard_arrow_right_24"
-                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -213,6 +212,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
                 android:clipToPadding="false"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
@@ -274,8 +274,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="70dp"
-                        android:src="@drawable/baseline_keyboard_arrow_right_24"
-                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -285,7 +284,8 @@
                 android:id="@+id/fightRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
                 android:clipToPadding="false"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
@@ -349,8 +349,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="70dp"
-                        android:src="@drawable/baseline_keyboard_arrow_right_24"
-                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -360,7 +359,8 @@
                 android:id="@+id/comedyRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
                 android:clipToPadding="false"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
@@ -420,8 +420,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="70dp"
-                        android:src="@drawable/baseline_keyboard_arrow_right_24"
-                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -431,7 +430,8 @@
                 android:id="@+id/horrorsRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
                 android:clipToPadding="false"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
@@ -490,8 +490,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginStart="70dp"
-                        android:src="@drawable/baseline_keyboard_arrow_right_24"
-                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -501,7 +500,8 @@
                 android:id="@+id/scienceFictionRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
                 android:clipToPadding="false"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
@@ -562,8 +562,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginStart="70dp"
-                        android:src="@drawable/baseline_keyboard_arrow_right_24"
-                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -573,7 +572,8 @@
                 android:id="@+id/cartoonsRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
                 android:clipToPadding="false"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
@@ -633,8 +633,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginStart="70dp"
-                        android:src="@drawable/baseline_keyboard_arrow_right_24"
-                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -644,7 +643,8 @@
                 android:id="@+id/adventuresRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
                 android:clipToPadding="false"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
@@ -704,8 +704,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginStart="70dp"
-                        android:src="@drawable/baseline_keyboard_arrow_right_24"
-                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -715,7 +714,8 @@
                 android:id="@+id/animRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
                 android:clipToPadding="false"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
@@ -775,8 +775,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="70dp"
-                        android:src="@drawable/baseline_keyboard_arrow_right_24"
-                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -786,7 +785,8 @@
                 android:id="@+id/detectiveRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
                 android:clipToPadding="false"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
@@ -846,8 +846,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginStart="70dp"
-                        android:src="@drawable/baseline_keyboard_arrow_right_24"
-                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -857,7 +856,8 @@
                 android:id="@+id/familyRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
                 android:clipToPadding="false"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
@@ -917,8 +917,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginStart="70dp"
-                        android:src="@drawable/baseline_keyboard_arrow_right_24"
-                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -928,7 +927,8 @@
                 android:id="@+id/historyRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
                 android:clipToPadding="false"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
