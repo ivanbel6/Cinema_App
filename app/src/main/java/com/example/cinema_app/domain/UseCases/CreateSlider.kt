@@ -15,7 +15,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class CreateSlider {
-    fun fill(customRecyclerView: RecyclerView, applicationContext: Context, genre: String) {
+    /**
+     * function description
+     * @param customRecyclerView
+     * @param applicationContext
+     * @param genre
+     */
+
+    fun fill(customRecyclerView: RecyclerView, applicationContext: Context, genre: String) {///вапвап
         customRecyclerView.layoutManager =
             LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
         val apiInterface = MainActivity.retrofit.create(ApiInterface::class.java)
