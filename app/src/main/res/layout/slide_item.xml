@@ -50,7 +50,7 @@
                     android:padding="8dp"
                     android:text="2021"
                     android:textAppearance="?android:textAppearanceLarge"
-                    android:textColor="@color/silver" />
+                    android:textColor="@color/black" />
 
                 <TextView
                     android:id="@+id/genres"
@@ -85,7 +85,7 @@
                     android:padding="8dp"
                     android:text="Title"
                     android:textAppearance="?android:textAppearanceLarge"
-                    android:textColor="@color/silver" />
+                    android:textColor="@color/black" />
 
                 <ImageView
                     android:id="@+id/tomatoesImage"

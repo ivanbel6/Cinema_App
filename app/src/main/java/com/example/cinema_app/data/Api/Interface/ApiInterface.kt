@@ -8,14 +8,21 @@ interface ApiInterface {
     @GET(
         "v1.4/movie?page=1&limit=249" +
                 "&selectFields=videos" +
-                "&selectFields=names" +
+                "&selectFields=name" +
                 "&selectFields=top10" +
                 "&selectFields=description" +
                 "&selectFields=rating" +
                 "&selectFields=logo" +
                 "&selectFields=poster" +
                 "&selectFields=genres" +
-                "&token=0HR2NYV-SW149QR-H2NX838-05J2J5N"
+
+                "&notNullFields=name" +
+                "&notNullFields=description" +
+                "&notNullFields=rating.imdb" +
+                "&notNullFields=rating.imdb" +
+                "&notNullFields=poster.url" +
+                "&notNullFields=genres.name"+
+                "&token=7ZJEK3M-V5G4HGK-N12ZF81-32G9Z2X"
     )
     suspend fun getMovies(): MoviesResponse
 
@@ -24,14 +31,20 @@ interface ApiInterface {
         "v1.4/movie?page=1" +
                 "&limit=5" +
                 "&selectFields=videos" +
-                "&selectFields=names&selectFields=top10" +
+                "&selectFields=name&selectFields=top10" +
                 "&selectFields=description" +
                 "&selectFields=rating" +
                 "&selectFields=logo" +
                 "&selectFields=poster" +
                 "&selectFields=genres" +
+                "&selectFields=year"+
                 "&year=2024" +
-                "&token=0HR2NYV-SW149QR-H2NX838-05J2J5N"
+                "&notNullFields=name" +
+                "&notNullFields=description" +
+                "&notNullFields=poster.url" +
+                "&notNullFields=rating.imdb" +
+                "&notNullFields=year" +
+                "&token=7ZJEK3M-V5G4HGK-N12ZF81-32G9Z2X"
     )
     suspend fun getMovieNew(): MoviesResponse
 }

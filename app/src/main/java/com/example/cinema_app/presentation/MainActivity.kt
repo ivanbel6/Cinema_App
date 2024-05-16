@@ -56,38 +56,38 @@ class MainActivity : AppCompatActivity() {
         /**
          * FIGHT SLIDER
          */
-        fightRecycleView = findViewById(R.id.fightRecyclerView)
-        CreateSlider().fill(fightRecycleView, applicationContext, "боевик")
-        /**
-         * COMEDY SLIDER
-         */
-        comedyRecycleView = findViewById(R.id.comedyRecyclerView)
-        CreateSlider().fill(comedyRecycleView, applicationContext, "комедия")
-        /**
-         * HORRORS SLIDER
-         */
-        horrorsRecycleView = findViewById(R.id.horrorsRecyclerView)
-        CreateSlider().fill(horrorsRecycleView, applicationContext, "ужасы")
-        /**
-         * FANTASTIC  SLIDER
-         */
-        scienceFictionRecycleView = findViewById(R.id.scienceFictionRecyclerView)
-        CreateSlider().fill(scienceFictionRecycleView, applicationContext, "фантастика")
-        /**
-         * CATOONS SLIDER
-         */
-        cartoonsRecycleView = findViewById(R.id.cartoonsRecyclerView)
-        CreateSlider().fill(cartoonsRecycleView, applicationContext, "мультфильм")
-        /**
-         * ADVENTURE SLIDER
-         */
-        adventureRecycleView = findViewById(R.id.adventuresRecyclerView)
-        CreateSlider().fill(adventureRecycleView, applicationContext, "приключения")
-        /**
-         * ANIMATION SLIDER
-         */
-        animRecycleView= findViewById(R.id.animRecyclerView)
-        CreateSlider().fill(animRecycleView, applicationContext, "аниме")
+//        fightRecycleView = findViewById(R.id.fightRecyclerView)
+//        CreateSlider().fill(fightRecycleView, applicationContext, "боевик")
+//        /**
+//         * COMEDY SLIDER
+//         */
+//        comedyRecycleView = findViewById(R.id.comedyRecyclerView)
+//        CreateSlider().fill(comedyRecycleView, applicationContext, "комедия")
+//        /**
+//         * HORRORS SLIDER
+//         */
+//        horrorsRecycleView = findViewById(R.id.horrorsRecyclerView)
+//        CreateSlider().fill(horrorsRecycleView, applicationContext, "ужасы")
+//        /**
+//         * FANTASTIC  SLIDER
+//         */
+//        scienceFictionRecycleView = findViewById(R.id.scienceFictionRecyclerView)
+//        CreateSlider().fill(scienceFictionRecycleView, applicationContext, "фантастика")
+//        /**
+//         * CATOONS SLIDER
+//         */
+//        cartoonsRecycleView = findViewById(R.id.cartoonsRecyclerView)
+//        CreateSlider().fill(cartoonsRecycleView, applicationContext, "мультфильм")
+//        /**
+//         * ADVENTURE SLIDER
+//         */
+//        adventureRecycleView = findViewById(R.id.adventuresRecyclerView)
+//        CreateSlider().fill(adventureRecycleView, applicationContext, "приключения")
+//        /**
+//         * ANIMATION SLIDER
+//         */
+//        animRecycleView= findViewById(R.id.animRecyclerView)
+//        CreateSlider().fill(animRecycleView, applicationContext, "аниме")
     }
 
     companion object {
