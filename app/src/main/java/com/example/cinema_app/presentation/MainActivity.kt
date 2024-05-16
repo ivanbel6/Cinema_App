@@ -39,9 +39,9 @@ class MainActivity : AppCompatActivity() {
         /**
          * SLIDER ON THE TOP
          */
-        topRecycleView = findViewById(R.id.sliderRecyclerView)
-        CreateTopSlider(this).fillTopSlider(applicationContext, topRecycleView, scrollHandler)
-
+//        topRecycleView = findViewById(R.id.sliderRecyclerView)
+//        CreateTopSlider(this).fillTopSlider(applicationContext, topRecycleView, scrollHandler)
+//
 
         /**
          * SLIDER POPULAR
@@ -49,13 +49,13 @@ class MainActivity : AppCompatActivity() {
         popularRecycleView = findViewById(R.id.CustomRecycleView)
         CreateSlider().fill(popularRecycleView, applicationContext, "")
         /**
-         * DRAMA SLIDER
-         */
-        dramaRecycleView = findViewById(R.id.dramaRecyclerView)
-        CreateSlider().fill(dramaRecycleView, applicationContext, "драма")
-        /**
-         * FIGHT SLIDER
-         */
+//         * DRAMA SLIDER
+//         */
+//        dramaRecycleView = findViewById(R.id.dramaRecyclerView)
+//        CreateSlider().fill(dramaRecycleView, applicationContext, "драма")
+//        /**
+//         * FIGHT SLIDER
+//         */
 //        fightRecycleView = findViewById(R.id.fightRecyclerView)
 //        CreateSlider().fill(fightRecycleView, applicationContext, "боевик")
 //        /**

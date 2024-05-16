@@ -40,23 +40,19 @@ class CreateTopSlider(mainActivity: MainActivity) {
         CoroutineScope(Dispatchers.Main).launch {
             val movieList = apiInterface.getMovieNew()
             for (i in movieList.docs) {
-                if (true) {
-                    slideItems.add(
-                        SlideItem(
-                            date = i.year,
-                            imdbRating = i.rating!!.imdb!!.toDouble(),
-                            tomatoesRating = 7.3,
-                            mainImage = i.poster,
-                            genres = i.genres.toString()
-                                .replace(Regex("[name|Genre|\\[|\\]|\\(|\\)|=]"), "")
+                slideItems.add(
+                    SlideItem(
+                        date = i.year,
+                        imdbRating = i.rating!!.imdb!!.toDouble(),
+                        tomatoesRating = 7.3,
+                        mainImage = i.poster,
+                        genres = i.genres.toString()
+                            .replace(Regex("[name|Genre|\\[|\\]|\\(|\\)|=]"), "")
 
-                        )
                     )
+                )
                 if (slideItems.size >4){
                     break;
-                }
-                } else {
-                    Log.e("Error", "Some fields are null for movie ${i.name}")
                 }
             }
 

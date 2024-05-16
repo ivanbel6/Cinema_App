@@ -31,21 +31,16 @@ class CreateSlider {
         CoroutineScope(Dispatchers.Main).launch {
             val movieList = apiInterface.getMovies()
             for (i in movieList.docs) {
-                if (true) {
-                    customList.add(
-                        CustomDataClass(
-                            bgImage = i.poster,
-                            title = i.name,
-                            description = i.description,
-                            Rating = i.rating!!.imdb!!.toDouble(),
-                            Genre = i.genres.toString()
-                                .replace(Regex("[name|Genre|\\[|\\]|\\(|\\)|=]"), "")
-                        )
+                customList.add(
+                    CustomDataClass(
+                        bgImage = i.poster,
+                        title = i.name,
+                        description = i.description,
+                        Rating = i.rating!!.imdb!!.toDouble(),
+                        Genre = i.genres.toString()
+                            .replace(Regex("[name|Genre|\\[|\\]|\\(|\\)|=]"), "")
                     )
-
-                } else {
-                    Log.e("Error", "Some fields are null for movie ${i.name}")
-                }
+                )
 
             }
 
