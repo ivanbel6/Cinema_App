@@ -45,7 +45,7 @@ class SliderAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = itemList[position]
         holder.date.text = item.date.toString()
-        holder.genres.text = item.genres.toString()
+        holder.genres.text = item.genres
         Glide.with(context).load(item.mainImage).into(holder.mainImage)
 
         Glide.with(holder.itemView)

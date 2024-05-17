@@ -7,5 +7,6 @@ data class Movie(
     val poster: Poster,
     val genres: List<Genre>,
     val rating: Rating?,
-    val videos: Videos?
+    val videos: Videos?,
+    val movieLength: Int
 )

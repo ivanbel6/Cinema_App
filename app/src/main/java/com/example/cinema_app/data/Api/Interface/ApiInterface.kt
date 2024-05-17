@@ -9,19 +9,21 @@ interface ApiInterface {
         "v1.4/movie?page=1&limit=249" +
                 "&selectFields=videos" +
                 "&selectFields=name" +
-                "&selectFields=top10" +
                 "&selectFields=description" +
                 "&selectFields=rating" +
                 "&selectFields=logo" +
                 "&selectFields=poster" +
                 "&selectFields=genres" +
-
+                "&selectFields=movieLength" +
+                "&notNullFields=movieLength"+
                 "&notNullFields=name" +
                 "&notNullFields=description" +
                 "&notNullFields=rating.imdb" +
                 "&notNullFields=rating.imdb" +
                 "&notNullFields=poster.url" +
                 "&notNullFields=genres.name"+
+                "&selectFields=year" +
+                "&notNullFields=year"+
                 "&token=7ZJEK3M-V5G4HGK-N12ZF81-32G9Z2X"
     )
     suspend fun getMovies(): MoviesResponse

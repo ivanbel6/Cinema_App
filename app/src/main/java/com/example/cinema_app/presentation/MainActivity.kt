@@ -2,6 +2,7 @@ package com.example.cinema_app.presentation
 
 import android.os.Bundle
 import android.os.Handler
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cinema_app.R
@@ -30,6 +31,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val background_image = findViewById<ImageView>(R.id.background_image)
+        background_image.scaleType = ImageView.ScaleType.CENTER_CROP
+
         /**
          * BOTTOM NAVIGATION
          */
@@ -39,16 +43,16 @@ class MainActivity : AppCompatActivity() {
         /**
          * SLIDER ON THE TOP
          */
-//        topRecycleView = findViewById(R.id.sliderRecyclerView)
-//        CreateTopSlider(this).fillTopSlider(applicationContext, topRecycleView, scrollHandler)
-//
+        topRecycleView = findViewById(R.id.sliderRecyclerView)
+        CreateTopSlider(this).fillTopSlider(applicationContext, topRecycleView, scrollHandler)
 
-        /**
-         * SLIDER POPULAR
-//         */
-        popularRecycleView = findViewById(R.id.CustomRecycleView)
-        CreateSlider().fill(popularRecycleView, applicationContext, "")
-        /**
+
+//        /**
+//         * SLIDER POPULAR
+////         */
+//        popularRecycleView = findViewById(R.id.CustomRecycleView)
+//        CreateSlider().fill(popularRecycleView, applicationContext, "")
+//        /**
 //         * DRAMA SLIDER
 //         */
 //        dramaRecycleView = findViewById(R.id.dramaRecyclerView)

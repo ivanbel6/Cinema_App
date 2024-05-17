@@ -26,16 +26,28 @@ class CustomRecycleAdapter(private val list: List<CustomDataClass>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = list[position]
+        holder.nameText.text = currentItem.name
+        holder.timeText.text = currentItem.time.toString()
+        holder.dateText.text = currentItem.date.toString()
+
         Glide.with(holder.itemView)
             .load(currentItem.bgImage.previewUrl)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(holder.bgImage)
-
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val bgImage: ImageView = itemView.findViewById(R.id.cardBackgroundImage)
+        val nameText: TextView = itemView.findViewById(R.id.name)
+        val timeText: TextView = itemView.findViewById(R.id.time)
+        val dateText: TextView = itemView.findViewById(R.id.date)
 
+        init {
+            // Set click listener if needed
+            itemView.setOnClickListener {
+                // Handle item click here
+            }
+        }
     }
 }
 

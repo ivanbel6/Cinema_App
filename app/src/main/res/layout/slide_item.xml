@@ -16,7 +16,9 @@
         android:layout_marginBottom="8dp"
         android:backgroundTint="@color/transparent"
         cardview:cardCornerRadius="8dp"
-        cardview:cardElevation="2dp">
+        cardview:cardElevation="2dp"
+
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"

@@ -1,11 +1,22 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" tools:context=".presentation.MainActivity" android:background="#000000">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".presentation.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
 
-        android:layout_height="wrap_content"
-        android:background="@drawable/png_main_bg"
-        >
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/background_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/png_main_bg"
+            android:scaleType="centerCrop" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/sliderRecyclerView"
@@ -18,13 +29,13 @@
             tools:ignore="MissingConstraints" />
 
         <LinearLayout
-            android:layout_marginTop="5dp"
             android:id="@+id/indicator_lay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:gravity="center_horizontal"
-            app:layout_constraintTop_toBottomOf="@+id/sliderRecyclerView"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/sliderRecyclerView">
 
             <View
                 android:id="@+id/indicator_1.1"
@@ -33,6 +44,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/inactive_indicator" />
+
             <View
                 android:id="@+id/indicator_1.2"
                 android:layout_width="10dp"
@@ -41,34 +53,37 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/inactive_indicator" />
+
             <View
                 android:id="@+id/indicator_1.3"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
-                android:layout_marginStart="10dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/inactive_indicator" />
+
             <View
                 android:id="@+id/indicator_1.4"
                 android:layout_width="10dp"
-                android:layout_marginStart="10dp"
                 android:layout_height="10dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/inactive_indicator" />
+
             <View
                 android:id="@+id/indicator_1.5"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
-                android:layout_marginStart="10dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/inactive_indicator" />
 
 
-
         </LinearLayout>
+
         <FrameLayout
             android:id="@+id/frameLayout_00"
             android:layout_width="match_parent"
@@ -81,8 +96,8 @@
                 android:id="@+id/bla"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingEnd="10dp"
                 android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/dramaRecyclerView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -104,6 +119,7 @@
                     tools:layout_editor_absoluteX="0dp"
 
                     />
+
                 <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
@@ -146,6 +162,7 @@
                 tools:layout_editor_absoluteX="16dp" />
 
         </FrameLayout>
+
         <FrameLayout
             android:id="@+id/frameLayout_11"
             android:layout_width="match_parent"
@@ -154,16 +171,15 @@
             tools:layout_editor_absoluteX="0dp">
 
             <LinearLayout
-                android:paddingEnd="10dp"
-                android:paddingStart="10dp"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/dramaRecyclerView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView"
-                >
+                app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView">
 
                 <TextView
                     android:layout_width="0dp"
@@ -201,7 +217,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="70dp"
-                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"
+                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -223,17 +240,17 @@
 
 
         <FrameLayout
-        android:id="@+id/frameLayout_22"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout_11"
-        tools:layout_editor_absoluteX="0dp">
+            android:id="@+id/frameLayout_22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout_11"
+            tools:layout_editor_absoluteX="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingEnd="10dp"
                 android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/dramaRecyclerView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -274,7 +291,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="70dp"
-                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"
+                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -305,8 +323,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingEnd="10dp"
                 android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/dramaRecyclerView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -349,7 +367,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="70dp"
-                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"
+                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -378,8 +397,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingEnd="10dp"
                 android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/dramaRecyclerView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -420,7 +439,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="70dp"
-                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"
+                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -448,8 +468,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingEnd="10dp"
                 android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/dramaRecyclerView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -490,7 +510,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginStart="70dp"
-                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"
+                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -520,8 +541,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingEnd="10dp"
                 android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/dramaRecyclerView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -562,7 +583,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginStart="70dp"
-                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"
+                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -591,8 +613,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingEnd="10dp"
                 android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/dramaRecyclerView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -633,7 +655,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginStart="70dp"
-                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"
+                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -662,8 +685,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingEnd="10dp"
                 android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/dramaRecyclerView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -704,7 +727,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginStart="70dp"
-                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"
+                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -733,8 +757,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingEnd="10dp"
                 android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/dramaRecyclerView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -775,7 +799,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="70dp"
-                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"
+                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -804,8 +829,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingEnd="10dp"
                 android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/dramaRecyclerView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -846,7 +871,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginStart="70dp"
-                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"
+                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -875,8 +901,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingEnd="10dp"
                 android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/dramaRecyclerView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -917,7 +943,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginStart="70dp"
-                        android:src="@drawable/converted"                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                        android:src="@drawable/converted"
+                        app:layout_constraintStart_toEndOf="@+id/moreTextView"
                         app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
 
                 </FrameLayout>
@@ -944,10 +971,9 @@
             app:itemIconSize="25dp"
             app:itemTextAppearanceActive="@android:color/white"
             app:labelVisibilityMode="labeled"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:menu="@menu/bottom_navigation_menu" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
