@@ -1,22 +1,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/films_navigation_icon"
+        android:id="@+id/BottomNavHome"
         android:enabled="true"
-        android:icon="@drawable/selector_navigation_films_icon"
-        android:title="@string/films" />
+        android:icon="@drawable/svg_home"
+        android:title="" />
     <item
-        android:id="@+id/serials_navigation_icon"
+        android:id="@+id/BottomNavSearch"
         android:enabled="true"
-        android:icon="@drawable/selector_navigation_serials_icon"
-        android:title="@string/serials" />
+        android:icon="@drawable/svg_search"
+        android:title="" />
     <item
-        android:id="@+id/sport_navigation_icon"
+        android:id="@+id/BottomNavProfile"
         android:enabled="true"
-        android:icon="@drawable/selector_navigation_sport_icon"
-        android:title="@string/sport" />
-    <item
-        android:id="@+id/profile_navigation_icon"
-        android:enabled="true"
-        android:icon="@drawable/selector_navigation_profile_icon"
-        android:title="@string/profile" />
+        android:icon="@drawable/svg_profile"
+        android:title="" />
 </menu>

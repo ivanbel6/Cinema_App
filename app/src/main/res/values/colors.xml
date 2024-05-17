@@ -3,7 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FA1515</color>
-    <color name="silver">#80E3DFDF</color>
+    <color name="silver">#F2E3E8EF</color>
     <color name="silver_transparent">#3ECCC7C7</color>
     <color name="silver_text">#BACDC5C5</color>
     <color name="active_color">#D3D0D0</color>
@@ -17,4 +17,5 @@
 
     <color name="CustomCard_Name">#E6B2BDCA</color>
     <color name="CustomCard_Date_Time">#E67C858F</color>
+    <color name="active_indicator_bottom_nav">#4BB8E1</color>
 </resources>
