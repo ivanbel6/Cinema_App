@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import com.example.cinema_app.R
 import com.example.cinema_app.data.Api.Interface.ApiInterface
+import com.example.cinema_app.data.GenreAdapter
 import com.example.cinema_app.data.SlideItem
 import com.example.cinema_app.data.SliderAdapter
 import com.example.cinema_app.presentation.MainActivity
@@ -21,11 +22,15 @@ import kotlinx.coroutines.launch
 
 
 lateinit var scrollRunnable: Runnable
+
 class CreateTopSlider(mainActivity: MainActivity) {
     val a = mainActivity.findViewById<LinearLayout>(R.id.indicator_lay)
-    companion object{
-         var firstVisibleItemPosition:Int = 0
+    val genreRecyclerView = mainActivity.findViewById<RecyclerView>(R.id.GenresTopRecycleView)
+
+    companion object {
+        var firstVisibleItemPosition: Int = 0
     }
+
     fun fillTopSlider(
         applicationContext: Context,
         sliderRecyclerView: RecyclerView,
@@ -51,14 +56,15 @@ class CreateTopSlider(mainActivity: MainActivity) {
 
                     )
                 )
-                if (slideItems.size >4){
+                if (slideItems.size > 4) {
                     break;
                 }
             }
-
+            Log.v("Test", slideItems.toString())
+            CreateGenreSlider(slideItems[0].genres,applicationContext)
             val sliderAdapter = SliderAdapter(slideItems, applicationContext)
             sliderRecyclerView.adapter = sliderAdapter
-            sliderRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+            sliderRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     super.onScrolled(recyclerView, dx, dy)
                     val layoutManager = recyclerView.layoutManager as LinearLayoutManager
@@ -67,6 +73,8 @@ class CreateTopSlider(mainActivity: MainActivity) {
                     for (i in 0 until a.size) {
                         if (i == firstVisibleItemPosition) {
                             a[i].setBackgroundResource(R.drawable.active_indicator)
+                            CreateGenreSlider(slideItems[i].genres,applicationContext)
+//                          genreTextView.setText(slideItems[i].genres)
                         } else {
                             // Устанавливаем фоновый ресурс неактивного состояния
                             a[i].setBackgroundResource(R.drawable.inactive_indicator)
@@ -87,5 +95,15 @@ class CreateTopSlider(mainActivity: MainActivity) {
 
             scrollHandler.postDelayed(scrollRunnable, MainActivity.AUTO_SCROLL_DELAY)
         }
+
+    }
+
+    fun CreateGenreSlider(slideItems: String, context: Context) {
+        // Разделение строки по запятым и добавление каждого элемента в список
+        val genresList: List<String> = slideItems.split(", ")
+
+        genreRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        genreRecyclerView.adapter = GenreAdapter(genresList)
     }
 }
+

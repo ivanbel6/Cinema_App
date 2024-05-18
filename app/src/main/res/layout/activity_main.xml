@@ -8,6 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
         <ImageView
             android:id="@+id/background_image"
             android:layout_width="match_parent"
@@ -28,7 +29,6 @@
                 android:layout_height="wrap_content">
 
 
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/sliderRecyclerView"
                     android:layout_width="match_parent"
@@ -43,7 +43,7 @@
                     android:id="@+id/indicator_lay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="7dp"
                     android:gravity="center_horizontal"
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -97,13 +97,33 @@
 
                 </LinearLayout>
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/GenresTopRecycleView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:backgroundTint="@color/transparent"
+                    android:clipToPadding="false"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/indicator_lay" />
+
+
+                <View
+                    android:id="@+id/empty"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    app:layout_constraintTop_toBottomOf="@+id/GenresTopRecycleView"/>
+
                 <FrameLayout
                     android:id="@+id/frameLayout_00"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="10dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/indicator_lay">
+                    app:layout_constraintTop_toBottomOf="@+id/empty">
+
 
                     <LinearLayout
                         android:id="@+id/bla"
@@ -111,6 +131,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
+
                         app:layout_constraintBottom_toTopOf="@+id/dramaRecyclerView"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
