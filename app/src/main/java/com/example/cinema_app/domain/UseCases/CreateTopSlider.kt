@@ -16,6 +16,7 @@ import com.example.cinema_app.data.GenreAdapter
 import com.example.cinema_app.data.SlideItem
 import com.example.cinema_app.data.SliderAdapter
 import com.example.cinema_app.presentation.MainActivity
+import com.example.cinema_app.presentation.MovieFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,9 +24,9 @@ import kotlinx.coroutines.launch
 
 lateinit var scrollRunnable: Runnable
 
-class CreateTopSlider(mainActivity: MainActivity) {
-    val a = mainActivity.findViewById<LinearLayout>(R.id.indicator_lay)
-    val genreRecyclerView = mainActivity.findViewById<RecyclerView>(R.id.GenresTopRecycleView)
+class CreateTopSlider(movieFragment: MovieFragment,val a:LinearLayout,val genreRecyclerView:RecyclerView) {
+//    val a = movieFragment.findViewById<LinearLayout>(R.id.indicator_lay)
+//    val genreRecyclerView = movieFragment.findViewById<RecyclerView>(R.id.GenresTopRecycleView)
 
     companion object {
         var firstVisibleItemPosition: Int = 0

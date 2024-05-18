@@ -35,8 +35,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val background_image = findViewById<ImageView>(R.id.background_image)
-        background_image.scaleType = ImageView.ScaleType.CENTER_CROP
+
 
         /**
          * BOTTOM NAVIGATION
@@ -48,16 +47,16 @@ class MainActivity : AppCompatActivity() {
                 R.id.BottomNavHome -> {
                     val fragmentManager = supportFragmentManager
                     val fragmentTransaction = fragmentManager.beginTransaction()
-                    fragmentTransaction.replace(R.id.fragment_container, HomeFragment())
+                    fragmentTransaction.replace(R.id.fragment_container, MovieFragment())
                     fragmentTransaction.commit()
                     true
                 }
                 R.id.BottomNavSearch -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.fragment_container, SearchFragment()).commit()
+                    //supportFragmentManager.beginTransaction().replace(R.id.fragment_container, SearchFragment()).commit()
                     true
                 }
                 R.id.BottomNavProfile -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.fragment_container, ProfileFragment()).commit()
+                    //supportFragmentManager.beginTransaction().replace(R.id.fragment_container, ProfileFragment()).commit()
                     true
                 }
                 else -> false
@@ -67,12 +66,12 @@ class MainActivity : AppCompatActivity() {
         /**
          * SLIDER ON THE TOP
          */
-        topRecycleView = findViewById(R.id.sliderRecyclerView)
-        CreateTopSlider(this).fillTopSlider(applicationContext, topRecycleView, scrollHandler)
+//        topRecycleView = findViewById(R.id.sliderRecyclerView)
+//        CreateTopSlider(this).fillTopSlider(applicationContext, topRecycleView, scrollHandler)
 
 
-//
-//
+
+
 //        /**
 //         * SLIDER POPULAR
 ////         */
