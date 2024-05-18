@@ -1,39 +1,47 @@
 package com.example.cinema_app.presentation
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
 import com.example.cinema_app.R
-import com.example.cinema_app.domain.UseCases.CreateSlider
-import com.example.cinema_app.domain.UseCases.CreateTopSlider
+import com.example.cinema_app.data.VpAdapter
+import com.example.cinema_app.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.tabs.TabLayoutMediator
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
-
-private lateinit var popularRecycleView: RecyclerView
-private lateinit var topRecycleView: RecyclerView
-private lateinit var CurrentGenres:String
-private lateinit var topRecycleViewGenres: RecyclerView
-private lateinit var dramaRecycleView: RecyclerView
-private lateinit var fightRecycleView: RecyclerView
-private lateinit var comedyRecycleView: RecyclerView
-private lateinit var horrorsRecycleView: RecyclerView
-private lateinit var scienceFictionRecycleView: RecyclerView
-private lateinit var cartoonsRecycleView: RecyclerView
-private lateinit var adventureRecycleView: RecyclerView
-private lateinit var animRecycleView: RecyclerView
-private val scrollHandler = Handler()
-
+lateinit var binding: ActivityMainBinding
 class MainActivity : AppCompatActivity() {
+    private val fragList = listOf(
+        HomeFragment.newInstance(),
+        SportFragment.newInstance(),
+        MovieFragment.newInstance(),
+        TVFragment.newInstance()
+    )
+    private val fragListTitles = listOf(
+        "Home",
+        "Sport",
+        "Movie",
+        "Tv Series",
+    )
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        val adapter = VpAdapter(this,fragList)
+        binding.vp2.adapter = adapter
+        TabLayoutMediator(binding.tb,binding.vp2){
+                tab,pos -> tab.text = fragListTitles[pos]
+        }.attach()
+
+//        val fragmentManager = supportFragmentManager
+//        val fragmentTransaction = fragmentManager.beginTransaction()
+//        fragmentTransaction.replace(R.id.fragment_container, MovieFragment())
+//        fragmentTransaction.commit()
+
+
 
 
 
@@ -51,72 +59,23 @@ class MainActivity : AppCompatActivity() {
                     fragmentTransaction.commit()
                     true
                 }
+
                 R.id.BottomNavSearch -> {
                     //supportFragmentManager.beginTransaction().replace(R.id.fragment_container, SearchFragment()).commit()
                     true
                 }
+
                 R.id.BottomNavProfile -> {
-                    //supportFragmentManager.beginTransaction().replace(R.id.fragment_container, ProfileFragment()).commit()
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
                     true
                 }
+
                 else -> false
             }
         }
 
-        /**
-         * SLIDER ON THE TOP
-         */
-//        topRecycleView = findViewById(R.id.sliderRecyclerView)
-//        CreateTopSlider(this).fillTopSlider(applicationContext, topRecycleView, scrollHandler)
 
-
-
-
-//        /**
-//         * SLIDER POPULAR
-////         */
-//        popularRecycleView = findViewById(R.id.CustomRecycleView)
-//        CreateSlider().fill(popularRecycleView, applicationContext, "")
-//        /**
-//         * DRAMA SLIDER
-//         */
-//        dramaRecycleView = findViewById(R.id.dramaRecyclerView)
-//        CreateSlider().fill(dramaRecycleView, applicationContext, "драма")
-//        /**
-////         * FIGHT SLIDER
-////         */
-//        fightRecycleView = findViewById(R.id.fightRecyclerView)
-//        CreateSlider().fill(fightRecycleView, applicationContext, "боевик")
-//        /**
-//         * COMEDY SLIDER
-//         */
-//        comedyRecycleView = findViewById(R.id.comedyRecyclerView)
-//        CreateSlider().fill(comedyRecycleView, applicationContext, "комедия")
-//        /**
-//         * HORRORS SLIDER
-//         */
-//        horrorsRecycleView = findViewById(R.id.horrorsRecyclerView)
-//        CreateSlider().fill(horrorsRecycleView, applicationContext, "ужасы")
-//        /**
-//         * FANTASTIC  SLIDER
-//         */
-//        scienceFictionRecycleView = findViewById(R.id.scienceFictionRecyclerView)
-//        CreateSlider().fill(scienceFictionRecycleView, applicationContext, "фантастика")
-//        /**
-//         * CATOONS SLIDER
-//         */
-//        cartoonsRecycleView = findViewById(R.id.cartoonsRecyclerView)
-//        CreateSlider().fill(cartoonsRecycleView, applicationContext, "мультфильм")
-//        /**
-//         * ADVENTURE SLIDER
-//         */
-//        adventureRecycleView = findViewById(R.id.adventuresRecyclerView)
-//        CreateSlider().fill(adventureRecycleView, applicationContext, "приключения")
-//        /**
-//         * ANIMATION SLIDER
-//         */
-//        animRecycleView= findViewById(R.id.animRecyclerView)
-//        CreateSlider().fill(animRecycleView, applicationContext, "аниме")
     }
 
     companion object {

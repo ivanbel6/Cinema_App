@@ -1,31 +1,61 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tb"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"/>
 
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sports"/>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@color/black"
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Movies"/>
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TV_Series"/>
 
-            app:itemIconSize="22dp"
-            app:itemIconTint="@color/bottom_nav_item_active_color"
-            app:itemTextAppearanceActive="@android:color/white"
-            app:labelVisibilityMode="labeled"
-            app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_navigation_menu" />
+    </com.google.android.material.tabs.TabLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tb" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/black"
+
+        app:itemActiveIndicatorStyle="@style/ShapeAppearance.Material3.Corner.None"
+        app:itemIconSize="22dp"
+        app:itemIconTint="@color/bottom_nav_item_active_color"
+        app:itemTextAppearanceActive="@android:color/white"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

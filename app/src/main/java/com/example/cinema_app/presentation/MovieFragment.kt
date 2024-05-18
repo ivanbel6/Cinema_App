@@ -4,15 +4,33 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cinema_app.R
+import com.example.cinema_app.data.VpAdapter
+import com.example.cinema_app.databinding.ActivityMainBinding
+import com.example.cinema_app.domain.UseCases.CreateSlider
 import com.example.cinema_app.domain.UseCases.CreateTopSlider
-private val scrollHandler = Handler()
+import com.google.android.material.tabs.TabLayoutMediator
+
+private lateinit var popularRecycleView: RecyclerView
 private lateinit var topRecycleView: RecyclerView
+private lateinit var CurrentGenres:String
+private lateinit var topRecycleViewGenres: RecyclerView
+private lateinit var dramaRecycleView: RecyclerView
+private lateinit var fightRecycleView: RecyclerView
+private lateinit var comedyRecycleView: RecyclerView
+private lateinit var horrorsRecycleView: RecyclerView
+private lateinit var scienceFictionRecycleView: RecyclerView
+private lateinit var cartoonsRecycleView: RecyclerView
+private lateinit var adventureRecycleView: RecyclerView
+private lateinit var animRecycleView: RecyclerView
+private val scrollHandler = Handler()
+
 class MovieFragment : Fragment() {
 
 
@@ -32,11 +50,92 @@ class MovieFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val a = requireView().findViewById<LinearLayout>(R.id.indicator_lay)
         val genreRecyclerView = requireView().findViewById<RecyclerView>(R.id.GenresTopRecycleView)
+
+
+        /**
+         * SLIDER ON THE TOP
+         */
         topRecycleView = requireView().findViewById(R.id.sliderRecyclerView)
-        CreateTopSlider(this,a,genreRecyclerView).fillTopSlider(requireContext(), topRecycleView, scrollHandler)
-        val background_image = requireView().findViewById<ImageView>(R.id.background_image)
-        background_image.scaleType = ImageView.ScaleType.CENTER_CROP
+        CreateTopSlider(a, genreRecyclerView).fillTopSlider(requireContext(), topRecycleView, scrollHandler)
+        /**
+         * SLIDER POPULAR
+        //         */
+        val onTouchListener = object : RecyclerView.OnItemTouchListener {
+            override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
+                when (e.action) {
+                    MotionEvent.ACTION_DOWN -> {
+                        binding.vp2.isUserInputEnabled = false
+                    }
+                    MotionEvent.ACTION_UP -> {
+                        binding.vp2.isUserInputEnabled = true
+                    }
+                }
+                return false
+            }
+
+            override fun onTouchEvent(rv: RecyclerView, e: MotionEvent) {
+            }
+
+            override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {
+            }
+        }
+        binding.vp2.setUserInputEnabled(true)
+        popularRecycleView = requireView().findViewById(R.id.CustomRecycleView)
+        CreateSlider().fill(popularRecycleView, requireContext(), "")
+        popularRecycleView.addOnItemTouchListener(onTouchListener)
+//
+//
+//
+
+
+
+//        /**
+//         * DRAMA SLIDER
+//         */
+//        dramaRecycleView = requireView().findViewById(R.id.dramaRecyclerView)
+//        CreateSlider().fill(dramaRecycleView, requireContext(), "драма")
+//        /**
+//        * FIGHT SLIDER
+//        */
+//        fightRecycleView = requireView().findViewById(R.id.fightRecyclerView)
+//        CreateSlider().fill(fightRecycleView, requireContext(), "боевик")
+//        /**
+//         * COMEDY SLIDER
+//         */
+//        comedyRecycleView = requireView().findViewById(R.id.comedyRecyclerView)
+//        CreateSlider().fill(comedyRecycleView, requireContext(), "комедия")
+//        /**
+//         * HORRORS SLIDER
+//         */
+//        horrorsRecycleView = requireView().findViewById(R.id.horrorsRecyclerView)
+//        CreateSlider().fill(horrorsRecycleView, requireContext(), "ужасы")
+//        /**
+//         * FANTASTIC  SLIDER
+//         */
+//        scienceFictionRecycleView = requireView().findViewById(R.id.scienceFictionRecyclerView)
+//        CreateSlider().fill(scienceFictionRecycleView, requireContext(), "фантастика")
+//        /**
+//         * CATOONS SLIDER
+//         */
+//        cartoonsRecycleView = requireView().findViewById(R.id.cartoonsRecyclerView)
+//        CreateSlider().fill(cartoonsRecycleView, requireContext(), "мультфильм")
+//        /**
+//         * ADVENTURE SLIDER
+//         */
+//        adventureRecycleView = requireView().findViewById(R.id.adventuresRecyclerView)
+//        CreateSlider().fill(adventureRecycleView, requireContext(), "приключения")
+//        /**
+//         * ANIMATION SLIDER
+//         */
+//        animRecycleView= requireView().findViewById(R.id.animRecyclerView)
+//        CreateSlider().fill(animRecycleView, requireContext(), "аниме")
+//
+//        val background_image = requireView().findViewById<ImageView>(R.id.background_image)
+//        background_image.scaleType = ImageView.ScaleType.CENTER_CROP
     }
 
-
+    companion object{
+        @JvmStatic
+        fun newInstance() = MovieFragment()
+    }
 }

@@ -16,7 +16,6 @@ import com.example.cinema_app.data.GenreAdapter
 import com.example.cinema_app.data.SlideItem
 import com.example.cinema_app.data.SliderAdapter
 import com.example.cinema_app.presentation.MainActivity
-import com.example.cinema_app.presentation.MovieFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,10 +23,7 @@ import kotlinx.coroutines.launch
 
 lateinit var scrollRunnable: Runnable
 
-class CreateTopSlider(movieFragment: MovieFragment,val a:LinearLayout,val genreRecyclerView:RecyclerView) {
-//    val a = movieFragment.findViewById<LinearLayout>(R.id.indicator_lay)
-//    val genreRecyclerView = movieFragment.findViewById<RecyclerView>(R.id.GenresTopRecycleView)
-
+class CreateTopSlider(val linearLayout: LinearLayout, val genreRecyclerView: RecyclerView) {
     companion object {
         var firstVisibleItemPosition: Int = 0
     }
@@ -71,14 +67,14 @@ class CreateTopSlider(movieFragment: MovieFragment,val a:LinearLayout,val genreR
                     val layoutManager = recyclerView.layoutManager as LinearLayoutManager
                     firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
                     // Обновляем индикатор при пролистывании
-                    for (i in 0 until a.size) {
+                    for (i in 0 until linearLayout.size) {
                         if (i == firstVisibleItemPosition) {
-                            a[i].setBackgroundResource(R.drawable.active_indicator)
+                            linearLayout[i].setBackgroundResource(R.drawable.active_indicator)
                             CreateGenreSlider(slideItems[i].genres,applicationContext)
 //                          genreTextView.setText(slideItems[i].genres)
                         } else {
                             // Устанавливаем фоновый ресурс неактивного состояния
-                            a[i].setBackgroundResource(R.drawable.inactive_indicator)
+                            linearLayout[i].setBackgroundResource(R.drawable.inactive_indicator)
                         }
                     }
 
