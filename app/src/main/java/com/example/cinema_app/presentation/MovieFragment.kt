@@ -12,7 +12,6 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cinema_app.R
 import com.example.cinema_app.data.VpAdapter
-import com.example.cinema_app.databinding.ActivityMainBinding
 import com.example.cinema_app.domain.UseCases.CreateSlider
 import com.example.cinema_app.domain.UseCases.CreateTopSlider
 import com.google.android.material.tabs.TabLayoutMediator
@@ -85,7 +84,7 @@ class MovieFragment : Fragment() {
         popularRecycleView = requireView().findViewById(R.id.CustomRecycleView)
         CreateSlider().fill(popularRecycleView, requireContext(), "")
         popularRecycleView.addOnItemTouchListener(onTouchListener)
-//
+
 //        /**
 //         * DRAMA SLIDER
 //         */

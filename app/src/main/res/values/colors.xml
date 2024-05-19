@@ -22,5 +22,6 @@
     <color name="transparent_genre_name_text">#F2878D94</color>
     <color name="Films_color_background">#0F171E</color>
     <color name="Films_color_tex">#66B2BDCA</color>
+    <color name="arrow_color_info">#8CB2BDCA</color>
 
 </resources>

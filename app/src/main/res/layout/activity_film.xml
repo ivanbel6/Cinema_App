@@ -21,6 +21,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
+                android:scaleType="centerCrop"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,6 +37,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
             <LinearLayout
+                android:id="@+id/film_info_linear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="65dp"
@@ -54,11 +56,119 @@
                     android:textSize="35sp" />
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:id="@+id/fill_info_ImageView"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="3.5dp"
+                    android:src="@drawable/baseline_keyboard_arrow_right_24" />
             </LinearLayout>
 
-            
+            <LinearLayout
+                android:id="@+id/Text_Buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/film_info_linear">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Cast"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="Cast"
+                        android:textColor="@color/Films_color_tex"
+                        android:textSize="25sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/Trailer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="Trailer"
+                        android:textColor="@color/Films_color_tex"
+                        android:textSize="25sp"
+
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/More"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.65"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="More"
+                        android:textColor="@color/Films_color_tex"
+
+                        android:textSize="25sp"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/Text_Buttons">
+
+                <LinearLayout
+                    android:id="@+id/hide_from_btn_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/m_plus_rounded_1c_bold"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:text="First(Btn_1)">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="hello Wolrd_fron_btn_1"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/hide_from_btn_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/m_plus_rounded_1c_bold"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:text="First(Btn_2)">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="hello Wolrd_fron_btn_2"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/hide_from_btn_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/m_plus_rounded_1c_bold"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:text="First(Btn_3)">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="hello Wolrd_fron_btn_3"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
