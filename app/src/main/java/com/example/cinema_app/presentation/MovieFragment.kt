@@ -87,7 +87,7 @@ class MovieFragment : Fragment() {
         CreateSlider().fill(popularRecycleView, requireContext(), "")
         popularRecycleView.addOnItemTouchListener(onTouchListener)
 
-//        /**
+
 //         * DRAMA SLIDER
 //         */
 //        dramaRecycleView = requireView().findViewById(R.id.dramaRecyclerView)
