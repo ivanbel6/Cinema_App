@@ -32,15 +32,23 @@ class CreateSlider {
             val movieList = apiInterface.getMovies()
             for (i in movieList.docs) {
                 if (i.genres.toString()
-                        .contains(genre)){
+                        .contains(genre) && i.description !=""){
                     customList.add(
                         CustomDataClass(
                             bgImage = i.poster,
                             name = i.name,
                             time = i.movieLength.toString()+"mins",
                             date = i.year,
+                            persons = i.persons,
                             Genre = i.genres.toString()
-                                .replace(Regex("[name|Genre|\\[|\\]|\\(|\\)|=]"), "")
+                                .replace(Regex("[name|Genre|\\[|\\]|\\(|\\)|=]"), ""),
+                            backdrop = i.backdrop,
+                            videos = i.videos,
+                            description = i.description,
+                            countries = i.countries,
+//                            releaseYears = i.releaseYears,
+                            ageRating = i.ageRating,
+                            premiere = i.premiere
                         )
                     )
                 }

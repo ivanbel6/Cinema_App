@@ -15,15 +15,31 @@ interface ApiInterface {
                 "&selectFields=poster" +
                 "&selectFields=genres" +
                 "&selectFields=movieLength" +
-                "&notNullFields=movieLength"+
+                "&selectFields=backdrop" +
+                "&selectFields=persons" +
+                "&selectFields=countries" +
+                "&selectFields=ageRating" +
+                "&selectFields=premiere" +
+                "&notNullFields=movieLength" +
                 "&notNullFields=name" +
                 "&notNullFields=description" +
                 "&notNullFields=rating.imdb" +
                 "&notNullFields=rating.imdb" +
                 "&notNullFields=poster.url" +
-                "&notNullFields=genres.name"+
+                "&notNullFields=genres.name" +
                 "&selectFields=year" +
-                "&notNullFields=year"+
+                "&notNullFields=year" +
+                "&notNullFields=videos.trailers.url" +
+                "&notNullFields=backdrop.url" +
+                "&notNullFields=persons.photo" +
+                "&notNullFields=persons.name" +
+                "&notNullFields=persons.profession"+
+
+                "&notNullFields=countries.name" +
+                "&notNullFields=ageRating" +
+                "&notNullFields=premiere.world" +
+                "&notNullFields=premiere.russia" +
+                "&notNullFields=audience.country"+
                 "&token=0HR2NYV-SW149QR-H2NX838-05J2J5N"
     )
     suspend fun getMovies(): MoviesResponse
@@ -39,7 +55,7 @@ interface ApiInterface {
                 "&selectFields=logo" +
                 "&selectFields=poster" +
                 "&selectFields=genres" +
-                "&selectFields=year"+
+                "&selectFields=year" +
                 "&year=2024" +
                 "&notNullFields=name" +
                 "&notNullFields=description" +

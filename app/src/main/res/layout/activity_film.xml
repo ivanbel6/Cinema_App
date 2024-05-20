@@ -18,7 +18,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/Main_Image"
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
                 android:scaleType="centerCrop"
@@ -26,7 +26,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/Description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter_regular"
@@ -34,18 +34,18 @@
                 android:text="123"
                 android:textColor="@color/Films_color_tex"
                 android:textSize="15sp"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintTop_toBottomOf="@+id/Main_Image" />
 
             <LinearLayout
                 android:id="@+id/film_info_linear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="65dp"
-                android:layout_marginEnd="340dp"
+                android:layout_marginStart="85dp"
+                android:layout_marginEnd="320dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView">
+                app:layout_constraintTop_toBottomOf="@+id/Description">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -69,7 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingLeft="8dp"
+                android:paddingLeft="85dp"
                 app:layout_constraintTop_toBottomOf="@+id/film_info_linear">
 
                 <LinearLayout
@@ -130,11 +130,15 @@
                     android:visibility="gone"
                     android:text="First(Btn_1)">
 
-                    <TextView
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/Cast_Recycler_View"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="hello Wolrd_fron_btn_1"
-                        />
+                        android:clipToPadding="true"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="MissingConstraints" />
                 </LinearLayout>
 
                 <LinearLayout

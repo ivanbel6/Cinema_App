@@ -36,8 +36,7 @@ class CustomRecycleAdapter(private val list: List<CustomDataClass>) :
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, FilmActivity::class.java)
-            intent.putExtra("param1", "Hello")
-            intent.putExtra("param2", "World")
+            intent.putExtra("param1", currentItem)
             context.startActivity(intent)
         }
     }
