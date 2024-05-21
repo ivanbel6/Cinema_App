@@ -10,12 +10,18 @@ import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.asLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.cinema_app.R
 import com.example.cinema_app.data.Api.DataClasses.CustomDataClass
+import com.example.cinema_app.data.DB.FavouriteFilm
+import com.example.cinema_app.data.DB.MainDb
 import com.example.cinema_app.data.SliderCastAdapter
 import com.example.cinema_app.databinding.ActivityFilmBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 
 
@@ -30,7 +36,7 @@ class FilmActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFilmBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        val db=MainDb.getDb(this)
         // Получаем Intent, который запустил эту активность
         val intent = intent
         val customData: CustomDataClass? = intent.getSerializableExtra("param1") as? CustomDataClass
@@ -48,7 +54,13 @@ class FilmActivity : AppCompatActivity() {
 
         var addButtonClicked = false
         var rateButtonClicked = false
-
+        db.getDao().getAllFavouriteFilms().asLiveData().observe(this) {
+                it: List<FavouriteFilm> ->
+            it.forEach { item ->
+                val text = "Id: ${item.id} Name: ${item.name}}\n"
+                binding.FilmName.append(text)
+            }
+        }
         binding.AddButton.setOnClickListener {
             addButtonClicked = !addButtonClicked // Переключаем состояние
             val drawableResId = if (addButtonClicked) {
@@ -57,6 +69,21 @@ class FilmActivity : AppCompatActivity() {
                 R.drawable.plus_not_active // Иконка при неактивном состоянии
             }
             binding.AddButton.setImageResource(drawableResId)
+
+            if (addButtonClicked) {
+                Thread {
+                    db.getDao().insertItem(FavouriteFilm(
+//                        PosterUrl = customData.bgImage.url,
+                        name = customData.name.toString(),
+//                        date =customData.date,
+//                        time = customData.time,
+//                        ageRating = customData.ageRating,
+//                        Genre = customData.Genre,
+//                        description = customData.description,
+//                        backdropURL = customData.backdrop.url
+                    ))
+                }.start()
+            }
         }
 
         binding.RateImageButton.setOnClickListener {

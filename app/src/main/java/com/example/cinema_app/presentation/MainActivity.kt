@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cinema_app.R
+import com.example.cinema_app.data.DB.MainDb
 import com.example.cinema_app.data.VpAdapter
 import com.example.cinema_app.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
