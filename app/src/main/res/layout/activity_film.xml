@@ -26,6 +26,72 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/Film_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="250dp"
+                android:fontFamily="@font/m_plus_rounded_1c_bold"
+                android:gravity="center"
+                android:text="Film_name"
+                android:textColor="@color/film_name_color"
+                android:textAlignment="center"
+                android:textSize="30dp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="300dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/Add_button"
+                    android:layout_width="10dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.33"
+                    android:src="@drawable/plus_not_active" />
+
+                <TextView
+                    android:id="@+id/Film_genres"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.13"
+                    android:gravity="center"
+                    android:text="genres"
+                    android:fontFamily="@font/inter_regular"
+                    android:textColor="@color/film_genres_color"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/Rate_image_button"
+                    android:layout_width="10dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+
+                    android:layout_weight="0.33"
+                    android:src="@drawable/star_not_active" />
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/button_trailer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="125dp"
+                android:layout_marginTop="325dp"
+                android:layout_marginEnd="125dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/button_trailer"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+            <TextView
                 android:id="@+id/Description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -69,7 +135,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingLeft="85dp"
+                android:paddingLeft="55dp"
                 app:layout_constraintTop_toBottomOf="@+id/film_info_linear">
 
                 <LinearLayout
@@ -83,21 +149,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
                         android:fontFamily="@font/inter_regular"
-                        android:text="Cast"
+                        android:text="Каст"
                         android:textColor="@color/Films_color_tex"
                         android:textSize="25sp"
-                        android:visibility="gone" />
-
-                    <TextView
-                        android:id="@+id/Trailer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.2"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="Trailer"
-                        android:textColor="@color/Films_color_tex"
-                        android:textSize="25sp"
-
                         android:visibility="gone" />
 
                     <TextView
@@ -106,7 +160,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.65"
                         android:fontFamily="@font/inter_regular"
-                        android:text="More"
+                        android:text="Инфо +"
                         android:textColor="@color/Films_color_tex"
 
                         android:textSize="25sp"
@@ -142,34 +196,166 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/hide_from_btn_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/m_plus_rounded_1c_bold"
-                    android:orientation="vertical"
-                    android:visibility="gone"
-                    android:text="First(Btn_2)">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="hello Wolrd_fron_btn_2"
-                        />
-
-                </LinearLayout>
-
-                <LinearLayout
                     android:id="@+id/hide_from_btn_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
                     android:fontFamily="@font/m_plus_rounded_1c_bold"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:visibility="gone"
                     android:text="First(Btn_3)">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="hello Wolrd_fron_btn_3"
-                        />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="8dp"
+                            android:gravity="right"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="Дата создания"
+
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="8dp"
+                            android:gravity="right"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="Страна"
+
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="8dp"
+                            android:gravity="right"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="Жанры"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="8dp"
+                            android:gravity="right"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="Премьера в мире"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="8dp"
+                            android:gravity="right"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="Премьера в России"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="8dp"
+                            android:gravity="right"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="Возрастное ограничение"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="8dp"
+                            android:gravity="right"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="Продолжнительность"
+                            />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.5"
+                        android:layout_height="match_parent"
+
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/More_Year"
+                            android:layout_width="match_parent"
+                            android:textColor="@color/CustomCard_Name"
+                            android:fontFamily="@font/inter_regular"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="8dp"
+                            android:text="2019"
+
+                            />
+                        <TextView
+                            android:id="@+id/More_Contry"
+                            android:layout_width="match_parent"
+                            android:textColor="@color/CustomCard_Name"
+                            android:fontFamily="@font/inter_regular"
+                            android:paddingBottom="8dp"
+                            android:layout_height="wrap_content"
+                            android:text="2019"
+
+                            />
+                        <TextView
+                            android:id="@+id/More_Genres"
+                            android:layout_width="match_parent"
+                            android:textColor="@color/CustomCard_Name"
+                            android:fontFamily="@font/inter_regular"
+                            android:paddingBottom="8dp"
+                            android:layout_height="wrap_content"
+                            android:text="2019"
+
+                            />
+                        <TextView
+                            android:id="@+id/More_World_Premier"
+                            android:layout_width="match_parent"
+                            android:textColor="@color/CustomCard_Name"
+                            android:fontFamily="@font/inter_regular"
+                            android:paddingBottom="8dp"
+                            android:layout_height="wrap_content"
+                            android:text="2019"
+
+                            />
+                        <TextView
+                            android:id="@+id/More_Russia_Premier"
+                            android:layout_width="match_parent"
+                            android:textColor="@color/CustomCard_Name"
+                            android:fontFamily="@font/inter_regular"
+                            android:paddingBottom="8dp"
+                            android:layout_height="wrap_content"
+                            android:text="2019"
+
+                            />
+                        <TextView
+                            android:id="@+id/More_Age_Limit"
+                            android:layout_width="match_parent"
+                            android:textColor="@color/CustomCard_Name"
+                            android:fontFamily="@font/inter_regular"
+                            android:paddingBottom="8dp"
+                            android:layout_height="wrap_content"
+                            android:text="2019"
+
+                            />
+                        <TextView
+                            android:id="@+id/More_Duration"
+                            android:layout_width="match_parent"
+                            android:textColor="@color/CustomCard_Name"
+                            android:fontFamily="@font/inter_regular"
+                            android:paddingBottom="8dp"
+                            android:layout_height="wrap_content"
+                            android:text="2019"
+
+                            />
+                    </LinearLayout>
+
 
                 </LinearLayout>
             </LinearLayout>

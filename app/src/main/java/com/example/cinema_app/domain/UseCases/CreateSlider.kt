@@ -37,7 +37,7 @@ class CreateSlider {
                         CustomDataClass(
                             bgImage = i.poster,
                             name = i.name,
-                            time = i.movieLength.toString()+"mins",
+                            time = i.movieLength.toString()+" мин",
                             date = i.year,
                             persons = i.persons,
                             Genre = i.genres.toString()

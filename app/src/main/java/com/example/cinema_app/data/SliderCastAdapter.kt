@@ -23,7 +23,12 @@ class SliderCastAdapter(private val newList: List<Person>) :
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = newList[position]
         holder.name.text = currentItem.name
-        holder.role.text = currentItem.description
+        if (currentItem.description == null || currentItem.description == ""){
+            holder.role.text = "Работал(-а) за кулисами"
+        }else{
+            holder.role.text = currentItem.description
+        }
+
         // Исправить setImageURI на setImageResource
         Glide.with(holder.actorImage)
             .load(currentItem.photo)

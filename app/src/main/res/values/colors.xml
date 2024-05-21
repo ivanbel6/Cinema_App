@@ -14,7 +14,7 @@
     <color name="transparent70">#B3434242</color>
     <color name="bg">#121420</color>
 
-
+<!--    B2BDCA - снизу-->
     <color name="CustomCard_Name">#E6B2BDCA</color>
     <color name="CustomCard_Date_Time">#E67C858F</color>
     <color name="active_indicator_bottom_nav">#4BB8E1</color>
@@ -23,5 +23,8 @@
     <color name="Films_color_background">#0F171E</color>
     <color name="Films_color_tex">#66B2BDCA</color>
     <color name="arrow_color_info">#8CB2BDCA</color>
+    <color name="film_name_color">#E3E8EF</color>
+    <color name="film_genres_color">#CCB2BDCA</color>
+
 
 </resources>

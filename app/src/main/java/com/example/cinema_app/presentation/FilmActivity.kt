@@ -1,5 +1,8 @@
 package com.example.cinema_app.presentation
 
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -9,12 +12,12 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.example.cinema_app.R
 import com.example.cinema_app.data.Api.DataClasses.CustomDataClass
 import com.example.cinema_app.data.SliderCastAdapter
 import com.example.cinema_app.databinding.ActivityFilmBinding
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+
 
 private lateinit var TestList: ArrayList<String>
 
@@ -22,6 +25,7 @@ class FilmActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFilmBinding
     private var isImageRotated = false
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFilmBinding.inflate(layoutInflater)
@@ -30,13 +34,40 @@ class FilmActivity : AppCompatActivity() {
         // Получаем Intent, который запустил эту активность
         val intent = intent
         val customData: CustomDataClass? = intent.getSerializableExtra("param1") as? CustomDataClass
-        Log.v("Test_film", customData.toString())
+        //Получения ссылки на трейлер
+        val data = customData!!.videos.entries.toString()
+        val startIndex = data.indexOf("url=") + 4
+        val endIndex = data.indexOf(", name=")
+        val url = data.substring(startIndex, endIndex)
+        Log.v("Test_film", url)
 
-        Glide.with(applicationContext)
-            .load(customData!!.bgImage.url)
-            .into(binding.MainImage)
 
-        binding.Description.text = customData.description
+        InitializeView(customData,url)
+        InitializeTime(customData)
+        customData!!.videos.entries
+
+        var addButtonClicked = false
+        var rateButtonClicked = false
+
+        binding.AddButton.setOnClickListener {
+            addButtonClicked = !addButtonClicked // Переключаем состояние
+            val drawableResId = if (addButtonClicked) {
+                R.drawable.plus_active // Иконка при активном состоянии
+            } else {
+                R.drawable.plus_not_active // Иконка при неактивном состоянии
+            }
+            binding.AddButton.setImageResource(drawableResId)
+        }
+
+        binding.RateImageButton.setOnClickListener {
+            rateButtonClicked = !rateButtonClicked // Переключаем состояние
+            val drawableResId = if (rateButtonClicked) {
+                R.drawable.star_active // Иконка при активном состоянии
+            } else {
+                R.drawable.star_not_active // Иконка при неактивном состоянии
+            }
+            binding.RateImageButton.setImageResource(drawableResId)
+        }
 
 
         val imageView = binding.fillInfoImageView
@@ -46,25 +77,20 @@ class FilmActivity : AppCompatActivity() {
                 rotateImage(imageView, 90f, 0f)
                 //to do here
                 binding.Cast.visibility = View.INVISIBLE
-                binding.Trailer.visibility = View.INVISIBLE
                 binding.More.visibility = View.INVISIBLE
 
                 binding.hideFromBtn1.visibility = View.GONE
-                binding.hideFromBtn2.visibility = View.GONE
                 binding.hideFromBtn3.visibility = View.GONE
 
             } else {
                 rotateImage(imageView, 0f, 90f)
                 binding.Cast.visibility = View.VISIBLE
-                binding.Trailer.visibility = View.VISIBLE
                 binding.More.visibility = View.VISIBLE
 
                 binding.Cast.setTextColor(android.graphics.Color.parseColor("#B2BDCA"))
-                binding.Trailer.setTextColor(android.graphics.Color.parseColor("#66B2BDCA"))
                 binding.More.setTextColor(android.graphics.Color.parseColor("#66B2BDCA"))
 
                 binding.hideFromBtn1.visibility = View.VISIBLE
-                binding.hideFromBtn2.visibility = View.GONE
                 binding.hideFromBtn3.visibility = View.GONE
 
                 binding.CastRecyclerView.setHasFixedSize(false)
@@ -74,11 +100,9 @@ class FilmActivity : AppCompatActivity() {
 
                 binding.Cast.setOnClickListener {
                     binding.Cast.setTextColor(android.graphics.Color.parseColor("#B2BDCA"))
-                    binding.Trailer.setTextColor(android.graphics.Color.parseColor("#66B2BDCA"))
                     binding.More.setTextColor(android.graphics.Color.parseColor("#66B2BDCA"))
 
                     binding.hideFromBtn1.visibility = View.VISIBLE
-                    binding.hideFromBtn2.visibility = View.GONE
                     binding.hideFromBtn3.visibility = View.GONE
 
                     binding.CastRecyclerView.setHasFixedSize(false)
@@ -88,22 +112,11 @@ class FilmActivity : AppCompatActivity() {
 
 
                 }
-                binding.Trailer.setOnClickListener {
-                    binding.Trailer.setTextColor(android.graphics.Color.parseColor("#B2BDCA"))
-                    binding.Cast.setTextColor(android.graphics.Color.parseColor("#66B2BDCA"))
-                    binding.More.setTextColor(android.graphics.Color.parseColor("#66B2BDCA"))
-
-                    binding.hideFromBtn1.visibility = View.GONE
-                    binding.hideFromBtn2.visibility = View.VISIBLE
-                    binding.hideFromBtn3.visibility = View.GONE
-                }
                 binding.More.setOnClickListener {
                     binding.More.setTextColor(android.graphics.Color.parseColor("#B2BDCA"))
-                    binding.Trailer.setTextColor(android.graphics.Color.parseColor("#66B2BDCA"))
                     binding.Cast.setTextColor(android.graphics.Color.parseColor("#66B2BDCA"))
 
                     binding.hideFromBtn1.visibility = View.GONE
-                    binding.hideFromBtn2.visibility = View.GONE
                     binding.hideFromBtn3.visibility = View.VISIBLE
                 }
             }
@@ -113,17 +126,56 @@ class FilmActivity : AppCompatActivity() {
 
     private fun rotateImage(imageView: ImageView, fromDegrees: Float, toDegrees: Float) {
         val duration = 500L // milliseconds
-
         val rotateAnimation = RotateAnimation(
             fromDegrees,
             toDegrees,
             Animation.RELATIVE_TO_SELF, 0.5f,
             Animation.RELATIVE_TO_SELF, 0.5f
         )
-
         rotateAnimation.duration = duration
         rotateAnimation.fillAfter = true
-
         imageView.startAnimation(rotateAnimation)
+    }
+    private fun InitializeView(customData: CustomDataClass, url: String) {
+        Glide.with(applicationContext)
+            .load(customData!!.backdrop.url)
+            .into(binding.MainImage)
+        binding.FilmName.text = customData.name
+        binding.FilmGenres.text = customData.Genre
+        binding.Description.text = customData.description
+        binding.MoreAgeLimit.text = customData.ageRating.toString() +"+"
+        binding.MoreContry.text = customData.countries[0].name
+        binding.MoreGenres.text = customData.Genre
+        binding.MoreDuration.text = customData.time
+        binding.MoreYear.text = customData.date.toString()
+
+        binding.buttonTrailer.setOnClickListener{
+            val i = Intent(Intent.ACTION_VIEW)
+            i.data = Uri.parse(url)
+            startActivity(i)
+        }
+
+    }
+    @SuppressLint("SimpleDateFormat")
+    private fun InitializeTime(customData: CustomDataClass) {
+        val rawRussiaPremiere = customData.premiere.russia
+        val rawWorldPremiere = customData.premiere.world
+        val russiaPremiereFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+        val worldPremiereFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+        val parsedRussiaPremiere = russiaPremiereFormat.parse(rawRussiaPremiere)
+        val parsedWorldPremiere = worldPremiereFormat.parse(rawWorldPremiere)
+        val formattedRussiaPremiere = parsedRussiaPremiere?.let {
+            SimpleDateFormat("dd.MM.yyyy").format(
+                it
+            )
+        }
+        val formattedWorldPremiere = parsedWorldPremiere?.let {
+            SimpleDateFormat("dd.MM.yyyy").format(
+                it
+            )
+        }
+
+        binding.MoreRussiaPremier.text = formattedRussiaPremiere
+        binding.MoreWorldPremier.text = formattedWorldPremiere
     }
 }
