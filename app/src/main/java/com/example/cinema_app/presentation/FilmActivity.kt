@@ -36,31 +36,24 @@ class FilmActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFilmBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val db=MainDb.getDb(this)
+        val db = MainDb.getDb(this)
         // Получаем Intent, который запустил эту активность
         val intent = intent
         val customData: CustomDataClass? = intent.getSerializableExtra("param1") as? CustomDataClass
-        //Получения ссылки на трейлер
-        val data = customData!!.videos.entries.toString()
-        val startIndex = data.indexOf("url=") + 4
-        val endIndex = data.indexOf(", name=")
-        val url = data.substring(startIndex, endIndex)
-        Log.v("Test_film", url)
-
-
-        InitializeView(customData,url)
-        InitializeTime(customData)
+        if (customData != null) {
+            InitializeView(customData)
+            InitializeTime(customData)
+        }
         customData!!.videos.entries
 
         var addButtonClicked = false
         var rateButtonClicked = false
-        db.getDao().getAllFavouriteFilms().asLiveData().observe(this) {
-                it: List<FavouriteFilm> ->
-            it.forEach { item ->
-                val text = "Id: ${item.id} Name: ${item.name}}\n"
-                binding.FilmName.append(text)
-            }
-        }
+//        db.getDao().getAllFavouriteFilms().asLiveData().observe(this) {
+//                it: List<FavouriteFilm> ->
+//            it.forEach { item ->
+//                Log.v("TestBb", "Current item : $item")
+//            }
+//        }
         binding.AddButton.setOnClickListener {
             addButtonClicked = !addButtonClicked // Переключаем состояние
             val drawableResId = if (addButtonClicked) {
@@ -72,16 +65,18 @@ class FilmActivity : AppCompatActivity() {
 
             if (addButtonClicked) {
                 Thread {
-                    db.getDao().insertItem(FavouriteFilm(
-//                        PosterUrl = customData.bgImage.url,
-                        name = customData.name.toString(),
-//                        date =customData.date,
-//                        time = customData.time,
-//                        ageRating = customData.ageRating,
-//                        Genre = customData.Genre,
-//                        description = customData.description,
-//                        backdropURL = customData.backdrop.url
-                    ))
+                    db.getDao().insertItem(
+                        FavouriteFilm(
+                            PosterUrl = customData.bgImage.url,
+                            name = customData.name.toString(),
+                            date = customData.date,
+                            time = customData.time,
+                            ageRating = customData.ageRating,
+                            Genre = customData.Genre,
+                            description = customData.description,
+                            backdropURL = customData.backdrop.url
+                        )
+                    )
                 }.start()
             }
         }
@@ -163,26 +158,34 @@ class FilmActivity : AppCompatActivity() {
         rotateAnimation.fillAfter = true
         imageView.startAnimation(rotateAnimation)
     }
-    private fun InitializeView(customData: CustomDataClass, url: String) {
+
+    private fun InitializeView(customData: CustomDataClass) {
+        binding.InfoText.text = "Инфо"
+        binding.InfoText.visibility = View.VISIBLE
+        val data = customData!!.videos.entries.toString()
+        val startIndex = data.indexOf("url=") + 4
+        val endIndex = data.indexOf(", name=")
+        val url = data.substring(startIndex, endIndex)
         Glide.with(applicationContext)
             .load(customData!!.backdrop.url)
             .into(binding.MainImage)
         binding.FilmName.text = customData.name
         binding.FilmGenres.text = customData.Genre
         binding.Description.text = customData.description
-        binding.MoreAgeLimit.text = customData.ageRating.toString() +"+"
+        binding.MoreAgeLimit.text = customData.ageRating.toString() + "+"
         binding.MoreContry.text = customData.countries[0].name
         binding.MoreGenres.text = customData.Genre
         binding.MoreDuration.text = customData.time
         binding.MoreYear.text = customData.date.toString()
 
-        binding.buttonTrailer.setOnClickListener{
+        binding.buttonTrailer.setOnClickListener {
             val i = Intent(Intent.ACTION_VIEW)
             i.data = Uri.parse(url)
             startActivity(i)
         }
 
     }
+
     @SuppressLint("SimpleDateFormat")
     private fun InitializeTime(customData: CustomDataClass) {
         val rawRussiaPremiere = customData.premiere.russia

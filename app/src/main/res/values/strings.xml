@@ -10,4 +10,14 @@
     <string name="profile">Profile</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="Subscribe">Subscribe</string>
+    <string name="Subscription_managment">Subscription managment</string>
+    <string name="Settings">Settings</string>
+    <string name="Downloads">Downloads</string>
+    <string name="History">History</string>
+    <string name="Playlists">Playlists</string>
+    <string name="Help">Help</string>
+    <string name="About">About</string>
+
 </resources>

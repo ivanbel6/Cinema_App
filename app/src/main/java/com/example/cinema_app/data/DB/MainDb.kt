@@ -15,7 +15,7 @@ abstract class MainDb : RoomDatabase() {
         return Room.databaseBuilder(
             context.applicationContext,
             MainDb::class.java,
-            "tesasdft.db"
+            "Favoutir_db.db"
         ).build()
     }
     }

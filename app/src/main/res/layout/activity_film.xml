@@ -11,6 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:backgroundTint="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:context=".presentation.MainActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -33,8 +37,8 @@
                 android:fontFamily="@font/m_plus_rounded_1c_bold"
                 android:gravity="center"
                 android:text="Film_name"
-                android:textColor="@color/film_name_color"
                 android:textAlignment="center"
+                android:textColor="@color/film_name_color"
                 android:textSize="30dp"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,11 +62,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.13"
+                    android:fontFamily="@font/inter_regular"
                     android:gravity="center"
                     android:text="genres"
-                    android:fontFamily="@font/inter_regular"
-                    android:textColor="@color/film_genres_color"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="@color/film_genres_color" />
 
                 <ImageView
                     android:id="@+id/Rate_image_button"
@@ -83,12 +87,10 @@
                 android:layout_marginStart="125dp"
                 android:layout_marginTop="325dp"
                 android:layout_marginEnd="125dp"
+                android:src="@drawable/button_trailer"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:src="@drawable/button_trailer"
                 app:layout_constraintTop_toTopOf="parent" />
-
-
 
 
             <TextView
@@ -106,19 +108,18 @@
                 android:id="@+id/film_info_linear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="85dp"
-                android:layout_marginEnd="320dp"
                 android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Description">
 
                 <TextView
+                    android:id="@+id/Info_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/m_plus_rounded_1c_bold"
                     android:text="Инфо"
                     android:textColor="@color/silver"
+                    android:paddingLeft="25dp"
                     android:textSize="35sp" />
 
                 <ImageView
@@ -181,8 +182,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/m_plus_rounded_1c_bold"
                     android:orientation="vertical"
-                    android:visibility="gone"
-                    android:text="First(Btn_1)">
+                    android:text="First(Btn_1)"
+                    android:visibility="gone">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/Cast_Recycler_View"
@@ -199,159 +200,170 @@
                     android:id="@+id/hide_from_btn_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
                     android:fontFamily="@font/m_plus_rounded_1c_bold"
                     android:orientation="horizontal"
-                    android:visibility="gone"
-                    android:text="First(Btn_3)">
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:text="First(Btn_3)"
+                    android:visibility="gone">
+
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.5"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="right"
                             android:paddingRight="20dp"
                             android:paddingBottom="8dp"
-                            android:gravity="right"
-                            android:fontFamily="@font/inter_regular"
                             android:text="Дата создания"
 
                             />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="right"
                             android:paddingRight="20dp"
                             android:paddingBottom="8dp"
-                            android:gravity="right"
-                            android:fontFamily="@font/inter_regular"
                             android:text="Страна"
 
                             />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="right"
                             android:paddingRight="20dp"
                             android:paddingBottom="8dp"
-                            android:gravity="right"
-                            android:fontFamily="@font/inter_regular"
-                            android:text="Жанры"
-                            />
+                            android:text="Жанры" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="right"
                             android:paddingRight="20dp"
                             android:paddingBottom="8dp"
-                            android:gravity="right"
-                            android:fontFamily="@font/inter_regular"
-                            android:text="Премьера в мире"
-                            />
+                            android:text="Премьера в мире" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="right"
                             android:paddingRight="20dp"
                             android:paddingBottom="8dp"
-                            android:gravity="right"
-                            android:fontFamily="@font/inter_regular"
-                            android:text="Премьера в России"
-                            />
+                            android:text="Премьера в России" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="right"
                             android:paddingRight="20dp"
                             android:paddingBottom="8dp"
-                            android:gravity="right"
-                            android:fontFamily="@font/inter_regular"
-                            android:text="Возрастное ограничение"
-                            />
+                            android:text="Возрастное ограничение" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_regular"
+                            android:gravity="right"
                             android:paddingRight="20dp"
                             android:paddingBottom="8dp"
-                            android:gravity="right"
-                            android:fontFamily="@font/inter_regular"
-                            android:text="Продолжнительность"
-                            />
+                            android:text="Продолжнительность" />
 
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_weight="0.5"
                         android:layout_height="match_parent"
+                        android:layout_weight="0.5"
 
                         android:orientation="vertical">
+
                         <TextView
                             android:id="@+id/More_Year"
                             android:layout_width="match_parent"
-                            android:textColor="@color/CustomCard_Name"
-                            android:fontFamily="@font/inter_regular"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_regular"
                             android:paddingBottom="8dp"
                             android:text="2019"
+                            android:textColor="@color/CustomCard_Name"
 
                             />
+
                         <TextView
                             android:id="@+id/More_Contry"
                             android:layout_width="match_parent"
-                            android:textColor="@color/CustomCard_Name"
+                            android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_regular"
                             android:paddingBottom="8dp"
-                            android:layout_height="wrap_content"
                             android:text="2019"
+                            android:textColor="@color/CustomCard_Name"
 
                             />
+
                         <TextView
                             android:id="@+id/More_Genres"
                             android:layout_width="match_parent"
-                            android:textColor="@color/CustomCard_Name"
+                            android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_regular"
                             android:paddingBottom="8dp"
-                            android:layout_height="wrap_content"
                             android:text="2019"
+                            android:textColor="@color/CustomCard_Name"
 
                             />
+
                         <TextView
                             android:id="@+id/More_World_Premier"
                             android:layout_width="match_parent"
-                            android:textColor="@color/CustomCard_Name"
+                            android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_regular"
                             android:paddingBottom="8dp"
-                            android:layout_height="wrap_content"
                             android:text="2019"
+                            android:textColor="@color/CustomCard_Name"
 
                             />
+
                         <TextView
                             android:id="@+id/More_Russia_Premier"
                             android:layout_width="match_parent"
-                            android:textColor="@color/CustomCard_Name"
+                            android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_regular"
                             android:paddingBottom="8dp"
-                            android:layout_height="wrap_content"
                             android:text="2019"
+                            android:textColor="@color/CustomCard_Name"
 
                             />
+
                         <TextView
                             android:id="@+id/More_Age_Limit"
                             android:layout_width="match_parent"
-                            android:textColor="@color/CustomCard_Name"
+                            android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_regular"
                             android:paddingBottom="8dp"
-                            android:layout_height="wrap_content"
                             android:text="2019"
+                            android:textColor="@color/CustomCard_Name"
 
                             />
+
                         <TextView
                             android:id="@+id/More_Duration"
                             android:layout_width="match_parent"
-                            android:textColor="@color/CustomCard_Name"
+                            android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_regular"
                             android:paddingBottom="8dp"
-                            android:layout_height="wrap_content"
                             android:text="2019"
+                            android:textColor="@color/CustomCard_Name"
 
                             />
                     </LinearLayout>
