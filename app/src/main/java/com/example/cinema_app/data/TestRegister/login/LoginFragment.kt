@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.cinema_app.R
 import com.example.cinema_app.databinding.FragmentLoginBinding
+import com.example.kursovayz.screens.register.RegisterFragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -91,7 +92,7 @@ class LoginFragment : Fragment() {
             .addOnCompleteListener(requireActivity(), OnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(requireContext(), "Logged in successfully", Toast.LENGTH_SHORT).show()
-//                    findNavController().navigate(R.id.action_loginFragment_to_thirdFragment)
+                    findNavController().navigate(R.id.action_loginFragment_to_profileActivity)
                 } else {
                     Toast.makeText(
                         requireContext(),
@@ -105,7 +106,10 @@ class LoginFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         binding.tvRegister.setOnClickListener {
-//            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+            val registerFragment = RegisterFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container_login, registerFragment)
+                .commit()
         }
 
         binding.btnSignIn.setOnClickListener {

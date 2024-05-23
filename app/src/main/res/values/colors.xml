@@ -26,6 +26,9 @@
     <color name="film_name_color">#E3E8EF</color>
     <color name="film_genres_color">#CCB2BDCA</color>
     <color name="profile_white">#E3E8EF</color>
+    <color name="Login_background_color">#0F171E</color>
+
+    <color name="Login_text_color">#D9E3E8EF</color>
 
 
 </resources>

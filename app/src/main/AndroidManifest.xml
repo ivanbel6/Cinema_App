@@ -18,7 +18,7 @@
             android:name=".presentation.FilmActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.ProfileActivity"
+            android:name=".presentation.profile.ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.MainActivity"

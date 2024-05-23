@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.cinema_app.R
 import com.example.cinema_app.databinding.FragmentRegisterBinding
+import com.example.kursovayz.screens.login.LoginFragment
 
 class RegisterFragment : Fragment() {
     private lateinit var binding: FragmentRegisterBinding
@@ -49,7 +50,10 @@ class RegisterFragment : Fragment() {
         }
 
         binding.tvLogin.setOnClickListener {
-            findNavController().popBackStack()
+            val loginFragment = LoginFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container_login, loginFragment)
+                .commit()
         }
 
         // Removed the navigate call here

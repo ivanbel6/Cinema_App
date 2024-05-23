@@ -8,6 +8,7 @@ import com.example.cinema_app.R
 import com.example.cinema_app.data.DB.MainDb
 import com.example.cinema_app.data.VpAdapter
 import com.example.cinema_app.databinding.ActivityMainBinding
+import com.example.cinema_app.presentation.profile.ProfileActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayoutMediator
 import retrofit2.Retrofit
@@ -48,10 +49,8 @@ class MainActivity : AppCompatActivity() {
         bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.BottomNavHome -> {
-                    val fragmentManager = supportFragmentManager
-                    val fragmentTransaction = fragmentManager.beginTransaction()
-                    fragmentTransaction.replace(R.id.fragment_container, MovieFragment())
-                    fragmentTransaction.commit()
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
                     true
                 }
 

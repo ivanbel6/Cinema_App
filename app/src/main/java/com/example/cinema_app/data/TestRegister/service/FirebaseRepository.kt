@@ -4,6 +4,7 @@ import android.content.Context
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
+import com.example.cinema_app.R
 import com.google.firebase.Firebase
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
@@ -12,7 +13,7 @@ import com.google.firebase.auth.auth
 
 class FirebaseRepository {
     private val auth = FirebaseAuth.getInstance()
-    //Туту нет запросов
+
     fun createUser(email: String, password: String, context: Context) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
@@ -54,10 +55,10 @@ class FirebaseRepository {
 
     private fun navigateToStartFragment(context: Context) {
         val navController = NavHostFragment.findNavController((context as AppCompatActivity).supportFragmentManager.fragments[0])
-//        navController.navigate(R.id.action_loginFragment_to_thirdFragment)
+        //navController.navigate(R.id.action_loginFragment_to_profileActivity)
     }
     private fun navigateToStartFragmentFromRegister(context: Context) {
         val navController = NavHostFragment.findNavController((context as AppCompatActivity).supportFragmentManager.fragments[0])
-//        navController.navigate(R.id.action_registerFragment_to_startFragment)
+        //navController.navigate(R.id.action_registerFragment_to_profileActivity)
     }
 }

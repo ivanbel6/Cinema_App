@@ -4,13 +4,11 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.asLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.cinema_app.R
@@ -19,9 +17,6 @@ import com.example.cinema_app.data.DB.FavouriteFilm
 import com.example.cinema_app.data.DB.MainDb
 import com.example.cinema_app.data.SliderCastAdapter
 import com.example.cinema_app.databinding.ActivityFilmBinding
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 
 
