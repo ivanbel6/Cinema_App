@@ -116,8 +116,10 @@ class LoginFragment : Fragment() {
             viewModel.loginUser(
                 binding.etEmail.text.toString(),
                 binding.etPassword.text.toString(),
-                requireContext()
+                requireContext(),
+                parentFragmentManager
             )
+
         }
 
     }

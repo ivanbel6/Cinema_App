@@ -20,5 +20,6 @@
     <string name="Help">Help</string>
     <string name="About">About</string>
     <string name="meluum">MELUUM</string>
+    <string name="already_have_an_account_log_in_or_continue_with_your_social_profile">Already have an account? Log in. or continue with your social profile</string>
 
 </resources>

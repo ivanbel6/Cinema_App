@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -42,11 +43,28 @@ class RegisterFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         binding.btnRegister.setOnClickListener {
-            viewModel.registerNewUser(
-                binding.etEmail.text.toString(),
-                binding.etPassword.text.toString(),
-                requireContext()
-            )
+            val password = binding.etPassword.text.toString()
+            val passwordConfirm = binding.etPasswordconfirm.text.toString()
+            val userName = binding.etUsername.text.toString()
+            val email = binding.etEmail.text.toString()
+            if (password.isNotEmpty() && passwordConfirm.isNotEmpty() && userName.isNotEmpty() && email.isNotEmpty()){
+                if (password.equals(passwordConfirm)) {
+                    viewModel.registerNewUser(
+                        binding.etEmail.text.toString(),
+                        binding.etPassword.text.toString(),
+                        requireContext(),
+                        parentFragmentManager
+                    )
+                }else{
+                    Toast.makeText(requireContext(),"Пароли не совпадают",Toast.LENGTH_SHORT).show()
+                    binding.etPassword.setText("")
+                    binding.etPasswordconfirm.setText("")
+                }
+            }else{
+                Toast.makeText(requireContext(),"Одно или несколько полей пусты",Toast.LENGTH_SHORT).show()
+            }
+
+
         }
 
         binding.tvLogin.setOnClickListener {
@@ -56,6 +74,5 @@ class RegisterFragment : Fragment() {
                 .commit()
         }
 
-        // Removed the navigate call here
     }
 }

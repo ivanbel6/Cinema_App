@@ -8,7 +8,7 @@ import com.example.cinema_app.R
 import com.example.cinema_app.data.DB.MainDb
 import com.example.cinema_app.data.VpAdapter
 import com.example.cinema_app.databinding.ActivityMainBinding
-import com.example.cinema_app.presentation.profile.ProfileActivity
+import com.example.cinema_app.presentation.ProfileActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayoutMediator
 import retrofit2.Retrofit

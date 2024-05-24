@@ -1,4 +1,4 @@
-package com.example.cinema_app.data.TestRegister.service
+package com.example.cinema_app.data.Auth_Reg.service
 
 import android.content.Context
 import android.widget.Toast
@@ -19,7 +19,6 @@ class FirebaseRepository {
             .addOnCompleteListener {
                 if (it.isSuccessful) {
                     Toast.makeText(context, "OK!!", Toast.LENGTH_SHORT).show()
-                    navigateToStartFragmentFromRegister(context)
                 } else {
                     Toast.makeText(context, "ERROR", Toast.LENGTH_SHORT).show()
                 }
@@ -31,7 +30,7 @@ class FirebaseRepository {
             .addOnCompleteListener {
                 if (it.isSuccessful) {
                     Toast.makeText(context, "OK!!", Toast.LENGTH_SHORT).show()
-                    navigateToStartFragment(context)
+//                    navigateToStartFragment(context)
                 } else {
                     Toast.makeText(context, "ERROR", Toast.LENGTH_SHORT).show()
                 }
@@ -42,7 +41,7 @@ class FirebaseRepository {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(context, "Logged in successfully", Toast.LENGTH_SHORT).show()
-                    navigateToStartFragment(context)
+//                    navigateToStartFragment(context)
                 } else {
                     Toast.makeText(context, "Authentication failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
@@ -53,12 +52,12 @@ class FirebaseRepository {
         Firebase.auth.signOut()
     }
 
-    private fun navigateToStartFragment(context: Context) {
-        val navController = NavHostFragment.findNavController((context as AppCompatActivity).supportFragmentManager.fragments[0])
-        //navController.navigate(R.id.action_loginFragment_to_profileActivity)
-    }
-    private fun navigateToStartFragmentFromRegister(context: Context) {
-        val navController = NavHostFragment.findNavController((context as AppCompatActivity).supportFragmentManager.fragments[0])
-        //navController.navigate(R.id.action_registerFragment_to_profileActivity)
-    }
+//    private fun navigateToStartFragment(context: Context) {
+//        val navController = NavHostFragment.findNavController((context as AppCompatActivity).supportFragmentManager.fragments[0])
+//        navController.navigate(R.id.action_loginFragment_to_profileActivity)
+//    }
+//    private fun navigateToStartFragmentFromRegister(context: Context) {
+//        val navController = NavHostFragment.findNavController((context as AppCompatActivity).supportFragmentManager.fragments[0])
+//        navController.navigate(R.id.action_registerFragment_to_profileActivity)
+//    }
 }

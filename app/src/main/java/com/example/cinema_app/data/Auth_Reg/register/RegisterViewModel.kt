@@ -1,9 +1,13 @@
 package com.example.kursovayz.screens.register
 
 import android.content.Context
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.cinema_app.data.TestRegister.service.FirebaseRepository
+import com.example.cinema_app.R
+import com.example.cinema_app.data.Auth_Reg.service.FirebaseRepository
+import com.example.cinema_app.presentation.ProfileFragment
+import com.example.kursovayz.screens.login.LoginFragment
 import kotlinx.coroutines.launch
 
 class RegisterViewModel : ViewModel() {
@@ -13,16 +17,19 @@ class RegisterViewModel : ViewModel() {
      * @param password Пароль пользователя.
      * @param context Контекст приложения.
      */
-    fun registerNewUser(email: String, password: String, context: Context) {
+    fun registerNewUser(
+        email: String,
+        password: String,
+        context: Context,
+        parentFragmentManager: FragmentManager
+    ) {
         viewModelScope.launch {
             FirebaseRepository().createUser(email, password, context)
+            val profileFragment = ProfileFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container_login, profileFragment)
+                .commit()
         }
     }
 
-
-    fun loginUser(email: String, password: String, context: Context) {
-        viewModelScope.launch {
-            FirebaseRepository().signInUser(email, password, context)
-        }
-    }
 }
