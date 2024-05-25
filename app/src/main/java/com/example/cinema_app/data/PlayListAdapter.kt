@@ -6,8 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cinema_app.R
+import com.example.cinema_app.data.DB.Entities.Playlist
+import kotlinx.coroutines.flow.Flow
 
-class PlayListAdapter(private val newList: List<String>) : RecyclerView.Adapter<PlayListAdapter.GenreViewHolder>() {
+class PlayListAdapter(private val newList: List<Playlist>) : RecyclerView.Adapter<PlayListAdapter.GenreViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GenreViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_play_list, parent, false)
@@ -16,7 +18,7 @@ class PlayListAdapter(private val newList: List<String>) : RecyclerView.Adapter<
 
     override fun onBindViewHolder(holder: GenreViewHolder, position: Int) {
         val name = newList[position]
-        holder.bind(name)
+        holder.bind(name.name)
     }
 
     override fun getItemCount(): Int {

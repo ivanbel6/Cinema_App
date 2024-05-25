@@ -6,4 +6,11 @@
     </style>
 
     <style name="Theme.Cinema_App" parent="Base.Theme.Cinema_App" />
+    <style name="MyTitle_MaterialAlertDialog.MaterialComponents.Title.Text" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+
+        <!-- Text Color for title and message -->
+        <item name="colorOnSurface">@color/white</item>
+        <item name="fontFamily">m_plus_rounded_1c_black.xml</item>
+        <item name="android:textSize">20sp</item>
+    </style>
 </resources>

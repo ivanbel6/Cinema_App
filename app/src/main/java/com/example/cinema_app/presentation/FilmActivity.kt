@@ -4,27 +4,20 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import android.widget.ImageView
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.cinema_app.R
 import com.example.cinema_app.data.Api.DataClasses.CustomDataClass
-import com.example.cinema_app.data.DB.FavouriteFilm
+import com.example.cinema_app.data.DB.Entities.FavouriteFilm
 import com.example.cinema_app.data.DB.MainDb
-import com.example.cinema_app.data.PlayListAdapter
 import com.example.cinema_app.data.SliderCastAdapter
 import com.example.cinema_app.databinding.ActivityFilmBinding
 import com.example.cinema_app.domain.UseCases.ModalBottomSheet
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import java.text.SimpleDateFormat
 
 
@@ -72,20 +65,20 @@ class FilmActivity : AppCompatActivity() {
             binding.AddButton.setImageResource(drawableResId)
 
             if (addButtonClicked) {
-                Thread {
-                    db.getDao().insertItem(
-                        FavouriteFilm(
-                            PosterUrl = customData.bgImage.url,
-                            name = customData.name.toString(),
-                            date = customData.date,
-                            time = customData.time,
-                            ageRating = customData.ageRating,
-                            Genre = customData.Genre,
-                            description = customData.description,
-                            backdropURL = customData.backdrop.url
-                        )
-                    )
-                }.start()
+//                Thread {
+//                    db.getDao().insertItem(
+//                        FavouriteFilm(
+//                            PosterUrl = customData.bgImage.url,
+//                            name = customData.name.toString(),
+//                            date = customData.date,
+//                            time = customData.time,
+//                            ageRating = customData.ageRating,
+//                            Genre = customData.Genre,
+//                            description = customData.description,
+//                            backdropURL = customData.backdrop.url
+//                        )
+//                    )
+//                }.start()
             }
         }
 

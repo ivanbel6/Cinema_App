@@ -21,6 +21,7 @@
     <color name="transparent_genre">#26D9D9D9</color>
     <color name="transparent_genre_name_text">#F2878D94</color>
     <color name="Films_color_background">#0F171E</color>
+    <color name="Films_color_background_bottom_sheet">#000000</color>
     <color name="Films_color_tex">#66B2BDCA</color>
     <color name="arrow_color_info">#8CB2BDCA</color>
     <color name="film_name_color">#E3E8EF</color>
