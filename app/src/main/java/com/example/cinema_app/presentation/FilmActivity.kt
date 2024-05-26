@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.cinema_app.R
 import com.example.cinema_app.data.Api.DataClasses.CustomDataClass
-import com.example.cinema_app.data.DB.Entities.FavouriteFilm
 import com.example.cinema_app.data.DB.MainDb
 import com.example.cinema_app.data.SliderCastAdapter
 import com.example.cinema_app.databinding.ActivityFilmBinding
@@ -53,7 +52,7 @@ class FilmActivity : AppCompatActivity() {
         binding.AddButton.setOnClickListener {
 
             //Создаем модальное окно
-            val modalBottomSheet = ModalBottomSheet()
+            val modalBottomSheet = ModalBottomSheet(customData)
             modalBottomSheet.show(supportFragmentManager, ModalBottomSheet.TAG)
 
             addButtonClicked = !addButtonClicked // Переключаем состояние
