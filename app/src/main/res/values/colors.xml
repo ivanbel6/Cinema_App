@@ -30,6 +30,8 @@
     <color name="Login_background_color">#0F171E</color>
 
     <color name="Login_text_color">#D9E3E8EF</color>
+    <color name="Play_list_title_color">#E6E3E8EF</color>
+    <color name="Play_list_description_color">#80E3E8EF</color>
     <color name="Modal_transparent">#323232</color>
 
 

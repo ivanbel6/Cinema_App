@@ -28,7 +28,14 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/gradient_drawable"
+                android:layout_marginTop="250dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:elevation="82dp"
+                app:layout_constraintTop_toTopOf="parent"/>
             <TextView
                 android:id="@+id/Film_name"
                 android:layout_width="match_parent"
@@ -36,6 +43,7 @@
                 android:layout_marginTop="250dp"
                 android:fontFamily="@font/m_plus_rounded_1c_bold"
                 android:gravity="center"
+                android:elevation="83dp"
                 android:text="Film_name"
                 android:textAlignment="center"
                 android:textColor="@color/film_name_color"
@@ -47,6 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="300dp"
                 android:orientation="horizontal"
+                android:elevation="83dp"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
@@ -85,6 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="125dp"
+                android:elevation="83dp"
                 android:layout_marginTop="325dp"
                 android:layout_marginEnd="125dp"
                 android:src="@drawable/button_trailer"

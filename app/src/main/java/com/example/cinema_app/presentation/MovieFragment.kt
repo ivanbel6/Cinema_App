@@ -66,12 +66,12 @@ class MovieFragment : Fragment() {
             override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {
             }
         }
-//        val a = requireView().findViewById<LinearLayout>(R.id.indicator_lay)
-//        val genreRecyclerView = requireView().findViewById<RecyclerView>(R.id.GenresTopRecycleView)
-//        genreRecyclerView.addOnItemTouchListener(onTouchListener)
-//
-//
-//
+        val a = requireView().findViewById<LinearLayout>(R.id.indicator_lay)
+        val genreRecyclerView = requireView().findViewById<RecyclerView>(R.id.GenresTopRecycleView)
+        genreRecyclerView.addOnItemTouchListener(onTouchListener)
+
+
+
 //        /**
 //         * SLIDER ON THE TOP
 //         */
@@ -87,7 +87,7 @@ class MovieFragment : Fragment() {
         CreateSlider().fill(popularRecycleView, requireContext(), "")
         popularRecycleView.addOnItemTouchListener(onTouchListener)
 
-
+//        /**
 //         * DRAMA SLIDER
 //         */
 //        dramaRecycleView = requireView().findViewById(R.id.dramaRecyclerView)
@@ -136,9 +136,9 @@ class MovieFragment : Fragment() {
 //        animRecycleView= requireView().findViewById(R.id.animRecyclerView)
 //        CreateSlider().fill(animRecycleView, requireContext(), "аниме")
 //        animRecycleView.addOnItemTouchListener(onTouchListener)
-
-        val background_image = requireView().findViewById<ImageView>(R.id.background_image)
-        background_image.scaleType = ImageView.ScaleType.CENTER_CROP
+//
+//        val background_image = requireView().findViewById<ImageView>(R.id.background_image)
+//        background_image.scaleType = ImageView.ScaleType.CENTER_CROP
     }
 
     companion object{

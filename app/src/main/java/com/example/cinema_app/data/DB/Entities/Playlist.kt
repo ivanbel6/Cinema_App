@@ -12,6 +12,8 @@ data class Playlist(
     var id: Int? = null,
     @ColumnInfo(name = "name")
     val name: String,
+    @ColumnInfo(name = "description")
+    val description: String,
     @ColumnInfo(name = "isSelected")
     var isSelected: Boolean = false
 )

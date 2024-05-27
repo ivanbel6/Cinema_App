@@ -9,7 +9,7 @@ import com.example.cinema_app.data.DB.Dao.PlaylistDao
 import com.example.cinema_app.data.DB.Entities.FavouriteFilm
 import com.example.cinema_app.data.DB.Entities.Playlist
 
-@Database(entities = [FavouriteFilm::class, Playlist::class], version = 14)
+@Database(entities = [FavouriteFilm::class, Playlist::class], version = 15)
 abstract class MainDb : RoomDatabase() {
 
     abstract fun getDao(): Dao

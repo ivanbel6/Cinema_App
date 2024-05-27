@@ -51,4 +51,8 @@ class PlayListAdapter(private val newList: List<Playlist>) : RecyclerView.Adapte
             }
         }
     }
+
+    class PlayListViewHolder {
+
+    }
 }

@@ -32,6 +32,12 @@ class ProfileFragment : Fragment() {
                 .replace(R.id.container_login, loginFragment)
                 .commit()
         }
+        binding.playlistsButton.setOnClickListener{
+            val playListFragment = PlayListFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container_login, playListFragment)
+                .commit()
+        }
         binding.bottomNavigationProfile.isItemActiveIndicatorEnabled = false
         binding.bottomNavigationProfile.setOnItemSelectedListener { item ->
             when (item.itemId) {

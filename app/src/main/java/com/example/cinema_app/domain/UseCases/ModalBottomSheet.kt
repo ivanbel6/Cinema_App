@@ -180,12 +180,13 @@ class ModalBottomSheet(val customData: CustomDataClass) : BottomSheetDialogFragm
             .setPositiveButton(resources.getString(R.string.accept)) { dialog, which ->
                 // Обработка нажатия на положительную кнопку
                 val name = input1.text.toString()
+                val description = input2.text.toString()
                 val playlistDao = MainDb.getDb(requireContext()).getPlaylistDao()
                 lifecycleScope.launch {
                     withContext(Dispatchers.IO) {
                         playlistDao.insertPlaylist(
                             Playlist(
-                                name = name,
+                                name = name,description = description
                             )
                         )
                         Log.v(
