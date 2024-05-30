@@ -19,6 +19,11 @@ class PlayListAdapter_2(
     private val updateListener: PlaylistUpdateListener
 ) : RecyclerView.Adapter<PlayListAdapter_2.PlayListViewHolder>() {
 
+    fun updateData(newList: List<PlaylistWithFilms>) {
+        this.newList = newList
+        notifyDataSetChanged()  // уведомление адаптера об изменениях данных
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlayListViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.play_list_item_2, parent, false)
         return PlayListViewHolder(view)

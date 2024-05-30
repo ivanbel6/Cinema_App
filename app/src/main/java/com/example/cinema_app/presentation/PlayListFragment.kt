@@ -60,45 +60,34 @@ class PlayListFragment : Fragment(), PlaylistUpdateListener {
                 playlistDao.getPlaylistsWithFilms()
             }
 
-            playlistAdapter = PlayListAdapter_2(playlist, this@PlayListFragment)
-            binding.PlayListRecycleView.apply {
-                setHasFixedSize(false)
-                layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-                adapter = playlistAdapter
+            if (binding.PlayListRecycleView.adapter == null) {
+                playlistAdapter = PlayListAdapter_2(playlist, this@PlayListFragment)
+                binding.PlayListRecycleView.apply {
+                    setHasFixedSize(false)
+                    layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+                    adapter = playlistAdapter
+                }
+            } else {
+                playlistAdapter.updateData(playlist)
             }
         }
     }
+
     private fun showCreatePlaylistDialog() {
         val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_edit_playlist, null)
         val builder = AlertDialog.Builder(requireContext())
             .setView(dialogView)
             .setPositiveButton("Create") { dialog, which ->
-                // Получение данных из текстовых полей и их обработка
                 val title = dialogView.findViewById<EditText>(R.id.playlistNameEditText).text.toString()
                 val description = dialogView.findViewById<EditText>(R.id.playlistDescriptionEditText).text.toString()
                 lifecycleScope.launch {
                     withContext(Dispatchers.IO) {
                         val playlistDao = MainDb.getDb(requireContext()).getPlaylistDao()
                         playlistDao.insertPlaylist(
-                            Playlist(
-                                name = title,description = description
-                            )
+                            Playlist(name = title, description = description)
                         )
                     }
-
-                }
-                lifecycleScope.launch {
-                    val playlistDao = MainDb.getDb(requireContext()).getPlaylistDao()
-                    val playlist = withContext(Dispatchers.IO) {
-                        playlistDao.getPlaylistsWithFilms()
-                    }
-
-                    playlistAdapter = PlayListAdapter_2(playlist, this@PlayListFragment)
-                    binding.PlayListRecycleView.apply {
-                        setHasFixedSize(false)
-                        layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-                        adapter = playlistAdapter
-                    }
+                    loadData()
                 }
             }
             .setNegativeButton("Cancel") { dialog, which ->
