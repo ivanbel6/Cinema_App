@@ -8,18 +8,23 @@
     tools:context=".presentation.PlayListFragment">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+        android:id="@+id/appBarLayout_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/Top_app_bar_background_color"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:navigationIcon="@drawable/baseline_keyboard_arrow_right_24"
-            app:title="Some Text"
+            app:navigationIcon="@drawable/back_arrow"
+            app:title="Playlists"
             app:menu="@menu/top_app_bar"
+            app:fontFamily="@font/inter_regular"
+
+            app:titleTextColor="@color/Top_app_bar_text_color"
             />
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -32,7 +37,7 @@
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout_main"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

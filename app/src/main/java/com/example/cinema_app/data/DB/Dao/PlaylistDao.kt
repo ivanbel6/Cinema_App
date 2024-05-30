@@ -3,6 +3,7 @@ package com.example.cinema_app.data.DB.Dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.example.cinema_app.data.DB.Entities.FavouriteFilm
 
 import com.example.cinema_app.data.DB.Entities.Playlist
@@ -19,7 +20,7 @@ interface PlaylistDao {
     fun getAllPlaylists(): Flow<List<Playlist>>
 
     @Query("DELETE FROM PlaylistTable WHERE id = :id")
-    fun deletePlaylist(id: Int)
+    fun deletePlaylist(id: Long?)
 
     @Query("DELETE FROM PlaylistTable")
     fun deleteAllPlaylists()
@@ -35,6 +36,9 @@ interface PlaylistDao {
 
     @Query("SELECT * FROM PlaylistTable WHERE name = :name")
     fun getPlaylistWithFilmsByName(name: String): PlaylistWithFilms
+
+    @Update
+    fun updatePlaylist(playlist: Playlist)
 
 
 }

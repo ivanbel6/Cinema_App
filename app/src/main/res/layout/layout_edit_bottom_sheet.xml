@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bottom_sheet_background"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_regular"
+        android:paddingLeft="60dp"
+        android:paddingTop="25dp"
+        android:text="Tools for playlist"
+        android:textColor="@color/EditBottomSheetColorTitle"
+        android:textSize="25dp"
+        android:layout_marginBottom="24dp"
+        />
+
+    <LinearLayout
+        android:id="@+id/edit_btn_bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="60dp"
+        android:layout_marginBottom="15dp">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/edit_svg" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:text="Edit"
+            android:textColor="@color/EditBottomSheetColorTitle_75"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/delete_btn_bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="57dp"
+        android:paddingBottom="15dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/delete_svg" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="19dp"
+            android:text="Delete"
+            android:textColor="@color/EditBottomSheetColorTitle_75"
+            android:textSize="20dp" />
+    </LinearLayout>
+</LinearLayout>
+
+
+

@@ -5,15 +5,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.cinema_app.R
 import com.example.cinema_app.data.DB.Entities.PlaylistWithFilms
+import com.example.cinema_app.data.Interfaces.PlaylistUpdateListener
+import com.example.cinema_app.domain.UseCases.ModalEditBottomSheet
 
-
-class PlayListAdapter_2(private val newList: List<PlaylistWithFilms>) :
-    RecyclerView.Adapter<PlayListAdapter_2.PlayListViewHolder>() {
+class PlayListAdapter_2(
+    private var newList: List<PlaylistWithFilms>,
+    private val updateListener: PlaylistUpdateListener
+) : RecyclerView.Adapter<PlayListAdapter_2.PlayListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlayListViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.play_list_item_2, parent, false)
@@ -30,11 +34,12 @@ class PlayListAdapter_2(private val newList: List<PlaylistWithFilms>) :
             .load(currentItem.films[0].backdropURL)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(holder.cardImageView)
-        // Set image for cardImageView using currentItem.imageUrl
 
-        // Set click listener for the entire item
-        holder.itemView.setOnClickListener {
-            // Handle item click event here
+        holder.itemView.setOnClickListener {}
+
+        holder.dotsMenu.setOnClickListener {
+            val modalBottomSheet = ModalEditBottomSheet(currentItem, updateListener)
+            modalBottomSheet.show((holder.itemView.context as AppCompatActivity).supportFragmentManager, ModalEditBottomSheet.TAG)
         }
     }
 
@@ -42,9 +47,13 @@ class PlayListAdapter_2(private val newList: List<PlaylistWithFilms>) :
         return newList.size
     }
 
+
     inner class PlayListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val titleTextView: TextView = itemView.findViewById(R.id.title)
         val descriptionTextView: TextView = itemView.findViewById(R.id.description)
         val cardImageView: ImageView = itemView.findViewById(R.id.cardImageView)
+        val dotsMenu: ImageView = itemView.findViewById(R.id.dots_menu)
     }
 }
+
+

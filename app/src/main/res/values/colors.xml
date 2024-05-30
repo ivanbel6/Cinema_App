@@ -35,4 +35,13 @@
     <color name="Modal_transparent">#323232</color>
 
 
+    <color name="Top_app_bar_text_color">#F2E3E8EF</color>
+    <color name="Top_app_bar_background_color">#260D4C6E</color>
+<!--    //#E3E8EF 90-->
+    <color name="EditBottomSheetColorTitle">#E6E3E8EF</color>
+    <color name="EditBottomSheetColorTitle_75">#BFE3E8EF</color>
+
+
+
+
 </resources>

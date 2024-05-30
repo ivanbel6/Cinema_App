@@ -9,7 +9,7 @@ import androidx.room.Relation
 @Entity(tableName = "PlaylistTable")
 data class Playlist(
     @PrimaryKey(autoGenerate = true)
-    var id: Int? = null,
+    var id: Long? = null,
     @ColumnInfo(name = "name")
     val name: String,
     @ColumnInfo(name = "description")
