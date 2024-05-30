@@ -3,4 +3,5 @@
     <style name="BottomSheetTheme" parent="Theme.Design.Light.BottomSheetDialog">
         <item name="android:navigationBarColor">@color/Modal_transparent</item>
     </style>
+
 </resources>

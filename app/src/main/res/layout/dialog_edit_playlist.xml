@@ -9,11 +9,16 @@
         android:id="@+id/playlistNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Название плейлиста" />
+        android:hint="Название плейлиста"
+        android:textColor="@color/silver"
+        android:textColorHint="@color/silver_transparent" />
 
     <EditText
         android:id="@+id/playlistDescriptionEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Описание плейлиста" />
+        android:hint="Описание плейлиста"
+        android:textColor="@color/silver"
+        android:textColorHint="@color/silver_transparent" />
+
 </LinearLayout>

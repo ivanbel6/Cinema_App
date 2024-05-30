@@ -29,11 +29,18 @@ class PlayListAdapter_2(
 
         holder.titleTextView.text = currentItem.playlist.name
         holder.descriptionTextView.text = currentItem.playlist.description
+        if (currentItem.films != null && !currentItem.films.isEmpty() && currentItem.films.get(0) != null) {
+            Glide.with(holder.itemView)
+                .load(currentItem.films.get(0).backdropURL)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.cardImageView);
+        } else {
+            Glide.with(holder.itemView)
+                .load(R.drawable.place_holder_png)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.cardImageView);
+        }
 
-        Glide.with(holder.itemView)
-            .load(currentItem.films[0].backdropURL)
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .into(holder.cardImageView)
 
         holder.itemView.setOnClickListener {}
 
