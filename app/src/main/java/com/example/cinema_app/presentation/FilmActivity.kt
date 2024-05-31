@@ -12,9 +12,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.cinema_app.R
-import com.example.cinema_app.data.Api.DataClasses.CustomDataClass
+import com.example.cinema_app.data.Api.DataClasses.Films.CustomDataClass
 import com.example.cinema_app.data.DB.MainDb
-import com.example.cinema_app.data.SliderCastAdapter
+import com.example.cinema_app.data.adapters.SliderCastAdapter
 import com.example.cinema_app.databinding.ActivityFilmBinding
 import com.example.cinema_app.domain.UseCases.ModalBottomSheet
 import java.text.SimpleDateFormat

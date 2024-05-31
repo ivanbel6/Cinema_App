@@ -1,15 +1,5 @@
 package com.example.cinema_app.data.DB.Entities
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import com.example.cinema_app.data.Api.DataClasses.Backdrop
-import com.example.cinema_app.data.Api.DataClasses.Country
-import com.example.cinema_app.data.Api.DataClasses.Person
-import com.example.cinema_app.data.Api.DataClasses.Poster
-import com.example.cinema_app.data.Api.DataClasses.Premiere
-import com.example.cinema_app.data.Api.DataClasses.Video
-
 //@Entity(tableName = "FavouriteTable")
 //data class FavouriteFilm(
 //    @PrimaryKey(autoGenerate = true)

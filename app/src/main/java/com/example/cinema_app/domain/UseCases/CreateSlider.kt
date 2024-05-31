@@ -1,14 +1,13 @@
 package com.example.cinema_app.domain.UseCases
 
 import android.content.Context
-import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
-import com.example.cinema_app.data.Api.DataClasses.CustomDataClass
+import com.example.cinema_app.data.Api.DataClasses.Films.CustomDataClass
 import com.example.cinema_app.data.Api.Interface.ApiInterface
-import com.example.cinema_app.data.CustomRecycleAdapter
+import com.example.cinema_app.data.adapters.CustomRecycleAdapter
 import com.example.cinema_app.presentation.MainActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

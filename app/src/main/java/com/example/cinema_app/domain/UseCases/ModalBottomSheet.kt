@@ -18,11 +18,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cinema_app.R
-import com.example.cinema_app.data.Api.DataClasses.CustomDataClass
+import com.example.cinema_app.data.Api.DataClasses.Films.CustomDataClass
 import com.example.cinema_app.data.DB.Entities.FavouriteFilm
 import com.example.cinema_app.data.DB.Entities.Playlist
 import com.example.cinema_app.data.DB.MainDb
-import com.example.cinema_app.data.PlayListAdapter
+import com.example.cinema_app.data.adapters.PlayListAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.Dispatchers

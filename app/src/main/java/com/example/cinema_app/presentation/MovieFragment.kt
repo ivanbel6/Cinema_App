@@ -7,14 +7,10 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cinema_app.R
-import com.example.cinema_app.data.VpAdapter
 import com.example.cinema_app.domain.UseCases.CreateSlider
-import com.example.cinema_app.domain.UseCases.CreateTopSlider
-import com.google.android.material.tabs.TabLayoutMediator
 
 private lateinit var popularRecycleView: RecyclerView
 private lateinit var topRecycleView: RecyclerView

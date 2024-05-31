@@ -5,10 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cinema_app.R
-import com.example.cinema_app.data.DB.MainDb
-import com.example.cinema_app.data.VpAdapter
+import com.example.cinema_app.data.adapters.VpAdapter
 import com.example.cinema_app.databinding.ActivityMainBinding
-import com.example.cinema_app.presentation.ProfileActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.tabs.TabLayoutMediator
 import retrofit2.Retrofit
@@ -76,6 +74,26 @@ class MainActivity : AppCompatActivity() {
         const val AUTO_SCROLL_DELAY = 10000L // Задержка в миллисекундах (4 секунды)
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("https://api.kinopoisk.dev/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val footballretrofit: Retrofit = Retrofit.Builder()
+            .baseUrl("https://v3.football.api-sports.io/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val basketballretrofit: Retrofit = Retrofit.Builder()
+            .baseUrl("https://v1.basketball.api-sports.io/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val volleyballretrofit: Retrofit = Retrofit.Builder()
+            .baseUrl("https://v1.volleyball.api-sports.io/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val hockeyretrofit: Retrofit = Retrofit.Builder()
+            .baseUrl("https://v1.hockey.api-sports.io")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

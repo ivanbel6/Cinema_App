@@ -1,8 +1,12 @@
 package com.example.cinema_app.data.Api.Interface
 
-
-import com.example.cinema_app.data.Api.DataClasses.MoviesResponse
+import com.example.cinema_app.data.Api.DataClasses.BasketballEvent.BasketballResponse
+import com.example.cinema_app.data.Api.DataClasses.FootballEvent.FootballResponse
+import com.example.cinema_app.data.Api.DataClasses.HockeyEvent.HockeyResponse
+import com.example.cinema_app.data.Api.DataClasses.Films.MoviesResponse
+import com.example.cinema_app.data.Api.DataClasses.VolleyballEvent.VolleyballResponse
 import retrofit2.http.GET
+import retrofit2.http.Headers
 
 interface ApiInterface {
     @GET(
@@ -65,4 +69,32 @@ interface ApiInterface {
                 "&token=0HR2NYV-SW149QR-H2NX838-05J2J5N"
     )
     suspend fun getMovieNew(): MoviesResponse
+
+    @Headers(
+        "x-rapidapi-key: 942901e89024c5b511096352d1a5b61a",
+        "x-rapidapi-host: v3.football.api-sports.io"
+    )
+    @GET("fixtures?league=235&season=2023")
+    suspend fun getFootballResponse(): FootballResponse
+
+    @Headers(
+        "x-rapidapi-key: 942901e89024c5b511096352d1a5b61a",
+        "x-rapidapi-host: v1.basketball.api-sports.io"
+    )
+    @GET("games?league=13&season=2023")
+    suspend fun getBasketballResponse(): BasketballResponse
+
+    @Headers(
+        "x-rapidapi-key: 942901e89024c5b511096352d1a5b61a",
+        "x-rapidapi-host: v1.basketball.api-sports.io"
+    )
+    @GET("games?league=132&season=2023")
+    suspend fun getVolleyballResponse(): VolleyballResponse
+
+    @Headers(
+        "x-rapidapi-key: 942901e89024c5b511096352d1a5b61a",
+        "x-rapidapi-host: v1.basketball.api-sports.io"
+    )
+    @GET("games?league=35&season=2023")
+    suspend fun getHockeyResponse(): HockeyResponse
 }

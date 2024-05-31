@@ -27,4 +27,10 @@
     <string name="decline">decline</string>
     <string name="accept">Добавить</string>
 
+    <string name="football">Футбол</string>
+    <string name="basketball">Баскетбол</string>
+    <string name="volleyball">Воллейбол</string>
+    <string name="hockey">Хоккей</string>
+    <string name="Other">Другие</string>
+
 </resources>

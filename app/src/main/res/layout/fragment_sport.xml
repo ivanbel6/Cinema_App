@@ -1,14 +1,455 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presentation.SportFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="FragmentSport" />
+        android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/sports_background_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/png_sports_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:backgroundTint="@color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:context=".presentation.MainActivity">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/sliderRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="true"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <LinearLayout
+                    android:id="@+id/indicator_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/sliderRecyclerView">
+
+                    <View
+                        android:id="@+id/indicator_1.1"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/inactive_indicator" />
+
+                    <View
+                        android:id="@+id/indicator_1.2"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/inactive_indicator" />
+
+                    <View
+                        android:id="@+id/indicator_1.3"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/inactive_indicator" />
+
+                    <View
+                        android:id="@+id/indicator_1.4"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/inactive_indicator" />
+
+                    <View
+                        android:id="@+id/indicator_1.5"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/inactive_indicator" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/GenresTopRecycleView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:backgroundTint="@color/transparent"
+                    android:clipToPadding="false"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/indicator_lay" />
+
+                <View
+                    android:id="@+id/empty"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    app:layout_constraintTop_toBottomOf="@+id/GenresTopRecycleView" />
+
+<!--                <FrameLayout-->
+<!--                    android:id="@+id/for_you_block"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/GenresTopRecycleView">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+
+<!--                        android:paddingStart="10dp"-->
+<!--                        android:paddingEnd="10dp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:paddingStart="15dp"-->
+<!--                            android:text="@string/ForYou"-->
+<!--                            android:textColor="@color/silver"-->
+<!--                            android:textSize="19sp"-->
+<!--                            android:textStyle="bold"-->
+<!--                            app:layout_constraintVertical_bias="0.75"-->
+<!--                            tools:ignore="MissingConstraints"-->
+<!--                            tools:layout_editor_absoluteX="0dp" />-->
+<!--                    </LinearLayout>-->
+
+<!--                    <androidx.recyclerview.widget.RecyclerView-->
+<!--                        android:id="@+id/ForYouRecycleView"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="30dp"-->
+<!--                        android:layout_marginBottom="10dp"-->
+<!--                        android:clipToPadding="false"-->
+<!--                        android:paddingStart="8dp"-->
+<!--                        android:paddingEnd="8dp"-->
+<!--                        tools:layout_editor_absoluteX="16dp" />-->
+<!--                </FrameLayout>-->
+
+<!--                <FrameLayout-->
+<!--                    android:id="@+id/cybersport_block"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/GenresTopRecycleView">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+
+<!--                        android:paddingStart="10dp"-->
+<!--                        android:paddingEnd="10dp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:paddingStart="15dp"-->
+<!--                            android:text="@string/Cybersport"-->
+<!--                            android:textColor="@color/silver"-->
+<!--                            android:textSize="19sp"-->
+<!--                            android:textStyle="bold"-->
+<!--                            app:layout_constraintBottom_toTopOf="@+id/dramaRecyclerView"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView"-->
+<!--                            app:layout_constraintVertical_bias="0.75"-->
+<!--                            tools:ignore="MissingConstraints"-->
+<!--                            tools:layout_editor_absoluteX="0dp" />-->
+
+<!--                    </LinearLayout>-->
+
+<!--                    <androidx.recyclerview.widget.RecyclerView-->
+<!--                        android:id="@+id/cybersportRecycleView"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="30dp"-->
+<!--                        android:layout_marginBottom="10dp"-->
+<!--                        android:clipToPadding="false"-->
+<!--                        android:paddingStart="8dp"-->
+<!--                        android:paddingEnd="8dp"-->
+<!--                        tools:layout_editor_absoluteX="16dp" />-->
+<!--                </FrameLayout>-->
+
+                <FrameLayout
+                    android:id="@+id/football_block"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/GenresTopRecycleView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingStart="15dp"
+                            android:text="@string/football"
+                            android:textColor="@color/silver"
+                            android:textSize="19sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/dramaRecyclerView"
+                            app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView"
+                            app:layout_constraintVertical_bias="0.75"
+                            tools:ignore="MissingConstraints"
+                            tools:layout_editor_absoluteX="0dp" />
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="70dp"
+                                android:src="@drawable/converted"
+                                app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                                app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/footballRecycleView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:clipToPadding="false"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        tools:layout_editor_absoluteX="16dp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/basketball_block"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/football_block">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingStart="15dp"
+                            android:text="@string/basketball"
+                            android:textColor="@color/silver"
+                            android:textSize="19sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/dramaRecyclerView"
+                            app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView"
+                            app:layout_constraintVertical_bias="0.75"
+                            tools:ignore="MissingConstraints"
+                            tools:layout_editor_absoluteX="0dp" />
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="70dp"
+                                android:src="@drawable/converted"
+                                app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                                app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/basketballRecycleView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:clipToPadding="false"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        tools:layout_editor_absoluteX="16dp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/volleyball_block"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/basketball_block">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingStart="15dp"
+                            android:text="@string/volleyball"
+                            android:textColor="@color/silver"
+                            android:textSize="19sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/dramaRecyclerView"
+                            app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView"
+                            app:layout_constraintVertical_bias="0.75"
+                            tools:ignore="MissingConstraints"
+                            tools:layout_editor_absoluteX="0dp" />
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="70dp"
+                                android:src="@drawable/converted"
+                                app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                                app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/volleyballRecycleView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:clipToPadding="false"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        tools:layout_editor_absoluteX="16dp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/hockey_block"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/volleyball_block">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingStart="15dp"
+                            android:text="@string/hockey"
+                            android:textColor="@color/silver"
+                            android:textSize="19sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/dramaRecyclerView"
+                            app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView"
+                            app:layout_constraintVertical_bias="0.75"
+                            tools:ignore="MissingConstraints"
+                            tools:layout_editor_absoluteX="0dp" />
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="70dp"
+                                android:src="@drawable/converted"
+                                app:layout_constraintStart_toEndOf="@+id/moreTextView"
+                                app:layout_constraintTop_toBottomOf="@+id/CustomRecycleView" />
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/hockeyRecycleView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:clipToPadding="false"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        tools:layout_editor_absoluteX="16dp" />
+                </FrameLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -13,9 +13,8 @@ import com.example.cinema_app.R
 import com.example.cinema_app.data.DB.Entities.Playlist
 import com.example.cinema_app.data.DB.MainDb
 import com.example.cinema_app.data.Interfaces.PlaylistUpdateListener
-import com.example.cinema_app.data.PlayListAdapter_2
+import com.example.cinema_app.data.adapters.PlayListAdapter_2
 import com.example.cinema_app.databinding.FragmentPlayListBinding
-import com.example.cinema_app.domain.UseCases.ModalBottomSheet
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

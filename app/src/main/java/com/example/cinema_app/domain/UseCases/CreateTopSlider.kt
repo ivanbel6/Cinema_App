@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import com.example.cinema_app.R
 import com.example.cinema_app.data.Api.Interface.ApiInterface
-import com.example.cinema_app.data.GenreAdapter
-import com.example.cinema_app.data.SlideItem
-import com.example.cinema_app.data.SliderAdapter
+import com.example.cinema_app.data.adapters.GenreAdapter
+import com.example.cinema_app.data.Api.DataClasses.Films.SlideItem
+import com.example.cinema_app.data.adapters.SliderAdapter
 import com.example.cinema_app.presentation.MainActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
