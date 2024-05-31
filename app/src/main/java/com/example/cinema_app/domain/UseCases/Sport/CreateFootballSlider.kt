@@ -1,4 +1,4 @@
-package com.example.cinema_app.domain.UseCases
+package com.example.cinema_app.domain.UseCases.Sport
 
 import android.content.Context
 import androidx.recyclerview.widget.LinearLayoutManager

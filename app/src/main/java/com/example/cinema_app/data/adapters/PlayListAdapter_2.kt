@@ -34,6 +34,7 @@ class PlayListAdapter_2(
 
         holder.titleTextView.text = currentItem.playlist.name
         holder.descriptionTextView.text = currentItem.playlist.description
+        holder.countInside.text = currentItem.films.size.toString()
         if (currentItem.films != null && !currentItem.films.isEmpty() && currentItem.films.get(0) != null) {
             Glide.with(holder.itemView)
                 .load(currentItem.films.get(0).backdropURL)
@@ -65,6 +66,7 @@ class PlayListAdapter_2(
         val descriptionTextView: TextView = itemView.findViewById(R.id.description)
         val cardImageView: ImageView = itemView.findViewById(R.id.cardImageView)
         val dotsMenu: ImageView = itemView.findViewById(R.id.dots_menu)
+        val countInside: TextView = itemView.findViewById(R.id.count_inside)
     }
 }
 

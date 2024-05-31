@@ -1,4 +1,4 @@
-package com.example.cinema_app.domain.UseCases
+package com.example.cinema_app.domain.UseCases.Sport
 
 import android.content.Context
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,16 +14,15 @@ import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
+class CreateHockeySlider {
+    fun fill(hockeyRecyclerView: RecyclerView, applicationContext: Context) {
+        hockeyRecyclerView.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
 
-class CreateBasketballSlider {
-    fun fill(basketballRecyclerView: RecyclerView, applicationContext: Context) {
-        basketballRecyclerView.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
-
-        val sportsApiInterface = MainActivity.basketballretrofit.create(ApiInterface::class.java)
-        val basketballList: MutableList<SportEvent> = mutableListOf()
+        val sportsApiInterface = MainActivity.hockeyretrofit.create(ApiInterface::class.java)
+        val hockeyList: MutableList<SportEvent> = mutableListOf()
 
         CoroutineScope(Dispatchers.Main).launch {
-            val responseList = sportsApiInterface.getBasketballResponse()
+            val responseList = sportsApiInterface.getHockeyResponse()
             for (el in responseList.response) {
 
                 val instant = Instant.ofEpochSecond(el.timestamp)
@@ -31,7 +30,7 @@ class CreateBasketballSlider {
                 val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy") // Define your desired date format here
                 val formattedDate = date.format(formatter)
 
-                basketballList.add(
+                hockeyList.add(
                     SportEvent(
                         team1Name = el.teams.home.name,
                         team2Name = el.teams.away.name,
@@ -41,8 +40,8 @@ class CreateBasketballSlider {
                     )
                 )
             }
-            val basketballAdapter = SportsRecycleAdapter(basketballList)
-            basketballRecyclerView.adapter = basketballAdapter
+            val hockeyAdapter = SportsRecycleAdapter(hockeyList)
+            hockeyRecyclerView.adapter = hockeyAdapter
 
 //            val customSnapHelper: SnapHelper = PagerSnapHelper()
 //            customSnapHelper.attachToRecyclerView(customRecyclerView)

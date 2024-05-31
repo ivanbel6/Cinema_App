@@ -97,17 +97,8 @@ class ModalBottomSheet(val customData: CustomDataClass) : BottomSheetDialogFragm
 
                 }
 
-                // Выводим выбранные элементы в лог
-//                for (selectedItem in selectedItems) {
-//                    Log.v("Selected_Playlist_Item", selectedItem.toString())
-//                }
             }
         }
-//        lifecycleScope.launch {
-//            withContext(Dispatchers.IO) {
-//                playlistDao.deleteAllPlaylists()
-//            }
-//        }
         createPlayListBtn.setOnClickListener {
             initializeDialog(customData = customData)
         }
@@ -189,18 +180,11 @@ class ModalBottomSheet(val customData: CustomDataClass) : BottomSheetDialogFragm
                                 name = name,description = description
                             )
                         )
-                        Log.v(
-                            "Test_123421342134",
-                            playlistDao.getPlaylistIdByName("123").toString()
-                        )
-
                     }
 
                 }
                 lifecycleScope.launchWhenCreated {
                     playlistDao.getAllPlaylists().collect { playlists ->
-                        // Обновление списка адаптера
-                        Log.v("Test_db_", playlists.toString())
                         playListRecyclerView.layoutManager =
                             LinearLayoutManager(
                                 requireContext(),

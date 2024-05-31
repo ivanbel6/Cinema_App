@@ -25,6 +25,12 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //Данные в этих двух переменных должны измениться после успешной авторизации/регистрации
+        binding.userName
+        binding.userLogin
+        //Если пользователь зарегестрирован эта кнопка должны исчезнуть и не появляться при след запуске
+        binding.subscribeButton
+
         binding.bottomNavigationProfile.selectedItemId = R.id.BottomNavProfile
         binding.subscribeButton.setOnClickListener {
             val loginFragment = LoginFragment()
@@ -32,7 +38,7 @@ class ProfileFragment : Fragment() {
                 .replace(R.id.container_login, loginFragment)
                 .commit()
         }
-        binding.playlistsButton.setOnClickListener{
+        binding.playlistsButton.setOnClickListener {
             val playListFragment = PlayListFragment()
             parentFragmentManager.beginTransaction()
                 .replace(R.id.container_login, playListFragment)
@@ -48,7 +54,9 @@ class ProfileFragment : Fragment() {
                 }
 
                 R.id.BottomNavSearch -> {
-                    //supportFragmentManager.beginTransaction().replace(R.id.fragment_container, SearchFragment()).commit()
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.container_login, SearchFragment())
+                        .commit()
                     true
                 }
 

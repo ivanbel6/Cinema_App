@@ -74,7 +74,7 @@ class PlayListFragment : Fragment(), PlaylistUpdateListener {
 
     private fun showCreatePlaylistDialog() {
         val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_edit_playlist, null)
-        val builder = AlertDialog.Builder(requireContext())
+        val builder = AlertDialog.Builder(requireContext(), R.style.TransparentDialog) // Apply the custom theme here
             .setView(dialogView)
             .setPositiveButton("Create") { dialog, which ->
                 val title = dialogView.findViewById<EditText>(R.id.playlistNameEditText).text.toString()
@@ -95,6 +95,16 @@ class PlayListFragment : Fragment(), PlaylistUpdateListener {
             .setTitle("Create Playlist")
 
         val alertDialog = builder.create()
+
+        // Установка ширины
+        alertDialog.setOnShowListener {
+            val window = alertDialog.window
+            window?.setLayout(
+                (resources.displayMetrics.widthPixels * 0.8).toInt(), // 90% of screen width
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+        }
+
         alertDialog.show()
     }
     override fun onPlaylistUpdated() {

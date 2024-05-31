@@ -9,10 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cinema_app.R
-import com.example.cinema_app.domain.UseCases.CreateBasketballSlider
-import com.example.cinema_app.domain.UseCases.CreateFootballSlider
-import com.example.cinema_app.domain.UseCases.CreateHockeySlider
-import com.example.cinema_app.domain.UseCases.CreateVolleyballSlider
+import com.example.cinema_app.domain.UseCases.Sport.CreateHockeySlider
 
 private lateinit var footballRecycleView: RecyclerView
 private lateinit var basketballRecycleView: RecyclerView
