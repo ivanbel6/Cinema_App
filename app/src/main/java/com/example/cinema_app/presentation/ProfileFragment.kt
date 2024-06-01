@@ -2,6 +2,7 @@ package com.example.cinema_app.presentation
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,6 +13,7 @@ import com.example.cinema_app.R
 import com.example.cinema_app.databinding.FragmentProfileBinding
 import com.example.kursovayz.screens.login.LoginFragment
 import com.example.kursovayz.screens.userinfo.UserInfoFragment
+import java.io.File
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
@@ -86,11 +88,17 @@ class ProfileFragment : Fragment() {
     private fun loadUserInfo() {
         val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
         val userName = sharedPref.getString("USER_NAME", "Default Name")
-        val avatarUrl = sharedPref.getString("AVATAR_URL", "")
+        val avatarPath = sharedPref.getString("AVATAR_PATH", "")
 
         binding.userName.text = userName
-        if (avatarUrl != null && avatarUrl.isNotEmpty()) {
-            binding.userAvatar.setImageURI(Uri.parse(avatarUrl))
+        if (avatarPath != null && avatarPath.isNotEmpty()) {
+            val file = File(avatarPath)
+            if (file.exists()) {
+                val bitmap = BitmapFactory.decodeFile(file.absolutePath)
+                binding.userAvatar.setImageBitmap(bitmap)
+            } else {
+                binding.userAvatar.setImageResource(R.drawable.svg_profile_avatar) // Замените на ваш ресурс по умолчанию
+            }
         }
     }
 
