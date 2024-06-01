@@ -52,12 +52,5 @@ class FirebaseRepository {
         Firebase.auth.signOut()
     }
 
-//    private fun navigateToStartFragment(context: Context) {
-//        val navController = NavHostFragment.findNavController((context as AppCompatActivity).supportFragmentManager.fragments[0])
-//        navController.navigate(R.id.action_loginFragment_to_profileActivity)
-//    }
-//    private fun navigateToStartFragmentFromRegister(context: Context) {
-//        val navController = NavHostFragment.findNavController((context as AppCompatActivity).supportFragmentManager.fragments[0])
-//        navController.navigate(R.id.action_registerFragment_to_profileActivity)
-//    }
+
 }

@@ -8,6 +8,7 @@ import com.example.cinema_app.R
 import com.example.cinema_app.data.Auth_Reg.service.FirebaseRepository
 import com.example.cinema_app.presentation.ProfileFragment
 import com.example.kursovayz.screens.login.LoginFragment
+import com.example.kursovayz.screens.userinfo.UserInfoFragment
 import kotlinx.coroutines.launch
 
 class RegisterViewModel : ViewModel() {
@@ -25,11 +26,12 @@ class RegisterViewModel : ViewModel() {
     ) {
         viewModelScope.launch {
             FirebaseRepository().createUser(email, password, context)
-            val profileFragment = ProfileFragment()
             parentFragmentManager.beginTransaction()
-                .replace(R.id.container_login, profileFragment)
+                .replace(R.id.container_login, UserInfoFragment())
                 .commit()
         }
     }
+
+
 
 }

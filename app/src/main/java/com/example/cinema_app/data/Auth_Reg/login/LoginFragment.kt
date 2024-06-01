@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.cinema_app.R
 import com.example.cinema_app.databinding.FragmentLoginBinding
 import com.example.kursovayz.screens.register.RegisterFragment
+import com.example.kursovayz.screens.userinfo.UserInfoFragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -89,10 +90,12 @@ class LoginFragment : Fragment() {
     private fun firebaseAuthWithGoogle(account: GoogleSignInAccount) {
         val credential = GoogleAuthProvider.getCredential(account.idToken, null)
         FirebaseAuth.getInstance().signInWithCredential(credential)
-            .addOnCompleteListener(requireActivity(), OnCompleteListener { task ->
+            .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(requireContext(), "Logged in successfully", Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_loginFragment_to_profileActivity)
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.container_login, UserInfoFragment())
+                        .commit()
                 } else {
                     Toast.makeText(
                         requireContext(),
@@ -100,7 +103,7 @@ class LoginFragment : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-            })
+            }
     }
 
     override fun onStart() {
