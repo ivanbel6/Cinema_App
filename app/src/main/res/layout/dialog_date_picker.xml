@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <NumberPicker
+        android:id="@+id/numberPickerDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:max="31"
+        android:min="1" />
+
+    <NumberPicker
+        android:id="@+id/numberPickerMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:max="12"
+        android:min="1" />
+
+    <NumberPicker
+        android:id="@+id/numberPickerYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:max="2023"
+        android:min="1900" />
+
+</LinearLayout>

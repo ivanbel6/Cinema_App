@@ -32,5 +32,16 @@
     <string name="volleyball">Воллейбол</string>
     <string name="hockey">Хоккей</string>
     <string name="Other">Другие</string>
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string-array name="country_array">
+        <item>Afghanistan</item>
+        <item>Albania</item>
+        <item>Algeria</item>
+        <!-- Добавьте все остальные страны в алфавитном порядке -->
+    </string-array>
 
 </resources>
