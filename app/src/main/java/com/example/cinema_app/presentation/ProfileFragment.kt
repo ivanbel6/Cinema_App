@@ -38,7 +38,7 @@ class ProfileFragment : Fragment() {
         if (sharedPref.getBoolean("IS_REGISTERED", false)) {
             binding.subscribeButton.visibility = View.GONE
         }
-
+        binding.userLogin
         binding.changeUserInfo.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.container_login, UserInfoFragment())
@@ -89,8 +89,11 @@ class ProfileFragment : Fragment() {
         val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
         val userName = sharedPref.getString("USER_NAME", "Default Name")
         val avatarPath = sharedPref.getString("AVATAR_PATH", "")
+        val userEmail = sharedPref.getString("USER_EMAIL", "No Email")
 
         binding.userName.text = userName
+        binding.userLogin.text = userEmail
+
         if (avatarPath != null && avatarPath.isNotEmpty()) {
             val file = File(avatarPath)
             if (file.exists()) {

@@ -1,5 +1,6 @@
 package com.example.kursovayz.screens.login
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -92,6 +93,8 @@ class LoginFragment : Fragment() {
         FirebaseAuth.getInstance().signInWithCredential(credential)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
+                    val email = account.email
+                    saveUserEmail(email)
                     Toast.makeText(requireContext(), "Logged in successfully", Toast.LENGTH_SHORT).show()
                     parentFragmentManager.beginTransaction()
                         .replace(R.id.container_login, UserInfoFragment())
@@ -104,6 +107,13 @@ class LoginFragment : Fragment() {
                     ).show()
                 }
             }
+    }
+    private fun saveUserEmail(email: String?) {
+        val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE) ?: return
+        with(sharedPref.edit()) {
+            putString("USER_EMAIL", email)
+            apply()
+        }
     }
 
     override fun onStart() {
@@ -122,9 +132,8 @@ class LoginFragment : Fragment() {
                 requireContext(),
                 parentFragmentManager
             )
-
+            saveUserEmail(binding.etEmail.text.toString())
         }
-
     }
 
 }
