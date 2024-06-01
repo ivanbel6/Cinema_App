@@ -11,6 +11,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.NumberPicker
 import androidx.fragment.app.Fragment
 import com.example.cinema_app.R
@@ -42,6 +43,10 @@ class UserInfoFragment : Fragment() {
             showDatePickerDialog()
         }
 
+        binding.changeLocation.setOnClickListener {
+            showCountryPickerDialog()
+        }
+
         binding.btnChooseImage.setOnClickListener {
             openImageChooser()
         }
@@ -54,7 +59,7 @@ class UserInfoFragment : Fragment() {
             val birthDay = binding.bithDate.text.split("-")[0].toInt()
             val birthMonth = binding.bithDate.text.split("-")[1].toInt()
             val birthYear = binding.bithDate.text.split("-")[2].toInt()
-            val location = binding.spinnerLocation.selectedItem.toString()
+            val location = binding.textLocation.text.toString()
             val additionalInfo = binding.etAdditionalInfo.text.toString()
 
             saveUserInfo(
@@ -107,6 +112,23 @@ class UserInfoFragment : Fragment() {
             .setNegativeButton("Cancel", null)
             .create()
             .show()
+    }
+
+    private fun showCountryPickerDialog() {
+        val countries = resources.getStringArray(R.array.country_array)
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, countries)
+
+        val dialog = AlertDialog.Builder(requireContext())
+            .setTitle("Select Country")
+            .setAdapter(adapter) { _, which ->
+                val selectedCountry = countries[which]
+                binding.textLocation.text = selectedCountry
+            }
+            .setNegativeButton("Cancel", null)
+            .create()
+
+        dialog.window?.setBackgroundDrawableResource(R.drawable.rounded_background)
+        dialog.show()
     }
 
     private fun openImageChooser() {
@@ -168,10 +190,7 @@ class UserInfoFragment : Fragment() {
         val birthYear = sharedPref.getInt("BIRTH_YEAR", 1900)
         binding.bithDate.text = String.format("%02d-%02d-%04d", birthDay, birthMonth, birthYear)
         val location = sharedPref.getString("LOCATION", "")
-        val locationIndex = resources.getStringArray(R.array.country_array).indexOf(location)
-        if (locationIndex >= 0) {
-            binding.spinnerLocation.setSelection(locationIndex)
-        }
+        binding.textLocation.text = location ?: "Country"
         binding.etAdditionalInfo.setText(sharedPref.getString("ADDITIONAL_INFO", ""))
     }
 

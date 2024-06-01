@@ -122,6 +122,7 @@
                     android:text="Location" />
 
                 <FrameLayout
+                    android:id="@+id/change_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
@@ -130,13 +131,13 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/fram_info_long" />
 
-                    <Spinner
-                        android:id="@+id/spinnerLocation"
+                    <TextView
+                        android:id="@+id/text_location"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:dropDownWidth="108dp"
+                        android:text="County"
                         android:layout_gravity="center_vertical"
-                        android:entries="@array/country_array" />
+                         />
                 </FrameLayout>
 
 
