@@ -44,7 +44,7 @@ interface ApiInterface {
                 "&notNullFields=premiere.world" +
                 "&notNullFields=premiere.russia" +
                 "&notNullFields=audience.country"+
-                "&token=0HR2NYV-SW149QR-H2NX838-05J2J5N"
+                "&token=QM1ZJ56-0P2MF2B-H9WGY7B-T15C2X7"
     )
     suspend fun getMovies(): MoviesResponse
 
@@ -66,7 +66,7 @@ interface ApiInterface {
                 "&notNullFields=poster.url" +
                 "&notNullFields=rating.imdb" +
                 "&notNullFields=year" +
-                "&token=0HR2NYV-SW149QR-H2NX838-05J2J5N"
+                "&token=QM1ZJ56-0P2MF2B-H9WGY7B-T15C2X7"
     )
     suspend fun getMovieNew(): MoviesResponse
 
