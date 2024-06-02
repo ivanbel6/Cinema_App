@@ -13,6 +13,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.NumberPicker
+import android.widget.Spinner
+import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import com.example.cinema_app.R
 import com.example.cinema_app.databinding.FragmentUserInfoBinding
@@ -22,6 +26,7 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.io.InputStream
 import java.util.Calendar
+
 
 class UserInfoFragment : Fragment() {
     private lateinit var binding: FragmentUserInfoBinding
@@ -50,6 +55,16 @@ class UserInfoFragment : Fragment() {
         binding.btnChooseImage.setOnClickListener {
             openImageChooser()
         }
+        val spinnerGender: Spinner = view.findViewById(R.id.spinnerGender)
+
+        val adapter = ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.gender_array, R.layout.spinner_item
+        )
+
+        adapter.setDropDownViewResource(R.layout.spinner_item) // Задайте кастомный layout для выпадающих элементов
+
+        spinnerGender.adapter = adapter
 
         binding.updateButton.setOnClickListener {
             val userName = binding.etUserName.text.toString()
@@ -89,10 +104,13 @@ class UserInfoFragment : Fragment() {
 
         // Initialize pickers
         dayPicker.minValue = 1
+        dayPicker.value = 20
         dayPicker.maxValue = 31
         monthPicker.minValue = 1
+        monthPicker.value = 10
         monthPicker.maxValue = 12
-        yearPicker.minValue = 1900
+        yearPicker.minValue = 1950
+        yearPicker.value = 2000
         yearPicker.maxValue = Calendar.getInstance().get(Calendar.YEAR)
 
         val currentBirthDate = binding.bithDate.text.toString().split("-")
@@ -116,10 +134,20 @@ class UserInfoFragment : Fragment() {
 
     private fun showCountryPickerDialog() {
         val countries = resources.getStringArray(R.array.country_array)
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, countries)
+
+        // Создание адаптера с кастомным стилем
+        val adapter = object : ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1, countries) {
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val view = super.getView(position, convertView, parent)
+                val textView = view.findViewById<TextView>(android.R.id.text1)
+                textView.setTextColor(ContextCompat.getColor(context, R.color.silver_transparent))
+                textView.typeface = ResourcesCompat.getFont(context, R.font.inter_regular)
+                return view
+            }
+        }
 
         val dialog = AlertDialog.Builder(requireContext())
-            .setTitle("Select Country")
+            .setCustomTitle(LayoutInflater.from(context).inflate(R.layout.custom_dialog_title, null))
             .setAdapter(adapter) { _, which ->
                 val selectedCountry = countries[which]
                 binding.textLocation.text = selectedCountry
@@ -130,6 +158,7 @@ class UserInfoFragment : Fragment() {
         dialog.window?.setBackgroundDrawableResource(R.drawable.rounded_background)
         dialog.show()
     }
+
 
     private fun openImageChooser() {
         val intent = Intent(Intent.ACTION_PICK)

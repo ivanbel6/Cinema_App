@@ -46,6 +46,12 @@ class ProfileFragment : Fragment() {
         }
 
         binding.bottomNavigationProfile.selectedItemId = R.id.BottomNavProfile
+        binding.aboutButton.setOnClickListener{
+            val subscribeBtn = SubscribeFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container_login, subscribeBtn)
+                .commit()
+        }
         binding.subscribeButton.setOnClickListener {
             val loginFragment = LoginFragment()
             parentFragmentManager.beginTransaction()

@@ -5,7 +5,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FA1515</color>
     <color name="silver">#F2E3E8EF</color>
-    <color name="silver_transparent">#3ECCC7C7</color>
+    <color name="silver_transparent">#B9CCC7C7</color>
     <color name="silver_text">#BACDC5C5</color>
     <color name="active_color">#D3D0D0</color>
     <color name="inactive_color">#434242</color>
@@ -46,6 +46,15 @@
 
     <color name="sport_item_white">#E6E3E8EF</color>
     <color name="sport_item_white_75">#BFE3E8EF</color>
+
+
+    <color name="edit_profile_top">#0D4996C3</color>
+    <color name="edit_profile_bottom">#0F171E</color>
+
+<!--    <color name="edit_profile_modal">#2B1E1B</color>-->
+    <color name="edit_profile_modal">#242B31</color>
+
+
 
 
 

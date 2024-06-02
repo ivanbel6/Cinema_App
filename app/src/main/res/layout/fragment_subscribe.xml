@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0F171E"
+        tools:context=".presentation.SubscribeFragment">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Top_app_bar_background_color"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/appBarLay"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:fontFamily="@font/inter_regular"
+                app:menu="@menu/top_app_bar"
+                app:navigationIcon="@drawable/back_arrow"
+                app:title="@string/Subscribe"
+                app:titleTextColor="@color/Top_app_bar_text_color" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout_main">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/m_plus_rounded_1c_bold"
+                android:text="Oh no, you don't have a subscription, let's fix that"
+                android:textAlignment="center"
+                android:textColor="@color/silver"
+                android:textSize="25dp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/svg_line" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="25dp"
+                android:src="@drawable/starter_subscribe" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="25dp"
+                android:src="@drawable/sport_subscribe_" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="270dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="25dp"
+                android:src="@drawable/png_ulitimate">
+
+            </ImageView>
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
