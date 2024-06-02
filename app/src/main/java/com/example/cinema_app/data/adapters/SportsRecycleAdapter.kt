@@ -1,5 +1,6 @@
 package com.example.cinema_app.data.adapters
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,10 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.cinema_app.R
-import com.example.cinema_app.data.Api.DataClasses.Films.SportEvent
+import com.example.cinema_app.data.Api.DataClasses.FootballEvent.SportEvent
+import com.example.cinema_app.presentation.SportActivity
 
 class SportsRecycleAdapter(private val list: List<SportEvent>) :
     RecyclerView.Adapter<SportsRecycleAdapter.ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val createItem = LayoutInflater.from(parent.context).inflate(R.layout.sport_item, parent, false)
         return ViewHolder(createItem)
@@ -35,6 +38,10 @@ class SportsRecycleAdapter(private val list: List<SportEvent>) :
             .into(holder.team2Logo)
 
         holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, SportActivity::class.java)
+            intent.putExtra("data", currentItem)
+            context.startActivity(intent)
         }
     }
 

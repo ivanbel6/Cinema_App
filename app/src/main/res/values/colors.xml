@@ -55,6 +55,16 @@
     <color name="edit_profile_modal">#242B31</color>
 
 
+    <color name="cybersport_title">#BE284E</color>
+    <color name="cybersport_text">#E3E8EF</color>
+
+    <color name="search_bg">#0F1F2A</color>
+    <color name="search_line_bg">#260D4C6E</color>
+    <color name="search_color">#40D9D9D9</color>
+
+    <color name="radio_off">#192127</color>
+
+
 
 
 

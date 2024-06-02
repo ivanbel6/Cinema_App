@@ -28,7 +28,7 @@ class CreateTopSlider(val linearLayout: LinearLayout, val genreRecyclerView: Rec
         var firstVisibleItemPosition: Int = 0
     }
 
-    fun fillTopSlider(
+    fun fillTopSliderFilms(
         applicationContext: Context,
         sliderRecyclerView: RecyclerView,
         scrollHandler: Handler,
@@ -95,6 +95,73 @@ class CreateTopSlider(val linearLayout: LinearLayout, val genreRecyclerView: Rec
 
     }
 
+    fun fillTopSliderSeries(
+        applicationContext: Context,
+        sliderRecyclerView: RecyclerView,
+        scrollHandler: Handler,
+    ) {
+        sliderRecyclerView.layoutManager =
+            LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
+        val snapHelper1: SnapHelper = PagerSnapHelper()
+        snapHelper1.attachToRecyclerView(sliderRecyclerView)
+        val slideItems = mutableListOf<SlideItem>()
+        val apiInterface = MainActivity.retrofit.create(ApiInterface::class.java)
+        CoroutineScope(Dispatchers.Main).launch {
+            val seriesList = apiInterface.getSeriesNew()
+            for (i in seriesList.docs) {
+                slideItems.add(
+                    SlideItem(
+                        date = i.year,
+                        imdbRating = i.rating!!.imdb!!.toDouble(),
+                        tomatoesRating = 7.3,
+                        mainImage = i.poster,
+                        genres = i.genres.toString()
+                            .replace(Regex("[name|Genre|\\[|\\]|\\(|\\)|=]"), "")
+
+                    )
+                )
+                if (slideItems.size > 4) {
+                    break;
+                }
+            }
+            Log.v("Test", slideItems.toString())
+            CreateGenreSlider(slideItems[0].genres,applicationContext)
+            val sliderAdapter = SliderAdapter(slideItems, applicationContext)
+            sliderRecyclerView.adapter = sliderAdapter
+            sliderRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    super.onScrolled(recyclerView, dx, dy)
+                    val layoutManager = recyclerView.layoutManager as LinearLayoutManager
+                    firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
+                    // Обновляем индикатор при пролистывании
+                    for (i in 0 until linearLayout.size) {
+                        if (i == firstVisibleItemPosition) {
+                            linearLayout[i].setBackgroundResource(R.drawable.active_indicator)
+                            CreateGenreSlider(slideItems[i].genres,applicationContext)
+//                          genreTextView.setText(slideItems[i].genres)
+                        } else {
+                            // Устанавливаем фоновый ресурс неактивного состояния
+                            linearLayout[i].setBackgroundResource(R.drawable.inactive_indicator)
+                        }
+                    }
+
+                }
+            })
+            scrollRunnable = Runnable {
+
+                val layoutManager = sliderRecyclerView.layoutManager as LinearLayoutManager
+                val currentPosition = layoutManager.findFirstVisibleItemPosition()
+                val nextPosition =
+                    if (currentPosition < sliderAdapter.itemCount - 1) currentPosition + 1 else 0
+                sliderRecyclerView.smoothScrollToPosition(nextPosition)
+                scrollHandler.postDelayed(scrollRunnable, MainActivity.AUTO_SCROLL_DELAY)
+            }
+
+            scrollHandler.postDelayed(scrollRunnable, MainActivity.AUTO_SCROLL_DELAY)
+        }
+
+    }
+
     fun CreateGenreSlider(slideItems: String, context: Context) {
         // Разделение строки по запятым и добавление каждого элемента в список
         val genresList: List<String> = slideItems.split(", ")
@@ -102,5 +169,7 @@ class CreateTopSlider(val linearLayout: LinearLayout, val genreRecyclerView: Rec
         genreRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         genreRecyclerView.adapter = GenreAdapter(genresList)
     }
+
+
 }
 

@@ -1,9 +1,9 @@
-package com.example.cinema_app.domain.UseCases.Sport
+package com.example.cinema_app.domain.UseCases
 
 import android.content.Context
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cinema_app.data.Api.DataClasses.Films.SportEvent
+import com.example.cinema_app.data.Api.DataClasses.FootballEvent.SportEvent
 import com.example.cinema_app.data.Api.Interface.ApiInterface
 import com.example.cinema_app.data.adapters.SportsRecycleAdapter
 import com.example.cinema_app.presentation.MainActivity
@@ -11,6 +11,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.time.Instant
+import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
@@ -25,15 +26,20 @@ class CreateFootballSlider {
         CoroutineScope(Dispatchers.Main).launch {
             val responseList = sportsApiInterface.getFootballResponse()
             for (el in responseList.response) {
+
                 val instant = Instant.ofEpochSecond(el.fixture.timestamp)
-                val date = instant.atZone(ZoneId.systemDefault()).toLocalDate()
-                val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy") // Define your desired date format here
-                val formattedDate = date.format(formatter)
+                val dateTimeInstant = LocalDateTime.ofInstant(instant, ZoneId.systemDefault())
+                val formatter = DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm") // Define your desired date format here
+                val dateTime = dateTimeInstant.format(formatter)
+
                 footballList.add(
                     SportEvent(
+                        sportEventName = "Матч регулярного чемпионата Российская Премьер-Лига",
                         team1Name = el.teams.home.name,
+                        team1Country = "Russia",
                         team2Name = el.teams.away.name,
-                        dateTime = formattedDate.toString(),
+                        team2Country = "Russia",
+                        dateTime = dateTime,
                         team1LogoUrl = el.teams.home.logo,
                         team2LogoUrl = el.teams.away.logo
                     )

@@ -234,5 +234,8 @@
         <item>Zambia</item>
         <item>Zimbabwe</item>
     </string-array>
-
+    <string name="ForYou">Для вас</string>
+    <string name="cybersport">Киберспорт</string>
+    <string name="searchHint">Search by actor, title...</string>
+    <string name="searchBy">Параметры поиска</string>
 </resources>

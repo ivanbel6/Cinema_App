@@ -1,9 +1,9 @@
-package com.example.cinema_app.domain.UseCases.Sport
+package com.example.cinema_app.domain.UseCases
 
 import android.content.Context
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cinema_app.data.Api.DataClasses.Films.SportEvent
+import com.example.cinema_app.data.Api.DataClasses.FootballEvent.SportEvent
 import com.example.cinema_app.data.Api.Interface.ApiInterface
 import com.example.cinema_app.data.adapters.SportsRecycleAdapter
 import com.example.cinema_app.presentation.MainActivity
@@ -30,15 +30,21 @@ class CreateHockeySlider {
                 val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy") // Define your desired date format here
                 val formattedDate = date.format(formatter)
 
-                hockeyList.add(
-                    SportEvent(
-                        team1Name = el.teams.home.name,
-                        team2Name = el.teams.away.name,
-                        dateTime = formattedDate.toString(),
-                        team1LogoUrl = el.teams.home.logo,
-                        team2LogoUrl = el.teams.away.logo
+                if(el.teams.home.name == "Lada" || el.teams.away.name == "Lada" || el.teams.home.name == "Dynamo Moscow" || el.teams.home.name == "Dynamo Moscow"|| el.teams.home.name == "Vityaz Balashikha" || el.teams.away.name == "Vityaz Balashikha")
+                    continue
+                else
+                    hockeyList.add(
+                        SportEvent(
+                            sportEventName = "Матч регулярного чемпионата КХЛ",
+                            team1Name = el.teams.home.name,
+                            team1Country = "Russia",
+                            team2Name = el.teams.away.name,
+                            team2Country = "Russia",
+                            dateTime = formattedDate.toString(),
+                            team1LogoUrl = el.teams.home.logo,
+                            team2LogoUrl = el.teams.away.logo
+                        )
                     )
-                )
             }
             val hockeyAdapter = SportsRecycleAdapter(hockeyList)
             hockeyRecyclerView.adapter = hockeyAdapter

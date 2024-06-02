@@ -47,13 +47,12 @@ class MainActivity : AppCompatActivity() {
         bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.BottomNavHome -> {
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
                     true
                 }
 
                 R.id.BottomNavSearch -> {
-                    //supportFragmentManager.beginTransaction().replace(R.id.fragment_container, SearchFragment()).commit()
+                    val intent = Intent(this, SearchActivity::class.java)
+                    startActivity(intent)
                     true
                 }
 
@@ -66,14 +65,17 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
-
-
     }
 
     companion object {
         const val AUTO_SCROLL_DELAY = 10000L // Задержка в миллисекундах (4 секунды)
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("https://api.kinopoisk.dev/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val cybersportretrofit: Retrofit = Retrofit.Builder()
+            .baseUrl("https://allsportsapi2.p.rapidapi.com/api/esport/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -93,12 +95,10 @@ class MainActivity : AppCompatActivity() {
             .build()
 
         val hockeyretrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("https://v1.hockey.api-sports.io")
+            .baseUrl("https://v1.hockey.api-sports.io/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-
-
 }
 
 

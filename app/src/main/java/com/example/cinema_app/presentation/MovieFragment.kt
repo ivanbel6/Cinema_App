@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cinema_app.R
 import com.example.cinema_app.domain.UseCases.CreateSlider
+import com.example.cinema_app.domain.UseCases.CreateTopSlider
 
 private lateinit var popularRecycleView: RecyclerView
 private lateinit var topRecycleView: RecyclerView
@@ -72,7 +73,7 @@ class MovieFragment : Fragment() {
 //         * SLIDER ON THE TOP
 //         */
 //        topRecycleView = requireView().findViewById(R.id.sliderRecyclerView)
-//        CreateTopSlider(a, genreRecyclerView).fillTopSlider(requireContext(), topRecycleView, scrollHandler)
+//        CreateTopSlider(a, genreRecyclerView).fillTopSliderFilms(requireContext(), topRecycleView, scrollHandler)
 //        topRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
 //         * SLIDER POPULAR
@@ -80,61 +81,58 @@ class MovieFragment : Fragment() {
 
         binding.vp2.setUserInputEnabled(true)
         popularRecycleView = requireView().findViewById(R.id.CustomRecycleView)
-        CreateSlider().fill(popularRecycleView, requireContext(), "")
+        CreateSlider().fillFilms(popularRecycleView, requireContext(), "")
         popularRecycleView.addOnItemTouchListener(onTouchListener)
 
 //        /**
 //         * DRAMA SLIDER
 //         */
 //        dramaRecycleView = requireView().findViewById(R.id.dramaRecyclerView)
-//        CreateSlider().fill(dramaRecycleView, requireContext(), "драма")
+//        CreateSlider().fillFilms(dramaRecycleView, requireContext(), "драма")
 //        dramaRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
 //        * FIGHT SLIDER
 //        */
 //        fightRecycleView = requireView().findViewById(R.id.fightRecyclerView)
-//        CreateSlider().fill(fightRecycleView, requireContext(), "боевик")
+//        CreateSlider().fillFilms(fightRecycleView, requireContext(), "боевик")
 //        fightRecycleView.addOnItemTouchListener(onTouchListener)
 //
 //        /**
 //         * COMEDY SLIDER
 //         */
 //        comedyRecycleView = requireView().findViewById(R.id.comedyRecyclerView)
-//        CreateSlider().fill(comedyRecycleView, requireContext(), "комедия")
+//        CreateSlider().fillFilms(comedyRecycleView, requireContext(), "комедия")
 //        comedyRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
 //         * HORRORS SLIDER
 //         */
 //        horrorsRecycleView = requireView().findViewById(R.id.horrorsRecyclerView)
-//        CreateSlider().fill(horrorsRecycleView, requireContext(), "ужасы")
+//        CreateSlider().fillFilms(horrorsRecycleView, requireContext(), "ужасы")
 //        horrorsRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
 //         * FANTASTIC  SLIDER
 //         */
 //        scienceFictionRecycleView = requireView().findViewById(R.id.scienceFictionRecyclerView)
-//        CreateSlider().fill(scienceFictionRecycleView, requireContext(), "фантастика")
+//        CreateSlider().fillFilms(scienceFictionRecycleView, requireContext(), "фантастика")
 //        scienceFictionRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
 //         * CARTOONS SLIDER
 //         */
 //        cartoonsRecycleView = requireView().findViewById(R.id.cartoonsRecyclerView)
-//        CreateSlider().fill(cartoonsRecycleView, requireContext(), "мультфильм")
+//        CreateSlider().fillFilms(cartoonsRecycleView, requireContext(), "мультфильм")
 //        cartoonsRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
 //         * ADVENTURE SLIDER
 //         */
 //        adventureRecycleView = requireView().findViewById(R.id.adventuresRecyclerView)
-//        CreateSlider().fill(adventureRecycleView, requireContext(), "приключения")
+//        CreateSlider().fillFilms(adventureRecycleView, requireContext(), "приключения")
 //        adventureRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
 //         * ANIMATION SLIDER
 //         */
 //        animRecycleView= requireView().findViewById(R.id.animRecyclerView)
-//        CreateSlider().fill(animRecycleView, requireContext(), "аниме")
+//        CreateSlider().fillFilms(animRecycleView, requireContext(), "аниме")
 //        animRecycleView.addOnItemTouchListener(onTouchListener)
-//
-//        val background_image = requireView().findViewById<ImageView>(R.id.background_image)
-//        background_image.scaleType = ImageView.ScaleType.CENTER_CROP
     }
 
     companion object{

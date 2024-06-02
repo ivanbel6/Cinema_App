@@ -1,9 +1,9 @@
-package com.example.cinema_app.domain.UseCases.Sport
+package com.example.cinema_app.domain.UseCases
 
 import android.content.Context
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cinema_app.data.Api.DataClasses.Films.SportEvent
+import com.example.cinema_app.data.Api.DataClasses.FootballEvent.SportEvent
 import com.example.cinema_app.data.Api.Interface.ApiInterface
 import com.example.cinema_app.data.adapters.SportsRecycleAdapter
 import com.example.cinema_app.presentation.MainActivity
@@ -33,8 +33,11 @@ class CreateBasketballSlider {
 
                 basketballList.add(
                     SportEvent(
+                        sportEventName = "Матч регулярного чемпионата NBA",
                         team1Name = el.teams.home.name,
+                        team1Country = "USA",
                         team2Name = el.teams.away.name,
+                        team2Country = "USA",
                         dateTime = formattedDate.toString(),
                         team1LogoUrl = el.teams.home.logo,
                         team2LogoUrl = el.teams.away.logo

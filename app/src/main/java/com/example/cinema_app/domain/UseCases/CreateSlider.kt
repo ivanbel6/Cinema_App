@@ -21,7 +21,7 @@ class CreateSlider {
      * @param genre
      */
 
-    fun fill(customRecyclerView: RecyclerView, applicationContext: Context, genre: String) {///вапвап
+    fun fillFilms(customRecyclerView: RecyclerView, applicationContext: Context, genre: String) {///вапвап
         customRecyclerView.layoutManager =
             LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
         val apiInterface = MainActivity.retrofit.create(ApiInterface::class.java)
@@ -46,6 +46,46 @@ class CreateSlider {
                             description = i.description,
                             countries = i.countries,
 //                            releaseYears = i.releaseYears,
+                            ageRating = i.ageRating,
+                            premiere = i.premiere
+                        )
+                    )
+                }
+
+            }
+
+            val customAdapter = CustomRecycleAdapter(customList)
+            customRecyclerView.adapter = customAdapter
+
+            val customSnapHelper: SnapHelper = PagerSnapHelper()
+            customSnapHelper.attachToRecyclerView(customRecyclerView)
+        }
+    }
+    fun fillSeries(customRecyclerView: RecyclerView, applicationContext: Context, genre: String) {///вапвап
+        customRecyclerView.layoutManager =
+            LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
+        val apiInterface = MainActivity.retrofit.create(ApiInterface::class.java)
+        val customList: MutableList<CustomDataClass> = mutableListOf()
+
+        CoroutineScope(Dispatchers.Main).launch {
+            val seriesList = apiInterface.getSeries()
+            for (i in seriesList.docs) {
+                if (i.genres.toString()
+                        .contains(genre) && i.description !=""){
+                    customList.add(
+                        CustomDataClass(
+                            bgImage = i.poster,
+                            name = i.name,
+                            time = i.seriesLength.toString()+" мин",
+                            date = i.year,
+                            persons = i.persons,
+                            Genre = i.genres.toString()
+                                .replace(Regex("Genre|\\[|\\|\\(|\\)|=]"), ""),
+                            backdrop = i.backdrop,
+                            videos = i.videos,
+                            description = i.description,
+                            countries = i.countries,
+                            // releaseYears = i.releaseYears,
                             ageRating = i.ageRating,
                             premiere = i.premiere
                         )
