@@ -238,4 +238,9 @@
     <string name="cybersport">Киберспорт</string>
     <string name="searchHint">Search by actor, title...</string>
     <string name="searchBy">Параметры поиска</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="Subscription_Managment">Subscription managment</string>
+    <string name="mellum">MELLUM</string>
+    <string name="service">Service for watching movies, TV series and sporting events</string>
+    <string name="Immerse">Immerse yourself in a world of entertainment with our mobile app - your personal guide to exciting sporting events, movies and TV series, available whenever and wherever you want.</string>
 </resources>

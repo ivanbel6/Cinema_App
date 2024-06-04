@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0F171E"
+        tools:context=".presentation.SubscribeFragment">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Top_app_bar_background_color"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/appBarLay"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:fontFamily="@font/inter_regular"
+                app:menu="@menu/top_app_bar"
+                app:navigationIcon="@drawable/back_arrow"
+                app:title="@string/About"
+                app:subtitleTextColor="@color/white"
+                app:titleTextColor="@color/Top_app_bar_text_color" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
+            android:orientation="vertical"
+            android:padding="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout_main">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/m_plus_rounded_1c_black"
+                android:gravity="left"
+                android:paddingBottom="5dp"
+                android:text="@string/mellum"
+                android:textColor="@color/silver"
+                android:textSize="35dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/m_plus_rounded_1c_bold"
+                android:gravity="left"
+                android:paddingBottom="5dp"
+                android:text="@string/service"
+                android:textColor="@color/silverDarker"
+                android:textSize="25dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/m_plus_rounded_1c_bold"
+                android:gravity="left"
+                android:paddingBottom="5dp"
+                android:text="@string/Immerse"
+                android:textColor="@color/silver_transparent"
+                android:textSize="20dp" />
+            <ImageView
+                android:id="@+id/userAgreement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/agreement"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="15dp"
+                />
+            <ImageView
+                android:id="@+id/userPolicy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/policy"
+                android:paddingLeft="15dp"
+                />
+            <ImageView
+                android:id="@+id/userLicence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/rules"
+                android:paddingLeft="15dp"
+                />
+            <ImageView
+                android:id="@+id/userRecomendations"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/application"
+                android:paddingLeft="15dp"
+                />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

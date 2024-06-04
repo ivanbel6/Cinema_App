@@ -5,6 +5,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FA1515</color>
     <color name="silver">#F2E3E8EF</color>
+    <color name="silverDarker">#D9E3E8EF</color>
     <color name="silver_transparent">#B9CCC7C7</color>
     <color name="silver_text">#BACDC5C5</color>
     <color name="active_color">#D3D0D0</color>

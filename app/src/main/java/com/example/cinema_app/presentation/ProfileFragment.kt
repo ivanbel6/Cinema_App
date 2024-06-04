@@ -36,9 +36,20 @@ class ProfileFragment : Fragment() {
         // Скрыть кнопку регистрации, если пользователь уже зарегистрирован
         val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
         if (sharedPref.getBoolean("IS_REGISTERED", false)) {
-            binding.subscribeButton.visibility = View.GONE
+            binding.profileSignIn.visibility = View.GONE
+            binding.visibleUserInfo.visibility = View.VISIBLE
         }
-        binding.userLogin
+
+        binding.helpButton.setOnClickListener{
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container_login, HelpFragment())
+                .commit()
+        }
+        binding.aboutButton.setOnClickListener{
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container_login, AboutFragment())
+                .commit()
+        }
         binding.changeUserInfo.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.container_login, UserInfoFragment())
@@ -46,13 +57,13 @@ class ProfileFragment : Fragment() {
         }
 
         binding.bottomNavigationProfile.selectedItemId = R.id.BottomNavProfile
-        binding.aboutButton.setOnClickListener{
+        binding.subscribeButton.setOnClickListener{
             val subscribeBtn = SubscribeFragment()
             parentFragmentManager.beginTransaction()
                 .replace(R.id.container_login, subscribeBtn)
                 .commit()
         }
-        binding.subscribeButton.setOnClickListener {
+        binding.profileSignIn.setOnClickListener {
             val loginFragment = LoginFragment()
             parentFragmentManager.beginTransaction()
                 .replace(R.id.container_login, loginFragment)
