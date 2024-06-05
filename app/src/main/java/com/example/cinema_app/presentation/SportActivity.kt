@@ -1,6 +1,7 @@
 package com.example.cinema_app.presentation
 
 import android.annotation.SuppressLint
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
@@ -22,6 +23,7 @@ class SportActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         binding = ActivitySportBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val db = MainDb.getDb(this)

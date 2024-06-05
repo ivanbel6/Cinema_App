@@ -2,6 +2,7 @@ package com.example.cinema_app.presentation
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
@@ -31,6 +32,7 @@ class FilmActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFilmBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         val db = MainDb.getDb(this)
         // Получаем Intent, который запустил эту активность
         val intent = intent

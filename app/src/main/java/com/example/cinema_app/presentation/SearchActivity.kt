@@ -1,5 +1,6 @@
 package com.example.cinema_app.presentation
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.os.Debug
 import android.util.Log
@@ -25,6 +26,7 @@ class SearchActivity: AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val searchFragment = SearchFragment()

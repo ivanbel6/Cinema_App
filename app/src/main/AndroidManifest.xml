@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -16,14 +16,11 @@
         android:theme="@style/Theme.Cinema_App"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.FilmActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.ProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.MainActivity"
-            android:exported="true">
+            android:name=".presentation.StartActivity"
+            android:exported="true"
+            android:label="@string/title_activity_start"
+            android:theme="@style/Theme.Cinema_App"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,12 +28,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.SearchActivity"
-            android:windowSoftInputMode="adjustPan"
+            android:name=".presentation.FilmActivity"
             android:exported="false" />
+        <activity
+            android:name=".presentation.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.MainActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".presentation.SearchActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".presentation.SportActivity"
             android:exported="false" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

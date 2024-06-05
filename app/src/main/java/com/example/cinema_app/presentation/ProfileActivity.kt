@@ -1,6 +1,7 @@
 package com.example.cinema_app.presentation
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.cinema_app.R
@@ -17,6 +18,8 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         val profileFragment = ProfileFragment()
         supportFragmentManager.beginTransaction()
             .replace(R.id.container_login, profileFragment)
