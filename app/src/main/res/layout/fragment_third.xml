@@ -3,12 +3,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Onboarding_main_bg_color"
     tools:context=".presentation.ThirdFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/m_plus_rounded_1c_bold"
+            android:text="The last step"
+            android:textColor="@color/silverDarker"
+            android:textSize="36dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="360dp"
+            android:src="@drawable/third_fragment_main_img" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="60dp"
+            android:paddingBottom="20dp"
+            android:fontFamily="@font/m_plus_rounded_1c_bold"
+            android:textColor="@color/silver_transparent"
+            android:text="@string/saved_selected" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/go_to_register"
+            android:paddingBottom="20dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/third_indicator"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:paddingRight="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:fontFamily="@font/inter_regular"
+                android:textSize="17dp"
+                android:gravity="center"
+                android:textColor="@color/silver_transparent_10"
+                android:text="@string/Continue"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="2dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/baseline_keyboard_arrow_right_24"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
 
 </FrameLayout>
