@@ -45,6 +45,7 @@ class SportFragment : Fragment() {
                     MotionEvent.ACTION_DOWN -> {
                         binding.vp2.isUserInputEnabled = false
                     }
+
                     MotionEvent.ACTION_UP -> {
                         binding.vp2.isUserInputEnabled = true
                     }
@@ -59,52 +60,65 @@ class SportFragment : Fragment() {
             }
         }
 
-        val a = requireView().findViewById<LinearLayout>(R.id.indicator_lay)
-
+//        val a = requireView().findViewById<LinearLayout>(R.id.indicator_lay)
+//
 //        topRecycleView = requireView().findViewById(R.id.sportSliderRecyclerView)
-//        CreateSportsTopSlider(a, topRecycleView).fillTopSportsSlider(requireContext(), topRecycleView, scrollHandler)
-
+//        CreateSportsTopSlider(a, topRecycleView).fillTopSportsSlider(
+//            requireContext(),
+//            topRecycleView,
+//            scrollHandler
+//        )
+//
 //        topRecycleView.addOnItemTouchListener(onTouchListener)
-
+//
 //        topRecycleView.addOnItemTouchListener(onTouchListener)
-
-        //Cybersport Recycle View
+//        /**
+//        Cybersport Recycle View
 //        cybersportRecycleView = requireView().findViewById(R.id.cybersportRecycleView)
 //        cybersportRecycleView.setHasFixedSize(false)
 //        cybersportRecycleView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 //        CreateCyberSportSlider().fill(cybersportRecycleView, requireContext())
 //        cybersportRecycleView.addOnItemTouchListener(onTouchListener)
-
-        //Football Recycle View
+//         */
+//        /**
+//        Football Recycle View
+//         */
 //        footballRecycleView = requireView().findViewById(R.id.footballRecycleView)
 //        footballRecycleView.setHasFixedSize(false)
-//        footballRecycleView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+//        footballRecycleView.layoutManager =
+//            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 //        CreateFootballSlider().fill(footballRecycleView, requireContext())
 //        footballRecycleView.addOnItemTouchListener(onTouchListener)
-
-        //Basketball Recycle View
+//        /**
+//        Basketball Recycle View
+//         */
 //        basketballRecycleView = requireView().findViewById(R.id.basketballRecycleView)
 //        basketballRecycleView.setHasFixedSize(false)
-//        basketballRecycleView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+//        basketballRecycleView.layoutManager =
+//            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 //        CreateBasketballSlider().fill(basketballRecycleView, requireContext())
 //        basketballRecycleView.addOnItemTouchListener(onTouchListener)
-
-        //Volleyball Recycle View
+//        /**
+//        Volleyball Recycle View
+//         */
 //        volleyballRecycleView = requireView().findViewById(R.id.volleyballRecycleView)
 //        volleyballRecycleView.setHasFixedSize(false)
-//        volleyballRecycleView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+//        volleyballRecycleView.layoutManager =
+//            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 //        CreateVolleyballSlider().fill(volleyballRecycleView, requireContext())
 //        volleyballRecycleView.addOnItemTouchListener(onTouchListener)
-
-        //Hockey Recycle View
+//        /**
+//        Hockey Recycle View
+//         */
 //        hockeyRecycleView = requireView().findViewById(R.id.hockeyRecycleView)
 //        hockeyRecycleView.setHasFixedSize(false)
-//        hockeyRecycleView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+//        hockeyRecycleView.layoutManager =
+//            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 //        CreateHockeySlider().fill(hockeyRecycleView, requireContext())
 //        hockeyRecycleView.addOnItemTouchListener(onTouchListener)
     }
 
-    companion object{
+    companion object {
         @JvmStatic
         fun newInstance() = SportFragment()
     }

@@ -68,21 +68,21 @@ class TVFragment : Fragment() {
         val genreRecyclerView = requireView().findViewById<RecyclerView>(R.id.GenresTopRecycleView)
         genreRecyclerView.addOnItemTouchListener(onTouchListener)
 
-        /**
-         * SLIDER ON THE TOP
-         */
-        topRecycleView = requireView().findViewById(R.id.sliderRecyclerView)
-        CreateTopSlider(a, genreRecyclerView).fillTopSliderSeries(requireContext(), topRecycleView, scrollHandler)
-        topRecycleView.addOnItemTouchListener(onTouchListener)
-
-        /**
-         * SLIDER POPULAR
-        */
-        binding.vp2.setUserInputEnabled(true)
-        popularRecycleView = requireView().findViewById(R.id.CustomRecycleView)
-        CreateSlider().fillSeries(popularRecycleView, requireContext(), "")
-        popularRecycleView.addOnItemTouchListener(onTouchListener)
-
+//        /**
+//         * SLIDER ON THE TOP
+//         */
+//        topRecycleView = requireView().findViewById(R.id.sliderRecyclerView)
+//        CreateTopSlider(a, genreRecyclerView).fillTopSliderSeries(requireContext(), topRecycleView, scrollHandler)
+//        topRecycleView.addOnItemTouchListener(onTouchListener)
+//
+//        /**
+//         * SLIDER POPULAR
+//        */
+//        binding.vp2.setUserInputEnabled(true)
+//        popularRecycleView = requireView().findViewById(R.id.CustomRecycleView)
+//        CreateSlider().fillSeries(popularRecycleView, requireContext(), "")
+//        popularRecycleView.addOnItemTouchListener(onTouchListener)
+//
 //        /**
 //         * DRAMA SLIDER
 //         */

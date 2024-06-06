@@ -85,9 +85,8 @@ class ProfileFragment : Fragment() {
                 }
 
                 R.id.BottomNavSearch -> {
-                    parentFragmentManager.beginTransaction()
-                        .replace(R.id.container_login, SearchFragment())
-                        .commit()
+                    val intent = Intent(requireContext(), SearchFragment::class.java)
+                    startActivity(intent)
                     true
                 }
 

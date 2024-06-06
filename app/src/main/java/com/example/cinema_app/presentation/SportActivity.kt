@@ -1,17 +1,22 @@
 package com.example.cinema_app.presentation
 
 import android.annotation.SuppressLint
-import android.content.pm.ActivityInfo
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import coil.decode.SvgDecoder
+import coil.load
 import com.bumptech.glide.Glide
 import com.example.cinema_app.R
 import com.example.cinema_app.data.Api.DataClasses.FootballEvent.SportEvent
-import com.example.cinema_app.data.DB.MainDb
+import com.example.cinema_app.data.adapters.ScoreAdapter
 import com.example.cinema_app.databinding.ActivitySportBinding
+import com.example.cinema_app.domain.UseCases.CreateScoreList
 
 
 private lateinit var TestList: ArrayList<String>
@@ -23,62 +28,23 @@ class SportActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         binding = ActivitySportBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val db = MainDb.getDb(this)
+
         // Получаем Intent, который запустил эту активность
         val intent = intent
-        val sportData: SportEvent? = intent.getSerializableExtra("data") as? SportEvent
+        val sportData: SportEvent = intent.getSerializableExtra("data") as SportEvent
 
         if (sportData != null) {
             InitializeView(sportData)
         }
-//        sportData!!.videos.entries
 
-        var addButtonClicked = false
         var rateButtonClicked = false
-//        db.getDao().getAllFavouriteFilms().asLiveData().observe(this) {
-//                it: List<FavouriteFilm> ->
-//            it.forEach { item ->
-//                Log.v("TestBb", "Current item : $item")
-//            }
-//        }
-//        binding.AddButton.setOnClickListener {
-//            //Создаем модальное окно
-//            val modalBottomSheet = ModalBottomSheet(sportData)
-//            modalBottomSheet.show(supportFragmentManager, ModalBottomSheet.TAG)
-//
-//            addButtonClicked = !addButtonClicked // Переключаем состояние
-//            val drawableResId = if (addButtonClicked) {
-//                R.drawable.plus_active // Иконка при активном состоянии
-//            } else {
-//                R.drawable.plus_not_active // Иконка при неактивном состоянии
-//            }
-//            binding.AddButton.setImageResource(drawableResId)
-//
-//            if (addButtonClicked) {
-//                Thread {
-//                    db.getDao().insertItem(
-//                        FavouriteFilm(
-//                            PosterUrl = customData.bgImage.url,
-//                            name = customData.name.toString(),
-//                            date = customData.date,
-//                            time = customData.time,
-//                            ageRating = customData.ageRating,
-//                            Genre = customData.Genre,
-//                            description = customData.description,
-//                            backdropURL = customData.backdrop.url
-//                        )
-//                    )
-//                }.start()
-//            }
-//        }
 
         binding.RateImageButton.setOnClickListener {
             rateButtonClicked = !rateButtonClicked // Переключаем состояние
             val drawableResId = if (rateButtonClicked) {
-                R.drawable.star_active // Иконка при активном состоянии
+                R.drawable.star_active// Иконка при активном состоянии
             } else {
                 R.drawable.star_not_active // Иконка при неактивном состоянии
             }
@@ -86,58 +52,54 @@ class SportActivity : AppCompatActivity() {
         }
 
 
-//        val imageView = binding.fillInfoImageView
-//        val filmInfoLinear = binding.filmInfoLinear
-//        filmInfoLinear.setOnClickListener {
-//            if (isImageRotated) {
-//                rotateImage(imageView, 90f, 0f)
-//                //to do here
-//                binding.Cast.visibility = View.INVISIBLE
-//                binding.More.visibility = View.INVISIBLE
-//
-//                binding.hideFromBtn1.visibility = View.GONE
-//                binding.hideFromBtn3.visibility = View.GONE
-//
-//            } else {
-//                rotateImage(imageView, 0f, 90f)
-//                binding.Cast.visibility = View.VISIBLE
-//                binding.More.visibility = View.VISIBLE
-//
-//                binding.Cast.setTextColor(android.graphics.Color.parseColor("#B2BDCA"))
-//                binding.More.setTextColor(android.graphics.Color.parseColor("#66B2BDCA"))
-//
-//                binding.hideFromBtn1.visibility = View.VISIBLE
-//                binding.hideFromBtn3.visibility = View.GONE
-//
-//                binding.CastRecyclerView.setHasFixedSize(false)
-//                binding.CastRecyclerView.layoutManager =
-//                    LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
-//                binding.CastRecyclerView.adapter = SliderCastAdapter(customData.persons)
-//
-//                binding.Cast.setOnClickListener {
-//                    binding.Cast.setTextColor(android.graphics.Color.parseColor("#B2BDCA"))
-//                    binding.More.setTextColor(android.graphics.Color.parseColor("#66B2BDCA"))
-//
-//                    binding.hideFromBtn1.visibility = View.VISIBLE
-//                    binding.hideFromBtn3.visibility = View.GONE
-//
-//                    binding.CastRecyclerView.setHasFixedSize(false)
-//                    binding.CastRecyclerView.layoutManager =
-//                        LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
-//                    binding.CastRecyclerView.adapter = SliderCastAdapter(customData.persons)
-//
-//
-//                }
-//                binding.More.setOnClickListener {
-//                    binding.More.setTextColor(android.graphics.Color.parseColor("#B2BDCA"))
-//                    binding.Cast.setTextColor(android.graphics.Color.parseColor("#66B2BDCA"))
-//
-//                    binding.hideFromBtn1.visibility = View.GONE
-//                    binding.hideFromBtn3.visibility = View.VISIBLE
-//                }
-//            }
-//            isImageRotated = !isImageRotated
-//        }
+        val imageView = binding.fillInfoImageView
+        val filmInfoLinear = binding.filmInfoLinear
+        filmInfoLinear.setOnClickListener {
+            if (isImageRotated) {
+                rotateImage(imageView, 90f, 0f)
+                //to do here
+                binding.League.visibility = View.INVISIBLE
+                binding.Score.visibility = View.INVISIBLE
+
+                binding.hideFromBtn1.visibility = View.GONE
+                binding.hideFromBtn3.visibility = View.GONE
+
+            } else {
+                rotateImage(imageView, 0f, 90f)
+                binding.League.visibility = View.VISIBLE
+                binding.Score.visibility = View.VISIBLE
+
+                binding.League.setTextColor(android.graphics.Color.parseColor("#B2BDCA"))
+                binding.Score.setTextColor(android.graphics.Color.parseColor("#66B2BDCA"))
+
+                binding.hideFromBtn1.visibility = View.VISIBLE
+                binding.hideFromBtn3.visibility = View.GONE
+
+                binding.League.setOnClickListener {
+                    binding.League.setTextColor(android.graphics.Color.parseColor("#B2BDCA"))
+                    binding.Score.setTextColor(android.graphics.Color.parseColor("#66B2BDCA"))
+
+                    binding.hideFromBtn1.visibility = View.VISIBLE
+                    binding.hideFromBtn3.visibility = View.GONE
+                }
+
+                binding.Score.setOnClickListener {
+                    binding.Score.setTextColor(android.graphics.Color.parseColor("#B2BDCA"))
+                    binding.League.setTextColor(android.graphics.Color.parseColor("#66B2BDCA"))
+
+                    binding.hideFromBtn1.visibility = View.GONE
+                    binding.hideFromBtn3.visibility = View.VISIBLE
+
+                    binding.scoreRecycleView.setHasFixedSize(false)
+                    binding.scoreRecycleView.layoutManager =
+                        LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
+                    binding.scoreRecycleView.adapter = ScoreAdapter(CreateScoreList().create(sportData.type, sportData.firstTimeScore,
+                        sportData.fullTimeScore, sportData.extraTimeScore, sportData.penaltyScore, sportData.firstPeriodScore,
+                        sportData.secondPeriodScore, sportData.thirdPeriodScore, sportData.fourthPeriodScore, sportData.fifthPeriodScore))
+                }
+            }
+            isImageRotated = !isImageRotated
+        }
     }
 
     private fun rotateImage(imageView: ImageView, fromDegrees: Float, toDegrees: Float) {
@@ -154,42 +116,40 @@ class SportActivity : AppCompatActivity() {
     }
 
     private fun InitializeView(sportEventData: SportEvent) {
+        Glide.with(applicationContext)
+            .load(sportEventData.imageUrl)
+            .into(binding.MainImage)
         binding.sportEventName.text = sportEventData.sportEventName
         binding.date.text = sportEventData.dateTime
 
+
+        Log.d("test", sportEventData.team1LogoUrl)
         Glide.with(applicationContext)
             .load(sportEventData.team1LogoUrl)
             .into(binding.team1logo)
         binding.team1name.text = sportEventData.team1Name
+        binding.team1Score.text = sportEventData.team1Score
         binding.team1country.text = sportEventData.team1Country
 
         Glide.with(applicationContext)
             .load(sportEventData.team2LogoUrl)
             .into(binding.team2logo)
         binding.team2name.text = sportEventData.team2Name
+        binding.team2Score.text = sportEventData.team2Score
         binding.team2country.text = sportEventData.team2Country
-    }
 
-//    @SuppressLint("SimpleDateFormat")
-//    private fun InitializeTime(customData: CustomDataClass) {
-//        val rawRussiaPremiere = customData.premiere.russia
-//        val rawWorldPremiere = customData.premiere.world
-//        val russiaPremiereFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-//        val worldPremiereFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-//        val parsedRussiaPremiere = russiaPremiereFormat.parse(rawRussiaPremiere)
-//        val parsedWorldPremiere = worldPremiereFormat.parse(rawWorldPremiere)
-//        val formattedRussiaPremiere = parsedRussiaPremiere?.let {
-//            SimpleDateFormat("dd.MM.yyyy").format(
-//                it
-//            )
-//        }
-//        val formattedWorldPremiere = parsedWorldPremiere?.let {
-//            SimpleDateFormat("dd.MM.yyyy").format(
-//                it
-//            )
-//        }
-//
-//        binding.MoreRussiaPremier.text = formattedRussiaPremiere
-//        binding.MoreWorldPremier.text = formattedWorldPremiere
-//    }
+        binding.matchStatus.text = sportEventData.matchStatus
+
+        binding.leagueFlag.load(sportEventData.leagueFlagUrl)
+        {
+            decoderFactory {result, options, _ -> SvgDecoder(result.source, options)}
+        }
+        Glide.with(applicationContext)
+            .load(sportEventData.leagueLogoUrl)
+            .into(binding.leagueLogo)
+        binding.leagueName.text = sportEventData.leagueName
+        binding.leagueCountry.text = sportEventData.leagueCountry
+        binding.leagueSeason.text = sportEventData.leagueSeason
+        binding.leagueType.text = sportEventData.leagueType
+    }
 }

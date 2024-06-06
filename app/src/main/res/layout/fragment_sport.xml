@@ -117,6 +117,7 @@
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
                         app:layout_constraintEnd_toEndOf="parent"
+                        android:visibility="gone"
                         app:layout_constraintStart_toStartOf="parent">
 
                         <TextView
@@ -160,6 +161,7 @@
                         android:clipToPadding="false"
                         android:paddingStart="8dp"
                         android:paddingEnd="8dp"
+                        android:visibility="gone"
                         tools:layout_editor_absoluteX="16dp" />
                 </FrameLayout>
 
