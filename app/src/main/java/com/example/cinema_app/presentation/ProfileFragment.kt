@@ -3,7 +3,6 @@ package com.example.cinema_app.presentation
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -41,39 +40,24 @@ class ProfileFragment : Fragment() {
         }
 
         binding.helpButton.setOnClickListener{
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container_login, HelpFragment())
-                .commit()
+            replaceFragment(HelpFragment())
         }
         binding.aboutButton.setOnClickListener{
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container_login, AboutFragment())
-                .commit()
+            replaceFragment(AboutFragment())
         }
         binding.changeUserInfo.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container_login, UserInfoFragment())
-                .commit()
+            replaceFragment(UserInfoFragment())
         }
 
         binding.bottomNavigationProfile.selectedItemId = R.id.BottomNavProfile
         binding.subscribeButton.setOnClickListener{
-            val subscribeBtn = SubscribeFragment()
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container_login, subscribeBtn)
-                .commit()
+            replaceFragment(SubscribeFragment())
         }
         binding.profileSignIn.setOnClickListener {
-            val loginFragment = LoginFragment()
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container_login, loginFragment)
-                .commit()
+            replaceFragment(LoginFragment())
         }
         binding.playlistsButton.setOnClickListener {
-            val playListFragment = PlayListFragment()
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.container_login, playListFragment)
-                .commit()
+            replaceFragment(PlayListFragment())
         }
         binding.bottomNavigationProfile.isItemActiveIndicatorEnabled = false
         binding.bottomNavigationProfile.setOnItemSelectedListener { item ->
@@ -85,7 +69,7 @@ class ProfileFragment : Fragment() {
                 }
 
                 R.id.BottomNavSearch -> {
-                    val intent = Intent(requireContext(), SearchFragment::class.java)
+                    val intent = Intent(requireContext(), SearchActivity::class.java)
                     startActivity(intent)
                     true
                 }
@@ -99,6 +83,12 @@ class ProfileFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.container_login, fragment)
+            .commit()
     }
 
     private fun loadUserInfo() {

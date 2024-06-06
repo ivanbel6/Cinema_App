@@ -17,13 +17,13 @@ lateinit var binding: ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private val fragList = listOf(
-        HomeFragment.newInstance(),
+//        HomeFragment.newInstance(),
         SportFragment.newInstance(),
         MovieFragment.newInstance(),
         TVFragment.newInstance()
     )
     private val fragListTitles = listOf(
-        "Home",
+//        "Home",
         "Sport",
         "Movie",
         "Tv Series",

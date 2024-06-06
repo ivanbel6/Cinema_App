@@ -44,7 +44,7 @@ interface ApiInterface {
                 "&notNullFields=premiere.world" +
                 "&notNullFields=premiere.russia" +
                 "&notNullFields=audience.country"+
-                "&token=7ZJEK3M-V5G4HGK-N12ZF81-32G9Z2X"
+                "&token=0HR2NYV-SW149QR-H2NX838-05J2J5N"
     )
     suspend fun getMovies(): MoviesResponse
 
@@ -81,7 +81,7 @@ interface ApiInterface {
                 "&notNullFields=ageRating" +
                 "&notNullFields=premiere.world" +
                 "&notNullFields=premiere.russia" +
-                "&token=7ZJEK3M-V5G4HGK-N12ZF81-32G9Z2X"
+                "&token=0HR2NYV-SW149QR-H2NX838-05J2J5N"
     )
     suspend fun getSeries(): SeriesResponse
 
@@ -103,7 +103,7 @@ interface ApiInterface {
                 "&notNullFields=poster.url" +
                 "&notNullFields=rating.imdb" +
                 "&notNullFields=year" +
-                "&token=7ZJEK3M-V5G4HGK-N12ZF81-32G9Z2X"
+                "&token=0HR2NYV-SW149QR-H2NX838-05J2J5N"
     )
     suspend fun getMovieNew(): MoviesResponse
 
@@ -125,7 +125,7 @@ interface ApiInterface {
                 "&notNullFields=poster.url" +
                 "&notNullFields=rating.imdb" +
                 "&notNullFields=year" +
-                "&token=7ZJEK3M-V5G4HGK-N12ZF81-32G9Z2X"
+                "&token=0HR2NYV-SW149QR-H2NX838-05J2J5N"
     )
     suspend fun getSeriesNew(): SeriesResponse
 

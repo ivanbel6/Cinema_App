@@ -37,6 +37,7 @@
             android:textColor="@color/silver_transparent"
             android:text="@string/saved_selected" />
         <ImageView
+            android:id="@+id/go_to_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -50,6 +51,7 @@
             android:src="@drawable/third_indicator"
             />
         <LinearLayout
+            android:id="@+id/without_reg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"

@@ -1,15 +1,10 @@
 package com.example.cinema_app.presentation
 
-import android.content.Intent
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.cinema_app.R
 import com.example.cinema_app.databinding.ActivityProfileBinding
-import com.example.cinema_app.presentation.MainActivity
-import com.example.cinema_app.presentation.ProfileFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
-
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding

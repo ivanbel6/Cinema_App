@@ -24,19 +24,17 @@ class AboutFragment : Fragment() {
         _binding = FragmentAboutBinding.inflate(inflater, container, false)
 
         binding.userAgreement.setOnClickListener {
-            showDownloadConfirmationDialog("https://drive.google.com/file/d/1hWJwkaFW9C-27WvVh_e1EyGZwILrv0Fs/view?usp=drive_link")
+            showDownloadConfirmationDialog("https://drive.google.com/file/d/1TkO_EjxBb-yaQJukK4Z30Q1Sc-bQj0K6/view?usp=drive_link")
         }
         binding.userPolicy.setOnClickListener {
-            showDownloadConfirmationDialog("https://drive.google.com/file/d/1hWJwkaFW9C-27WvVh_e1EyGZwILrv0Fs/view?usp=drive_link")
+            showDownloadConfirmationDialog("https://drive.google.com/file/d/1h5AFMtiejCMV0dMUeb2FXKUcS5V_XN3b/view?usp=drive_link")
         }
         binding.userLicence.setOnClickListener {
-            showDownloadConfirmationDialog("https://drive.google.com/file/d/1hWJwkaFW9C-27WvVh_e1EyGZwILrv0Fs/view?usp=drive_link")
+            showDownloadConfirmationDialog("https://drive.google.com/file/d/1dI1ND9cXY-bcRtGfxIKBKvpwggvwD_aL/view?usp=drive_link")
         }
         binding.userRecomendations.setOnClickListener {
-            showDownloadConfirmationDialog("https://drive.google.com/file/d/1hWJwkaFW9C-27WvVh_e1EyGZwILrv0Fs/view?usp=drive_link")
+            showDownloadConfirmationDialog("https://drive.google.com/file/d/1Vi7lGjX5t14zELvIBscuxxecOVIgBD9z/view?usp=drive_link")
         }
-
-        // И другие обработчики событий для других кнопок...
 
         binding.appBarLay.setNavigationOnClickListener {
             val profileFragment = ProfileFragment()

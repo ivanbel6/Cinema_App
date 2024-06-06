@@ -23,9 +23,12 @@ private lateinit var fightRecycleView: RecyclerView
 private lateinit var comedyRecycleView: RecyclerView
 private lateinit var horrorsRecycleView: RecyclerView
 private lateinit var scienceFictionRecycleView: RecyclerView
-private lateinit var cartoonsRecycleView: RecyclerView
+private lateinit var trillerRecycleView: RecyclerView
 private lateinit var adventureRecycleView: RecyclerView
-private lateinit var animRecycleView: RecyclerView
+private lateinit var detectiveRecycleView: RecyclerView
+private lateinit var familyRecycleView: RecyclerView
+private lateinit var historyRecycleView: RecyclerView
+private lateinit var vesternRecycleView: RecyclerView
 private val scrollHandler = Handler()
 
 class TVFragment : Fragment() {
@@ -74,15 +77,15 @@ class TVFragment : Fragment() {
 //        topRecycleView = requireView().findViewById(R.id.sliderRecyclerView)
 //        CreateTopSlider(a, genreRecyclerView).fillTopSliderSeries(requireContext(), topRecycleView, scrollHandler)
 //        topRecycleView.addOnItemTouchListener(onTouchListener)
-//
-//        /**
-//         * SLIDER POPULAR
-//        */
-//        binding.vp2.setUserInputEnabled(true)
-//        popularRecycleView = requireView().findViewById(R.id.CustomRecycleView)
-//        CreateSlider().fillSeries(popularRecycleView, requireContext(), "")
-//        popularRecycleView.addOnItemTouchListener(onTouchListener)
-//
+
+        /**
+         * SLIDER POPULAR
+         */
+        binding.vp2.setUserInputEnabled(true)
+        popularRecycleView = requireView().findViewById(R.id.CustomRecycleView)
+        CreateSlider().fillSeries(popularRecycleView, requireContext(), "")
+        popularRecycleView.addOnItemTouchListener(onTouchListener)
+
 //        /**
 //         * DRAMA SLIDER
 //         */
@@ -90,8 +93,8 @@ class TVFragment : Fragment() {
 //        CreateSlider().fillSeries(dramaRecycleView, requireContext(), "драма")
 //        dramaRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
-//        * FIGHT SLIDER
-//        */
+//         * FIGHT SLIDER
+//         */
 //        fightRecycleView = requireView().findViewById(R.id.fightRecyclerView)
 //        CreateSlider().fillSeries(fightRecycleView, requireContext(), "боевик")
 //        fightRecycleView.addOnItemTouchListener(onTouchListener)
@@ -109,17 +112,18 @@ class TVFragment : Fragment() {
 //        CreateSlider().fillSeries(horrorsRecycleView, requireContext(), "ужасы")
 //        horrorsRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
-//         * FANTASTIC  SLIDER
+//         *
+//        FANTASTIC SLIDER
 //         */
 //        scienceFictionRecycleView = requireView().findViewById(R.id.scienceFictionRecyclerView)
 //        CreateSlider().fillSeries(scienceFictionRecycleView, requireContext(), "фантастика")
 //        scienceFictionRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
-//         * CARTOONS SLIDER
+//         * TRILLER SLIDER не работает
 //         */
-//        cartoonsRecycleView = requireView().findViewById(R.id.cartoonsRecyclerView)
-//        CreateSlider().fillSeries(cartoonsRecycleView, requireContext(), "мультфильм")
-//        cartoonsRecycleView.addOnItemTouchListener(onTouchListener)
+//        trillerRecycleView = requireView().findViewById(R.id.trillerRecycleView)
+//        CreateSlider().fillSeries(trillerRecycleView, requireContext(), "триллер")
+//        trillerRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
 //         * ADVENTURE SLIDER
 //         */
@@ -127,11 +131,29 @@ class TVFragment : Fragment() {
 //        CreateSlider().fillSeries(adventureRecycleView, requireContext(), "приключения")
 //        adventureRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
-//         * ANIMATION SLIDER
+//         * VESTERN SLIDER не работает
 //         */
-//        animRecycleView= requireView().findViewById(R.id.animRecyclerView)
-//        CreateSlider().fillSeries(animRecycleView, requireContext(), "аниме")
-//        animRecycleView.addOnItemTouchListener(onTouchListener)
+//        vesternRecycleView= requireView().findViewById(R.id.vesternRecycleView)
+//        CreateSlider().fillSeries(vesternRecycleView, requireContext(), "вестерн")
+//        vesternRecycleView.addOnItemTouchListener(onTouchListener)
+//        /**
+//         * DETECTIVE SLIDER
+//         */
+//        detectiveRecycleView = requireView().findViewById(R.id.detectiveRecyclerView)
+//        CreateSlider().fillSeries(detectiveRecycleView, requireContext(), "детектив")
+//        detectiveRecycleView.addOnItemTouchListener(onTouchListener)
+//        /**
+//         * FAMILY SLIDER
+//         */
+//        familyRecycleView = requireView().findViewById(R.id.familyRecyclerView)
+//        CreateSlider().fillSeries(familyRecycleView, requireContext(), "семейный")
+//        familyRecycleView.addOnItemTouchListener(onTouchListener)
+//        /**
+//         * HISTORY SLIDER
+//         */
+//        historyRecycleView = requireView().findViewById(R.id.historyRecyclerView)
+//        CreateSlider().fillSeries(historyRecycleView, requireContext(), "история")
+//        historyRecycleView.addOnItemTouchListener(onTouchListener)
     }
 
     companion object{

@@ -25,6 +25,10 @@ private lateinit var scienceFictionRecycleView: RecyclerView
 private lateinit var cartoonsRecycleView: RecyclerView
 private lateinit var adventureRecycleView: RecyclerView
 private lateinit var animRecycleView: RecyclerView
+
+private lateinit var detectiveRecycleView: RecyclerView
+private lateinit var familyRecycleView: RecyclerView
+private lateinit var historyRecycleView: RecyclerView
 private val scrollHandler = Handler()
 
 class MovieFragment : Fragment() {
@@ -133,6 +137,25 @@ class MovieFragment : Fragment() {
 //        animRecycleView= requireView().findViewById(R.id.animRecyclerView)
 //        CreateSlider().fillFilms(animRecycleView, requireContext(), "аниме")
 //        animRecycleView.addOnItemTouchListener(onTouchListener)
+//
+//        /**
+//         * DETECTIVE SLIDER
+//         */
+//        detectiveRecycleView = requireView().findViewById(R.id.detectiveRecyclerView)
+//        CreateSlider().fillFilms(detectiveRecycleView, requireContext(), "детектив")
+//        detectiveRecycleView.addOnItemTouchListener(onTouchListener)
+//        /**
+//         * FAMILY SLIDER
+//         */
+//        familyRecycleView = requireView().findViewById(R.id.familyRecyclerView)
+//        CreateSlider().fillFilms(familyRecycleView, requireContext(), "семейный")
+//        familyRecycleView.addOnItemTouchListener(onTouchListener)
+//        /**
+//         * HISTORY SLIDER
+//         */
+//        historyRecycleView = requireView().findViewById(R.id.historyRecyclerView)
+//        CreateSlider().fillFilms(historyRecycleView, requireContext(), "история")
+//        historyRecycleView.addOnItemTouchListener(onTouchListener)
     }
 
     companion object{

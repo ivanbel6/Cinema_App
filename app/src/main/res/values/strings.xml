@@ -243,7 +243,7 @@
     <string name="mellum">MELLUM</string>
     <string name="service">Service for watching movies, TV series and sporting events</string>
     <string name="Immerse">Immerse yourself in a world of entertainment with our mobile app - your personal guide to exciting sporting events, movies and TV series, available whenever and wherever you want.</string>
-    <string name="title_activity_start">StartActivity</string>
+    <string name="title_activity_start">Meluum</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

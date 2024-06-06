@@ -80,15 +80,15 @@ class SportFragment : Fragment() {
 //        CreateCyberSportSlider().fill(cybersportRecycleView, requireContext())
 //        cybersportRecycleView.addOnItemTouchListener(onTouchListener)
 //         */
-//        /**
-//        Football Recycle View
-//         */
-//        footballRecycleView = requireView().findViewById(R.id.footballRecycleView)
-//        footballRecycleView.setHasFixedSize(false)
-//        footballRecycleView.layoutManager =
-//            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-//        CreateFootballSlider().fill(footballRecycleView, requireContext())
-//        footballRecycleView.addOnItemTouchListener(onTouchListener)
+        /**
+        Football Recycle View
+         */
+        footballRecycleView = requireView().findViewById(R.id.footballRecycleView)
+        footballRecycleView.setHasFixedSize(false)
+        footballRecycleView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        CreateFootballSlider().fill(footballRecycleView, requireContext())
+        footballRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
 //        Basketball Recycle View
 //         */
