@@ -91,31 +91,31 @@ class MovieFragment : Fragment() {
         popularRecycleView = requireView().findViewById(R.id.CustomRecycleView)
         CreateSlider(viewModel).fillFilms(popularRecycleView, requireContext(), "")
         popularRecycleView.addOnItemTouchListener(onTouchListener)
-
+//
 //        /**
 //         * DRAMA SLIDER
 //         */
 //        dramaRecycleView = requireView().findViewById(R.id.dramaRecyclerView)
-//        CreateSlider().fillFilms(dramaRecycleView, requireContext(), "драма")
+//        CreateSlider(viewModel).fillFilms(dramaRecycleView, requireContext(), "драма")
 //        dramaRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
 //        * FIGHT SLIDER
 //        */
 //        fightRecycleView = requireView().findViewById(R.id.fightRecyclerView)
-//        CreateSlider().fillFilms(fightRecycleView, requireContext(), "боевик")
+//        CreateSlider(viewModel).fillFilms(fightRecycleView, requireContext(), "боевик")
 //        fightRecycleView.addOnItemTouchListener(onTouchListener)
 //
 //        /**
 //         * COMEDY SLIDER
 //         */
 //        comedyRecycleView = requireView().findViewById(R.id.comedyRecyclerView)
-//        CreateSlider().fillFilms(comedyRecycleView, requireContext(), "комедия")
+//        CreateSlider(viewModel).fillFilms(comedyRecycleView, requireContext(), "комедия")
 //        comedyRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
 //         * HORRORS SLIDER
 //         */
 //        horrorsRecycleView = requireView().findViewById(R.id.horrorsRecyclerView)
-//        CreateSlider().fillFilms(horrorsRecycleView, requireContext(), "ужасы")
+//        CreateSlider(viewModel).fillFilms(horrorsRecycleView, requireContext(), "ужасы")
 //        horrorsRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
 //         * FANTASTIC  SLIDER
@@ -127,38 +127,38 @@ class MovieFragment : Fragment() {
 //         * CARTOONS SLIDER
 //         */
 //        cartoonsRecycleView = requireView().findViewById(R.id.cartoonsRecyclerView)
-//        CreateSlider().fillFilms(cartoonsRecycleView, requireContext(), "мультфильм")
+//        CreateSlider(viewModel).fillFilms(cartoonsRecycleView, requireContext(), "мультфильм")
 //        cartoonsRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
 //         * ADVENTURE SLIDER
 //         */
 //        adventureRecycleView = requireView().findViewById(R.id.adventuresRecyclerView)
-//        CreateSlider().fillFilms(adventureRecycleView, requireContext(), "приключения")
+//        CreateSlider(viewModel).fillFilms(adventureRecycleView, requireContext(), "приключения")
 //        adventureRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
 //         * ANIMATION SLIDER
 //         */
 //        animRecycleView= requireView().findViewById(R.id.animRecyclerView)
-//        CreateSlider().fillFilms(animRecycleView, requireContext(), "аниме")
+//        CreateSlider(viewModel).fillFilms(animRecycleView, requireContext(), "аниме")
 //        animRecycleView.addOnItemTouchListener(onTouchListener)
 //
 //        /**
 //         * DETECTIVE SLIDER
 //         */
 //        detectiveRecycleView = requireView().findViewById(R.id.detectiveRecyclerView)
-//        CreateSlider().fillFilms(detectiveRecycleView, requireContext(), "детектив")
+//        CreateSlider(viewModel).fillFilms(detectiveRecycleView, requireContext(), "детектив")
 //        detectiveRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
 //         * FAMILY SLIDER
 //         */
 //        familyRecycleView = requireView().findViewById(R.id.familyRecyclerView)
-//        CreateSlider().fillFilms(familyRecycleView, requireContext(), "семейный")
+//        CreateSlider(viewModel).fillFilms(familyRecycleView, requireContext(), "семейный")
 //        familyRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
 //         * HISTORY SLIDER
 //         */
 //        historyRecycleView = requireView().findViewById(R.id.historyRecyclerView)
-//        CreateSlider().fillFilms(historyRecycleView, requireContext(), "история")
+//        CreateSlider(viewModel).fillFilms(historyRecycleView, requireContext(), "история")
 //        historyRecycleView.addOnItemTouchListener(onTouchListener)
     }
 
