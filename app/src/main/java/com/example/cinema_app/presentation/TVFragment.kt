@@ -9,8 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cinema_app.R
+import com.example.cinema_app.data.Api.Interface.ApiInterface
 import com.example.cinema_app.domain.UseCases.CreateSlider
 import com.example.cinema_app.domain.UseCases.CreateTopSlider
 
@@ -32,6 +34,9 @@ private lateinit var vesternRecycleView: RecyclerView
 private val scrollHandler = Handler()
 
 class TVFragment : Fragment() {
+    private val viewModel: MoviesViewModel by viewModels {
+        MoviesViewModelFactory(MainActivity.retrofit.create(ApiInterface::class.java))
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -83,7 +88,7 @@ class TVFragment : Fragment() {
          */
         binding.vp2.setUserInputEnabled(true)
         popularRecycleView = requireView().findViewById(R.id.CustomRecycleView)
-        CreateSlider().fillSeries(popularRecycleView, requireContext(), "")
+        CreateSlider(viewModel).fillSeries(popularRecycleView, requireContext(), "")
         popularRecycleView.addOnItemTouchListener(onTouchListener)
 
 //        /**
