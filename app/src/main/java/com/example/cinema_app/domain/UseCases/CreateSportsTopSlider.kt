@@ -100,10 +100,10 @@ class CreateSportsTopSlider(val linearLayout: LinearLayout, val genreRecyclerVie
                 val nextPosition =
                     if (currentPosition < sliderAdapter.itemCount - 1) currentPosition + 1 else 0
                 sliderRecyclerView.smoothScrollToPosition(nextPosition)
-                scrollHandler.postDelayed(scrollRunnable, MainActivity.AUTO_SCROLL_DELAY)
+                scrollHandler.postDelayed(scrollRunnable1, MainActivity.AUTO_SCROLL_DELAY)
             }
 
-            scrollHandler.postDelayed(scrollRunnable, MainActivity.AUTO_SCROLL_DELAY)
+            scrollHandler.postDelayed(scrollRunnable1, MainActivity.AUTO_SCROLL_DELAY)
         }
     }
 }

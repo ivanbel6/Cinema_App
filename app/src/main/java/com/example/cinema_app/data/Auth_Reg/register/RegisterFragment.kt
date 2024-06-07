@@ -1,5 +1,6 @@
 package com.example.kursovayz.screens.register
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -49,6 +50,11 @@ class RegisterFragment : Fragment() {
             val email = binding.etEmail.text.toString()
             if (password.isNotEmpty() && passwordConfirm.isNotEmpty() && userName.isNotEmpty() && email.isNotEmpty()){
                 if (password.equals(passwordConfirm)) {
+                    val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
+                    with(sharedPref.edit()) {
+                        putString("USER_EMAIL", email)
+                        apply()
+                    }
                     viewModel.registerNewUser(
                         binding.etEmail.text.toString(),
                         binding.etPassword.text.toString(),

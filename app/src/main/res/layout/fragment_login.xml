@@ -166,11 +166,12 @@ or continue with your social profile"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_sign_in" />
                 <ImageView
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
                     android:scaleType="center"
-                    android:src="@drawable/google_icon"
+                    android:src="@drawable/icon_svg_1"
                     android:layout_marginLeft="25dp"
                     android:layout_marginRight="25dp"
                     app:layout_constraintEnd_toEndOf="parent"
