@@ -121,7 +121,7 @@ class MovieFragment : Fragment() {
 //         * FANTASTIC  SLIDER
 //         */
 //        scienceFictionRecycleView = requireView().findViewById(R.id.scienceFictionRecyclerView)
-//        CreateSlider().fillFilms(scienceFictionRecycleView, requireContext(), "фантастика")
+//        CreateSlider(viewModel).fillFilms(scienceFictionRecycleView, requireContext(), "фантастика")
 //        scienceFictionRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
 //         * CARTOONS SLIDER
