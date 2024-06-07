@@ -18,6 +18,9 @@ class CreateSearchRecycleViews{
             var list: MutableList<CustomDataClass> = mutableListOf()
             for(it in SearchData.moviesList)
             {
+                if (list.contains(it)) {
+                    continue
+                }
                 if(genres.size == 0 && searchQuery.length == 0) {
                     list = SearchData.moviesList
                     break
@@ -38,6 +41,9 @@ class CreateSearchRecycleViews{
             var list: MutableList<CustomDataClass> = mutableListOf()
             for(it in SearchData.seriesList)
             {
+                if (list.contains(it)) {
+                    continue
+                }
                 if(genres.size == 0 && searchQuery.length == 0) {
                     list = SearchData.seriesList
                     break

@@ -83,12 +83,12 @@ class SportFragment : Fragment() {
         /**
         Football Recycle View
          */
-        footballRecycleView = requireView().findViewById(R.id.footballRecycleView)
-        footballRecycleView.setHasFixedSize(false)
-        footballRecycleView.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        CreateFootballSlider().fill(footballRecycleView, requireContext())
-        footballRecycleView.addOnItemTouchListener(onTouchListener)
+//        footballRecycleView = requireView().findViewById(R.id.footballRecycleView)
+//        footballRecycleView.setHasFixedSize(false)
+//        footballRecycleView.layoutManager =
+//            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+//        CreateFootballSlider().fill(footballRecycleView, requireContext())
+//        footballRecycleView.addOnItemTouchListener(onTouchListener)
 //        /**
 //        Basketball Recycle View
 //         */

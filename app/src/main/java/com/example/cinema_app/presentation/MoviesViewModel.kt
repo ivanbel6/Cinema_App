@@ -17,7 +17,7 @@ class MoviesViewModel(private val apiInterface: ApiInterface) : ViewModel() {
     private fun fetchMovies() {
         viewModelScope.launch {
             try {
-                val response = apiInterface.getMovies()
+                val response = MoviesRepository(apiInterface).getMovies()
                 _movies.postValue(response)
             } catch (e: Exception) {
                 //ловим ошибку

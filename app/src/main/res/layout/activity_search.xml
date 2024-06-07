@@ -48,6 +48,7 @@
                 android:layout_weight="1"
                 android:background="@color/transparent"
                 android:ems="10"
+                android:textColor="@color/silverDarker"
                 android:hint="Search by actor, title..."
                 android:inputType="text"
                 android:textColorHint="@color/silver_text" />

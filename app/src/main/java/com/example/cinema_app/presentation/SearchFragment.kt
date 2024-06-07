@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.ImageView
 import android.widget.ToggleButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -36,6 +38,23 @@ class SearchFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        activity?.findViewById<ImageView>(R.id.find)?.setOnClickListener{
+            val recyclerView =requireView().findViewById<RecyclerView>(R.id.categoriesRecyclerView) as RecyclerView
+            val adapter = recyclerView.adapter as CategoriesRecycleAdapter
+            val checkedItems:List<String> = adapter.getCheckedNames()
+
+            val bundle = Bundle()
+            bundle.putString("type", active)
+            bundle.putStringArrayList("genre", ArrayList(checkedItems))
+            bundle.putString("searchQuery", requireActivity().findViewById<EditText>(R.id.searchLine).text.toString())
+            val searchFragmentResult = SearchFragmentResult()
+            searchFragmentResult.arguments = bundle
+
+            fragmentManager?.beginTransaction()
+                ?.replace(R.id.container, searchFragmentResult)
+                ?.commit()
+        }
 
         allButton = requireView().findViewById(R.id.radioButtonAll)
         sportsButton = requireView().findViewById(R.id.radioButtonSports)

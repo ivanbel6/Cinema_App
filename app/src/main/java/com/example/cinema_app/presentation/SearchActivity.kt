@@ -61,22 +61,7 @@ class SearchActivity: AppCompatActivity(){
         if(SearchData.moviesList.size == 0)
             SearchData().prepare()
 
-        binding.find.setOnClickListener{
-            val fragment = supportFragmentManager.findFragmentById(R.id.container) as SearchFragment
-            val recyclerView = fragment.view?.findViewById<RecyclerView>(R.id.categoriesRecyclerView) as RecyclerView
-            val adapter = recyclerView.adapter as CategoriesRecycleAdapter
-            val checkedItems:List<String> = adapter.getCheckedNames()
 
-            val bundle = Bundle()
-            bundle.putString("type", fragment.active)
-            bundle.putStringArrayList("genre", ArrayList(checkedItems))
-            val searchFragmentResult = SearchFragmentResult()
-            searchFragmentResult.arguments = bundle
-
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.container, searchFragmentResult)
-                .commit()
-        }
 
         fun getSearchQuery():String
         {
