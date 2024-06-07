@@ -29,20 +29,27 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Загрузка данных пользователя
-        loadUserInfo()
+        // Скрыть данные пользователя по умолчанию
+        binding.visibleUserInfo.visibility = View.GONE
 
-        // Скрыть кнопку регистрации, если пользователь уже зарегистрирован
+        // Проверка состояния авторизации
         val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
-        if (sharedPref.getBoolean("IS_REGISTERED", false)) {
+        val isRegistered = sharedPref.getBoolean("IS_REGISTERED", false)
+        if (isRegistered) {
+            // Пользователь авторизован, показать данные пользователя
             binding.profileSignIn.visibility = View.GONE
             binding.visibleUserInfo.visibility = View.VISIBLE
+            loadUserInfo()
+        } else {
+            // Пользователь не авторизован, показать кнопку авторизации
+            binding.profileSignIn.visibility = View.VISIBLE
         }
 
-        binding.helpButton.setOnClickListener{
+        // Обработчики нажатий кнопок
+        binding.helpButton.setOnClickListener {
             replaceFragment(HelpFragment())
         }
-        binding.aboutButton.setOnClickListener{
+        binding.aboutButton.setOnClickListener {
             replaceFragment(AboutFragment())
         }
         binding.changeUserInfo.setOnClickListener {
@@ -50,7 +57,7 @@ class ProfileFragment : Fragment() {
         }
 
         binding.bottomNavigationProfile.selectedItemId = R.id.BottomNavProfile
-        binding.subscribeButton.setOnClickListener{
+        binding.subscribeButton.setOnClickListener {
             replaceFragment(SubscribeFragment())
         }
         binding.profileSignIn.setOnClickListener {
@@ -67,17 +74,14 @@ class ProfileFragment : Fragment() {
                     startActivity(intent)
                     true
                 }
-
                 R.id.BottomNavSearch -> {
                     val intent = Intent(requireContext(), SearchActivity::class.java)
                     startActivity(intent)
                     true
                 }
-
                 R.id.BottomNavProfile -> {
                     true
                 }
-
                 else -> {
                     false
                 }

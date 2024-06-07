@@ -27,7 +27,6 @@ import java.io.IOException
 import java.io.InputStream
 import java.util.Calendar
 
-
 class UserInfoFragment : Fragment() {
     private lateinit var binding: FragmentUserInfoBinding
     private var selectedImageUri: Uri? = null
@@ -159,7 +158,6 @@ class UserInfoFragment : Fragment() {
         dialog.show()
     }
 
-
     private fun openImageChooser() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
@@ -171,6 +169,8 @@ class UserInfoFragment : Fragment() {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
             selectedImageUri = data.data
             binding.imageView.setImageURI(selectedImageUri)
+            // Save the selected image URI to SharedPreferences
+            saveSelectedImageUri(selectedImageUri.toString())
         }
     }
 
@@ -209,6 +209,11 @@ class UserInfoFragment : Fragment() {
         if (avatarPath != null && avatarPath.isNotEmpty()) {
             binding.imageView.setImageURI(Uri.fromFile(File(avatarPath)))
         }
+        val selectedImageUriString = sharedPref.getString("SELECTED_IMAGE_URI", null)
+        if (selectedImageUriString != null) {
+            selectedImageUri = Uri.parse(selectedImageUriString)
+            binding.imageView.setImageURI(selectedImageUri)
+        }
         val gender = sharedPref.getString("GENDER", "Male")
         val genderIndex = resources.getStringArray(R.array.gender_array).indexOf(gender)
         if (genderIndex >= 0) {
@@ -242,5 +247,13 @@ class UserInfoFragment : Fragment() {
             }
         }
         return file.absolutePath
+    }
+
+    private fun saveSelectedImageUri(uriString: String) {
+        val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE) ?: return
+        with(sharedPref.edit()) {
+            putString("SELECTED_IMAGE_URI", uriString)
+            apply()
+        }
     }
 }

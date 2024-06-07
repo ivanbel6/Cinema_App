@@ -29,7 +29,7 @@ class ThirdFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.withoutReg.setOnClickListener {
-            val intent = Intent(requireContext(), MainActivity::class.java)
+            val intent = Intent(requireContext(), SearchActivity::class.java)
             startActivity(intent)
         }
         binding.goToRegister.setOnClickListener{

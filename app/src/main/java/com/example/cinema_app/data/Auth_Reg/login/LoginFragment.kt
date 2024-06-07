@@ -100,11 +100,11 @@ class LoginFragment : Fragment() {
                         .replace(R.id.container_login, UserInfoFragment())
                         .commit()
                 } else {
-                    Toast.makeText(
-                        requireContext(),
-                        "Authentication failed: ${task.exception?.message}",
-                        Toast.LENGTH_SHORT
-                    ).show()
+//                    Toast.makeText(
+//                        requireContext(),
+//                        "Authentication failed: ${task.exception?.message}",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
                 }
             }
     }
